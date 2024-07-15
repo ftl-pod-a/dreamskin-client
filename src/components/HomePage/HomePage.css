@@ -1,0 +1,46 @@
+.homepage {
+    padding: 20px; /* Adjust padding as needed */
+  }
+  
+  .homepage-header {
+    display: flex;
+    align-items: center;
+  }
+  
+  .header-content {
+    flex: 1; /* Take up remaining space */
+  }
+  
+  .header-content h1 {
+    font-size: 2.5rem; /* Example font size */
+    margin-bottom: 10px; /* Example margin */
+  }
+  
+  .header-content h2 {
+    font-size: 1.8rem; /* Example font size */
+    margin-bottom: 10px; /* Example margin */
+  }
+  
+  .header-content p {
+    font-size: 1.2rem; /* Example font size */
+    margin-bottom: 20px; /* Example margin */
+  }
+  
+  .header-content button {
+    background-color: #007bff; /* Example button color */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .header-image {
+    flex: 1; /* Take up remaining space */
+    display: flex;
+    justify-content: flex-end; /* Align image to the right */
+  }
+  
+  .header-image img {
+    max-width: 100%; /* Ensure image doesn't exceed container */
+    height: auto; /* Maintain aspect ratio */
+  }
