@@ -1,4 +1,5 @@
-.homepage {
+  /* Homepage Header*/
+  .homepage {
     padding: 20px; /* Adjust padding as needed */
   }
   .homepage-header {
@@ -36,3 +37,45 @@
     max-width: 100%; /* Ensure image doesn't exceed container */
     height: auto; /* Maintain aspect ratio */
   }
+
+  /* Homepage Stats*/
+
+  .homepage-numbers {
+    background-color: #f0f0f0; /* Example background color */
+    padding: 20px;
+  }
+  
+  .numbers-content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .numbers-par {
+    margin-bottom: 20px; /* Example margin */
+  }
+  
+  .number-box {
+    display: flex; /* Display children (box divs) in a row */
+    justify-content: space-between; /* Space evenly between the boxes */
+  }
+  
+  .box {
+    flex: 1; /* Each box takes up equal space */
+    background-color: white; /* Example box background color */
+    border: 1px solid #ccc; /* Example border */
+    padding: 20px;
+    margin-right: 10px; /* Example margin between boxes */
+    display: flex;
+    flex-direction: column; /* Stack icon and number vertically */
+    align-items: center; /* Center align content */
+  }
+  
+  .box i {
+    font-size: 2rem; /* Example icon size */
+    margin-bottom: 10px; /* Example margin between icon and number */
+  }
+  
+  .box h3 {
+    font-size: 1.5rem; /* Example number font size */
+  }
+  
