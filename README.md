@@ -1,2 +1,1 @@
-# dreamskin-client
-Frontend for dreamskin
+# dreamskin frontend
