@@ -5,6 +5,7 @@
   .homepage-header {
     display: flex;
     align-items: center;
+    padding: 60px;
   }
   .header-content {
     flex: 1; /* Take up remaining space */
@@ -105,8 +106,6 @@
     height: auto; /* Maintain aspect ratio */
   }
   
- 
-  
   .quiz-row {
     flex: 1; /* Each row takes up equal space */
     display: flex;
@@ -132,6 +131,35 @@
   
   .box-content p {
     font-size: 1.2rem; /* Example font size */
+  }
+
+  /* About Section*/
+  .homepage-about {
+    background-color: #f0f0f0; /* Example background color */
+    padding: 40px;
+    
+  }
+  
+  .heading {
+    margin-bottom: 20px; /* Example margin */
+    text-align: center;
+  }
+  
+  .heading h2 {
+    font-size: 2rem; /* Example font size */
+    color: #333; /* Example color */
+  }
+  
+  .about-content {
+    max-width: 800px; /* Example max width */
+    margin: 0 auto; /* Center align content */
+  }
+  
+  .about-content h3 {
+    font-size: 1.2rem; /* Example font size */
+    line-height: 1.6; /* Example line height */
+    color: #666; /* Example color */
+    text-align: center;
   }
   
   

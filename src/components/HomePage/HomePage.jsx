@@ -51,11 +51,9 @@ function HomePage(){
                     <h2>How the Quiz Works!</h2>
                 </div>
                 <div className='quiz-content'>
-
                     <div className='quiz-image'>
                         <img src="src/assets/placeholder.jpg" alt="Image"/>
                     </div>
-
                     <div className='quiz-box'>
                         <div className='quiz-row'>
                             <div className='box-content'>
@@ -79,11 +77,17 @@ function HomePage(){
                         </div>
                     </div>
                 </div>
-
             </div>
 
             <div className='homepage-about'>
+                <div className='heading'>
+                    <h2>About Us</h2>
+                </div>
+                <div className='about-content'>
+                <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque porro totam commodi placeat distinctio aliquid rerum ipsam nam molestiae quasi, repellendus ullam, ducimus nesciunt, explicabo similique assumenda eveniet quos autem.</h3>
+                </div>
             </div>
+            
             <div className='homepage-team'>
             </div>
             <div className='homepage-faq'>
