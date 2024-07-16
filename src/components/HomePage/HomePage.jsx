@@ -22,10 +22,10 @@ function HomePage(){
         <div className='homepage-content'>
             <div className='homepage-header'>
                 <div className='header-content'>
-                    <h1>Label</h1>
-                    <h2>Headline</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, error autem accusantium temporibus dolorum rem vel voluptatem expedita saepe itaque minus tenetur quod perspiciatis nisi dolore perferendis nam adipisci hic?</p>
-                    <button>Button</button>
+                    <h1>Your Personalized Skincare Solution</h1>
+                    <h2>Simplify Your Skincare Routine with Dreamskin</h2>
+                    <p>Are you tired of wasting money on skincare products that don't work for your unique skin needs? Dreamskin is here to help! Our comprehensive and personalized skincare platform is designed to identify the most effective products tailored to your skin type and concerns.</p>
+                    <button>Take Quiz</button>
                 </div>
                 <div className='header-image'>
                     <img src="src/assets/placeholder.jpg" alt="Image"/>
