@@ -1,0 +1,38 @@
+.Product {
+    display: flex;
+    gap: 1rem;
+    background-color: rgb(212, 222, 222);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    padding-top: 0.5rem;
+}
+
+.name-price *{
+    display: inline;
+    margin: 0.5rem;
+}
+
+.learn-likes *{
+    display: inline;
+    margin: 0.5rem;
+}
+
+.learn-more {
+    background-color: #304a7a;
+    border: 2px #304a7a solid;
+    border-radius: 0.5rem;
+    color: white;
+    padding: 0.5rem;
+}
+
+.product-image {
+    width: 15rem;
+}
+
