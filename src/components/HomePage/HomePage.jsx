@@ -38,24 +38,32 @@ function HomePage(){
                 </div>
                 <div className='numbers-content'>
                     <div className='numbers-par'>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea dolor placeat, magni ipsam nesciunt cumque nihil eos fugit nam non soluta odit quibusdam unde doloremque nisi fugiat iste quasi eius!</p>
+                        <h3>Based on statistics from Statista, Kline & Company, Epsilon, and SkinStore, consumers face significant challenges in finding effective skincare products, often resulting in wasted money and time due to a trial-and-error approach. This highlights the need for personalized skincare solutions like Dreamskin, which aim to simplify routines and provide tailored recommendations to prevent unnecessary expenses and ineffective products.</h3>
                     </div>
                     <div className='number-box'>
                         <div className='box'>
-                            <i className='fas fa-comments'>Icon</i>
-                            <h3 className='box-number'>Number</h3>
+                            <i className='fas fa-globe'></i>
+                            <h3 className='box-number'>$145.3 Billion</h3>
+                            <p className='box-number'>2023 Skincare Market Value</p>
+                            <p className='box-number'>Statista</p>
                         </div>
                         <div className='box'>
-                            <i className='fas fa-comments'>Icon</i>
-                            <h3 className='box-number'>Number</h3>
+                            <i className='fas fa-frown'></i>
+                            <h3 className='box-number'>70%</h3>
+                            <p className='box-number'>Consumers Frustrated with Product Efficacy</p>
+                            <p className='box-number'>Kline & Company</p>
                         </div>
                         <div className='box'>
-                            <i className='fas fa-comments'>Icon</i>
-                            <h3 className='box-number'>Number</h3>
+                            <i className='fas fa-user-check'></i>
+                            <h3 className='box-number'>80 %</h3>
+                            <p className='box-number'>Consumers Prefer Personalized Experiences</p>
+                            <p className='box-number'>Epsilon</p>
                         </div>
                         <div className='box'>
-                            <i className='fas fa-comments'>Icon</i>
-                            <h3 className='box-number'>Number</h3>
+                            <i className='fas fa-dollar-sign'></i>
+                            <h3 className='box-number'>$200</h3>
+                            <p className='box-number'>Annual Expenditure on Ineffective Products</p>
+                            <p className='box-number'>Skinstore</p>
                         </div>
                     </div>
                 </div>
