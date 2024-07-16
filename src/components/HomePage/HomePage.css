@@ -56,6 +56,7 @@
   
   .number-box {
     display: flex; /* Display children (box divs) in a row */
+    flex-wrap: wrap;
     justify-content: space-between; /* Space evenly between the boxes */
   }
   
@@ -67,6 +68,7 @@
     margin-right: 10px; /* Example margin between boxes */
     display: flex;
     flex-direction: column; /* Stack icon and number vertically */
+    flex-wrap: wrap;
     align-items: center; /* Center align content */
   }
   
@@ -78,4 +80,61 @@
   .box h3 {
     font-size: 1.5rem; /* Example number font size */
   }
+
+  /* Homepage Quiz*/
+
+  .homepage-quiz {
+    background-color: #f9f9f9; /* Example background color */
+    padding: 20px;
+  }
+  
+  .quiz-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex; /* Display image and content side by side */
+    align-items: center; /* Center align vertically */
+  }
+  
+  .quiz-image {
+    flex: 1; /* Image takes up 1/3 of the space */
+    margin-right: 20px; /* Example margin between image and content */
+  }
+  
+  .quiz-image img {
+    max-width: 100%; /* Ensure image doesn't exceed container */
+    height: auto; /* Maintain aspect ratio */
+  }
+  
+ 
+  
+  .quiz-row {
+    flex: 1; /* Each row takes up equal space */
+    display: flex;
+    justify-content: space-between; /* Space items evenly within each row */
+    margin-bottom: 10px; /* Example margin between rows */
+  }
+  
+  .box-content {
+    flex: 1; /* Each box-content takes up equal space within its row */
+    background-color: white; /* Example box background color */
+    border: 1px solid #ccc; /* Example border */
+    padding: 20px;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column; /* Stack icon and paragraph vertically */
+    align-items: center; /* Center align content */
+  }
+  
+  .box-content i {
+    font-size: 2rem; /* Example icon size */
+    margin-bottom: 10px; /* Example margin between icon and paragraph */
+  }
+  
+  .box-content p {
+    font-size: 1.2rem; /* Example font size */
+  }
+  
+  
+
+
   

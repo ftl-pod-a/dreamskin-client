@@ -13,10 +13,14 @@ function HomePage(){
                     <button>Button</button>
                 </div>
                 <div className='header-image'>
-                    <img src="image.jpg" alt="Image"/>
+                    <img src="src/assets/placeholder.jpg" alt="Image"/>
                 </div>
             </div>
+
             <div className='homepage-numbers'>
+                <div className='heading'>
+                    <h2>Statistics</h2>
+                </div>
                 <div className='numbers-content'>
                     <div className='numbers-par'>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea dolor placeat, magni ipsam nesciunt cumque nihil eos fugit nam non soluta odit quibusdam unde doloremque nisi fugiat iste quasi eius!</p>
@@ -40,10 +44,44 @@ function HomePage(){
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div className='homepage-quiz'>
+                <div className='heading'>
+                    <h2>How the Quiz Works!</h2>
+                </div>
+                <div className='quiz-content'>
+
+                    <div className='quiz-image'>
+                        <img src="src/assets/placeholder.jpg" alt="Image"/>
+                    </div>
+
+                    <div className='quiz-box'>
+                        <div className='quiz-row'>
+                            <div className='box-content'>
+                                <i className='fas fa-comments'>ICON</i>
+                                <p className='box-par'>Lorem ipsum dolor sit a</p>
+                            </div>
+                            <div className='box-content'>
+                                <i className='fas fa-comments'>ICON</i>
+                                <p className='box-par'>Lorem ipsum dolor sit a</p>
+                            </div>
+                        </div>
+                        <div className='quiz-row'>
+                            <div className='box-content'>
+                                <i className='fas fa-comments'>ICON</i>
+                                <p className='box-par'>Lorem ipsum dolor sit a</p>
+                            </div>
+                            <div className='box-content'>
+                                <i className='fas fa-comments'>ICON</i>
+                                <p className='box-par'>Lorem ipsum dolor sit a</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
             </div>
-            <div className='homepage-quiz'>
-            </div>
+
             <div className='homepage-about'>
             </div>
             <div className='homepage-team'>
