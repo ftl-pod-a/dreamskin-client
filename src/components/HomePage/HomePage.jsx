@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import * as React from 'react';
 import './HomePage.css';
@@ -142,16 +141,6 @@ function HomePage(){
                     <h2>FREQUENTLY ASKED QUESTIONS</h2>
                 </div>
                 <div className='faq-content'>
-                    {/* <div className='faq-item'>
-                        <div className='faq-question'>
-                            <h3>Question 1?</h3>
-                            <div className='toggle-icon'>+</div>
-                        </div>
-                        <div className='faq-answer'>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, aliquid!</p>
-                        </div>
-                    </div> */}
-
                     {faqs.map((faq, index)=> (
                         <div className='faq-item' key={index}>
                             <div className='faq-question' onClick={() => toggleAnswer(index)}>
