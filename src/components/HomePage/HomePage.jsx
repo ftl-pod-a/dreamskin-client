@@ -1,7 +1,22 @@
 
+import { useState } from 'react';
 import * as React from 'react';
-import './HomePage.css'
+import './HomePage.css';
+
 function HomePage(){
+
+    const [faqs, setFaqs] = useState([
+        { question: 'Question 1?', answer: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, aliquid!', isOpen: false },
+        { question: 'Question 2?', answer: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, aliquid!', isOpen: false },
+        { question: 'Question 3?', answer: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, aliquid!', isOpen: false },
+        ]);
+        const toggleAnswer = (index) => {
+        setFaqs(faqs.map((faq, i) => (
+        i === index ? { ...faq, isOpen: !faq.isOpen } : faq
+        )));
+        };
+
+
     return(
         <>
         <div className='homepage-content'>
@@ -89,7 +104,7 @@ function HomePage(){
             </div>
 
             <div className='homepage-team'>
-            <div className='heading'>
+                <div className='heading'>
                     <h2>Our Lovely Team</h2>
                 </div>
                 <div className='team-content'>
@@ -113,8 +128,37 @@ function HomePage(){
                     </div>
                 </div>
             </div>
-            
+
             <div className='homepage-faq'>
+                <div className='heading'>
+                    <h2>FREQUENTLY ASKED QUESTIONS</h2>
+                </div>
+                <div className='faq-content'>
+                    {/* <div className='faq-item'>
+                        <div className='faq-question'>
+                            <h3>Question 1?</h3>
+                            <div className='toggle-icon'>+</div>
+                        </div>
+                        <div className='faq-answer'>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, aliquid!</p>
+                        </div>
+                    </div> */}
+
+                    {faqs.map((faq, index)=> (
+                        <div className='faq-item' key={index}>
+                            <div className='faq-question' onClick={() => toggleAnswer(index)}>
+                                <h3>{faq.question}</h3>
+                                <div className='toggle-icon'>{faq.isOpen ? '-' : '+'}</div>
+                            </div>
+                            {faq.isOpen && (
+                                <div className='faq-answer'>
+                                    <p>{faq.answer}</p>
+                                </div>
+                            )}
+                        </div>
+
+                    ))}
+                </div>
             </div>
         </div>
         </>
