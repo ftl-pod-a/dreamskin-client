@@ -68,7 +68,7 @@ const QuizPage = () => {
           console.log(response);
           let ingredientQuestion = `This user has ${response[0]} and they are dealing with ${response[1]}, they are hoping to ${response[2]}, their allergies are ${response[3]}. What are the best ingredients for this user`;
           console.log(ingredientQuestion);
-          const r = await axios.post("http://localhost:3000/api/chat", ingredientQuestion);
+          const r = await axios.post("http://localhost:3000/api/chat", {prompt: ingredientQuestion });
           console.log("Ingredients:", r.data);
         } catch (error) {
           console.error("Error getting ingredients", error);
