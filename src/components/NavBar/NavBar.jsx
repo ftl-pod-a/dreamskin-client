@@ -1,4 +1,5 @@
 import * as React from 'react';
+import '@fontsource-variable/dm-sans'
 import './NavBar.css'
 
 
@@ -8,7 +9,7 @@ function NavBar() {
         <nav className="navbar">
             <div className= "content">
                 <div className='logo-content'>
-                    <img src="logo.png" alt="logo" className="logo"/>
+                    <img src="src/assets/minimalisticLogo.png" alt="logo" className="logo"/>
                 </div>
                 <div className='nav-content'>
                     <div className='tabs'>
@@ -17,13 +18,12 @@ function NavBar() {
                         <a href="education">Education</a>
                     </div>
                     <div className='buttons'>
-                        <button>Sign In</button>
                         <button>Log In</button>
                     </div>
-                    <div className='profile'>
+                    {/* <div className='profile'>
                         <img src="profile.png" alt="Proflie" className="profile-icon"/>
                         <span className='profile-name'>Name</span>
-                    </div>
+                    </div> */}
                 </div>
 
             </div>

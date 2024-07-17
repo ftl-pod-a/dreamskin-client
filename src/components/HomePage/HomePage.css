@@ -42,7 +42,7 @@
   /* Homepage Stats*/
 
   .homepage-numbers {
-    background-color: #f0f0f0; 
+    background-color: #eee2d1; 
     padding: 20px;
   }
   
@@ -85,7 +85,7 @@
   /* Homepage Quiz*/
 
   .homepage-quiz {
-    background-color: #f9f9f9; 
+   
     padding: 20px;
   }
   
@@ -135,7 +135,7 @@
 
   /* About Section*/
   .homepage-about {
-    background-color: #f0f0f0; 
+    background-color: #eee2d1; 
     padding: 40px;
     
   }
@@ -164,7 +164,7 @@
 
   /* Team Members */
   .homepage-team {
-    background-color: #f9f9f9; 
+   
     padding: 40px;
     text-align: center; 
   }
@@ -228,6 +228,7 @@
   
   /* Homepage FAQ */
   .homepage-faq {
+    background-color: #eee2d1; 
     padding: 20px;
   }
   .heading h2 {
