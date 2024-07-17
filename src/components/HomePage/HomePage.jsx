@@ -85,27 +85,34 @@ function HomePage(){
                         <img src="src/assets/placeholder.jpg" alt="Image"/>
                     </div>
                     <div className='quiz-box'>
-                        <div className='quiz-row'>
                             <div className='box-content'>
-                                <i className="fa-regular fa-pen-to-square"></i>
-                                <p className='box-par'>Lorem ipsum dolor sit a</p>
+                                <div className='quiz-row'>
+                                    <i className="fas fa-question-circle"></i>
+                                    <p className='box-par'>Answer Questions</p>
+                                </div>
+                                <p className='box-par'>You'll answer a series of questions designed to understand your preferences and needs.</p>
                             </div>
                             <div className='box-content'>
-                                <i className="fa-solid fa-wand-magic-sparkles"></i>
-                                
-                                <p className='box-par'>Lorem ipsum dolor sit a</p>
-                            </div>
-                        </div>
-                        <div className='quiz-row'>
-                            <div className='box-content'>
-                                <i className='fas fa-comments'>ICON</i>
-                                <p className='box-par'>Lorem ipsum dolor sit a</p>
+                                <div className='quiz-row'>
+                                    <i className="fas fa-flask"></i>
+                                    <p className='box-par'>Ingredient Analysis</p>
+                                </div>
+                                <p className='box-par'>Based on your answers, an AI analyzes the data to determine which ingredients best suit your individual needs.</p>
                             </div>
                             <div className='box-content'>
-                                <i className='fas fa-comments'>ICON</i>
-                                <p className='box-par'>Lorem ipsum dolor sit a</p>
+                                <div className='quiz-row'>
+                                    <i className="fas fa-search"></i>
+                                    <p className='box-par'>Product Matching</p>
+                                </div>
+                                <p className='box-par'>Once the AI identifies the key ingredients tailored to you, it searches through a range of products.</p>
                             </div>
-                        </div>
+                            <div className='box-content'>
+                                <div className='quiz-row'>
+                                    <i className="fas fa-list-alt"></i>
+                                    <p className='box-par'>Personalized Routine</p>
+                                </div>
+                                <p className='box-par'>A customized routine page is generated for you based on the matched products.</p>
+                            </div>
                     </div>
                 </div>
             </div>
