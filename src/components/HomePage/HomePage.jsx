@@ -1,6 +1,11 @@
 import { useState } from 'react';
 import * as React from 'react';
+import '@fontsource-variable/dm-sans';
+import '@fontsource-variable/montserrat';
+import '@fontsource/poppins';
+import { Link } from "react-router-dom";
 import './HomePage.css';
+import NavBar from '../NavBar/NavBar';
 
 function HomePage(){
 
@@ -18,13 +23,16 @@ function HomePage(){
 
     return(
         <>
+        <NavBar/>
         <div className='homepage-content'>
             <div className='homepage-header'>
                 <div className='header-content'>
-                    <h1>Your Personalized Skincare Solution</h1>
+                    <h1>Personalized Skincare Solution</h1>
                     <h2>Simplify Your Skincare Routine with Dreamskin</h2>
                     <p>Are you tired of wasting money on skincare products that don't work for your unique skin needs? Dreamskin is here to help! Our comprehensive and personalized skincare platform is designed to identify the most effective products tailored to your skin type and concerns.</p>
-                    <button>Take Quiz</button>
+                    <Link to={`quiz`} onClick={() => console.log("switch to quiz page")}>
+                        <button>Take Quiz</button>
+                    </Link>
                 </div>
                 <div className='header-image'>
                     <img src="src/assets/placeholder.jpg" alt="Image"/>
@@ -37,32 +45,32 @@ function HomePage(){
                 </div>
                 <div className='numbers-content'>
                     <div className='numbers-par'>
-                        <h3>Based on statistics from Statista, Kline & Company, Epsilon, and SkinStore, consumers face significant challenges in finding effective skincare products, often resulting in wasted money and time due to a trial-and-error approach. This highlights the need for personalized skincare solutions like Dreamskin, which aim to simplify routines and provide tailored recommendations to prevent unnecessary expenses and ineffective products.</h3>
+                        <p>Based on statistics from Statista, Kline & Company, Epsilon, and SkinStore, consumers face significant challenges in finding effective skincare products, often resulting in wasted money and time due to a trial-and-error approach. This highlights the need for personalized skincare solutions like Dreamskin, which aim to simplify routines and provide tailored recommendations to prevent unnecessary expenses and ineffective products.</p>
                     </div>
                     <div className='number-box'>
                         <div className='box'>
                             <i className='fas fa-globe'></i>
                             <h3 className='box-number'>$145.3 Billion</h3>
                             <p className='box-number'>2023 Skincare Market Value</p>
-                            <p className='box-number'>Statista</p>
+                            
                         </div>
                         <div className='box'>
                             <i className='fas fa-frown'></i>
                             <h3 className='box-number'>70%</h3>
                             <p className='box-number'>Consumers Frustrated with Product Efficacy</p>
-                            <p className='box-number'>Kline & Company</p>
+                           
                         </div>
                         <div className='box'>
                             <i className='fas fa-user-check'></i>
                             <h3 className='box-number'>80 %</h3>
                             <p className='box-number'>Consumers Prefer Personalized Experiences</p>
-                            <p className='box-number'>Epsilon</p>
+                          
                         </div>
                         <div className='box'>
                             <i className='fas fa-dollar-sign'></i>
                             <h3 className='box-number'>$200</h3>
                             <p className='box-number'>Annual Expenditure on Ineffective Products</p>
-                            <p className='box-number'>Skinstore</p>
+                          
                         </div>
                     </div>
                 </div>
@@ -79,11 +87,12 @@ function HomePage(){
                     <div className='quiz-box'>
                         <div className='quiz-row'>
                             <div className='box-content'>
-                                <i className='fas fa-comments'>ICON</i>
+                                <i className="fa-regular fa-pen-to-square"></i>
                                 <p className='box-par'>Lorem ipsum dolor sit a</p>
                             </div>
                             <div className='box-content'>
-                                <i className='fas fa-comments'>ICON</i>
+                                <i className="fa-solid fa-wand-magic-sparkles"></i>
+                                
                                 <p className='box-par'>Lorem ipsum dolor sit a</p>
                             </div>
                         </div>

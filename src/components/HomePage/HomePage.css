@@ -5,29 +5,42 @@
   .homepage-header {
     display: flex;
     align-items: center;
-    padding: 60px;
+    gap: 10rem;
+    padding: 5rem;
   }
   .header-content {
     flex: 1; /* Take up remaining space */
+    
   }
   .header-content h1 {
-    font-size: 2.5rem; 
+    font-family: 'Montserrat Variable', sans-serif;
+    font-size: 2.8rem; 
     margin-bottom: 10px; 
   }
   .header-content h2 {
+    font-family: 'DM Sans Variable', sans-serif;
     font-size: 1.8rem; 
     margin-bottom: 10px; 
   }
   .header-content p {
+    font-family: 'DM Sans Variable', sans-serif;
     font-size: 1.2rem; 
     margin-bottom: 20px; 
   }
   .header-content button {
-    background-color: #007BFF; 
+    font-family: 'DM Sans Variable', sans-serif;
+    background-color: #174933;
     color: white;
-    border: none;
-    padding: 10px 20px;
+    border: 1px solid #174933;
+    padding: 12px 28px;
     cursor: pointer;
+    margin-right: 10px;
+    border-radius: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  .header-content button:hover {
+    background-color: #0ea75e;
   }
   .header-image {
     flex: 1; /* Take up remaining space */
@@ -43,7 +56,10 @@
 
   .homepage-numbers {
     background-color: #eee2d1; 
-    padding: 20px;
+    padding: 5rem;
+  }
+  .heading h2{
+    font-family: 'DM Sans Variable', sans-serif;
   }
   
   .numbers-content {
@@ -51,8 +67,13 @@
     margin: 0 auto;
   }
   
-  .numbers-par {
+  .numbers-par p{
+    font-family: 'DM Sans Variable', sans-serif;
     margin-bottom: 20px; 
+    font-size: 1.2rem; 
+    line-height: 1.6; 
+    color: #666; 
+    text-align: center;
   }
   
   .number-box {
@@ -65,8 +86,9 @@
     flex: 1; /* Each box takes up equal space */
     background-color: white; /*  box background color */
     border: 1px solid #ccc; /*  border */
-    padding: 20px;
-    margin-right: 10px; /*  margin between boxes */
+    border-radius: 1.2rem;
+    padding: 1rem;
+    margin-right: 1rem; /*  margin between boxes */
     display: flex;
     flex-direction: column; /* Stack icon and number vertically */
     flex-wrap: wrap;
@@ -76,17 +98,25 @@
   .box i {
     font-size: 2rem; /*  icon size */
     margin-bottom: 10px; /*  margin between icon and number */
+    color: #174933;
+    
   }
   
   .box h3 {
+    font-family: 'Poppins', sans-serif;
     font-size: 1.5rem; /* number font size */
+  }
+
+  .box p{
+    font-family: 'DM Sans Variable', sans-serif;
+    text-align: center;
+    
   }
 
   /* Homepage Quiz*/
 
   .homepage-quiz {
-   
-    padding: 20px;
+    padding: 5rem;
   }
   
   .quiz-content {
