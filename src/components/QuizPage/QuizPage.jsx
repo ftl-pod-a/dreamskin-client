@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./QuizPage.css";
+import axios from "axios";
 
 const QuizPage = () => {
 
@@ -36,7 +37,7 @@ const QuizPage = () => {
         {
             question: "Are you allergic to any of the following",
             options: [
-                "No",
+                "None",
                 "Fragrances",
                 "Preservatives",
                 "Dyes"
@@ -48,18 +49,31 @@ const QuizPage = () => {
     const [response, setResponse] = useState([]);
     const [showFinish, setShowFinish] = useState(false);
 
-
     const handleOptionClick = (e) => {
         const nextQuestion = currentQuestion + 1;
         if (nextQuestion < quizQuestions.length) {
             setCurrentQuestion(nextQuestion);
             setResponse([...response, e])
         }
-        else {
-            setShowFinish(true);
-            console.log(response);
-        }
+       else {
+        setShowFinish(true);
+        quizResponsetoChat()
+        
+       }
+
     }
+
+    const quizResponsetoChat = async () => {
+        try {
+          console.log(response);
+          let ingredientQuestion = `This user has ${response[0]} and they are dealing with ${response[1]}, they are hoping to ${response[2]}, their allergies are ${response[3]}. What are the best ingredients for this user`;
+          console.log(ingredientQuestion);
+          const r = await axios.post("http://localhost:3000/api/chat", ingredientQuestion);
+          console.log("Ingredients:", r.data);
+        } catch (error) {
+          console.error("Error getting ingredients", error);
+        }
+      };
 
     return (
         <div className="Quiz">
