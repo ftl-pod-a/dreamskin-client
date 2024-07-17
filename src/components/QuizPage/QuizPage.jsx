@@ -77,7 +77,11 @@ const QuizPage = () => {
 
     return (
         <div className="Quiz">
-            <img src="src/assets/quizbanner.jpg" alt="quiz banner" className="quiz-banner"/>
+            <div className="quiz-top">
+                <img src="src/assets/quizbanner.jpg" alt="quiz banner" className="quiz-banner"/>
+                <img src="src/assets/quizicon.jpg" alt="quiz banner" className="quiz-icon"/>
+            </div>
+            <h1>Skincare Quiz</h1>
             <div className="question">
                 <div className="question-text">{quizQuestions[currentQuestion].question}</div>
                 <div className="options">
@@ -88,6 +92,7 @@ const QuizPage = () => {
                     }
                 </div>
             </div>
+            <div className=""></div>
         </div>
     )
 }
