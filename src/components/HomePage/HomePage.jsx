@@ -122,7 +122,8 @@ function HomePage(){
                     <h2>About Us</h2>
                 </div>
                 <div className='about-content'>
-                <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque porro totam commodi placeat distinctio aliquid rerum ipsam nam molestiae quasi, repellendus ullam, ducimus nesciunt, explicabo similique assumenda eveniet quos autem.</h3>
+                <p>We are a passionate team of skincare enthusiasts who have ventured into the skincare industry to address a common problem: the complexity of skincare routines. Our mission is to simplify skincare by offering a streamlined routine consisting of just three essential products: a cleanser, a moisturizer, and a sunscreen.</p>
+                <p>Our innovative solution helps you choose the best products tailored to your skin type and needs, ensuring an effective and manageable skincare routine.</p>
                 </div>
             </div>
 
@@ -133,21 +134,21 @@ function HomePage(){
                 <div className='team-content'>
                     <div className='team-member'>
                         <img src="src/assets/placeholder.jpg" alt="Image" className='member-image'/>
-                        <h4 className='member-name'>Elizabeth</h4>
-                        <h5 className='member-title'>FrontEnd</h5>
-                        <button className='connect-button'>Contact Elizabeth</button>
+                        <h4 className='member-name'>Elizabeth Johnson</h4>
+                        <h5 className='member-title'>Frontend</h5>
+                        <button className='connect-button'>Contact</button>
                     </div>
                     <div className='team-member'>
                         <img src="src/assets/placeholder.jpg" alt="Image" className='member-image'/>
-                        <h4 className='member-name'>Maria</h4>
-                        <h5 className='member-title'>BackEnd</h5>
-                        <button className='connect-button'>Contact Maria</button>
+                        <h4 className='member-name'>Maria Perez</h4>
+                        <h5 className='member-title'>Backend</h5>
+                        <button className='connect-button'>Contact</button>
                     </div>
                     <div className='team-member'>
                         <img src="src/assets/placeholder.jpg" alt="Image" className='member-image'/>
-                        <h4 className='member-name'>Evelyn</h4>
-                        <h5 className='member-title'>FrontEnd</h5>
-                        <button className='connect-button'>Contact Evelyn</button>
+                        <h4 className='member-name'>Evelyn Zhinin</h4>
+                        <h5 className='member-title'>Frontend</h5>
+                        <button className='connect-button'>Contact</button>
                     </div>
                 </div>
             </div>
