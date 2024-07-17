@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "./Quiz.css";
+import "./QuizPage.css";
 
-const Quiz = () => {
+const QuizPage = () => {
 
     const quizQuestions = [
         {
@@ -63,7 +63,7 @@ const Quiz = () => {
 
     return (
         <div className="Quiz">
-            <img src="src/assets/banner.jpg" alt="quiz banner" className="quiz-banner"/>
+            <img src="src/assets/quizbanner.jpg" alt="quiz banner" className="quiz-banner"/>
             <div className="question">
                 <div className="question-text">{quizQuestions[currentQuestion].question}</div>
                 <div className="options">
@@ -78,4 +78,4 @@ const Quiz = () => {
     )
 }
 
-export default Quiz;
+export default QuizPage;
