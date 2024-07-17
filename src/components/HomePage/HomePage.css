@@ -296,10 +296,12 @@
   /* Homepage FAQ */
   .homepage-faq {
     background-color: #eee2d1; 
-    padding: 20px;
+    margin: 3rem;
+    padding: 5rem;
   }
   .heading h2 {
     text-align: center;
+    color: #174933;
   }
   .faq-content {
     margin-top: 20px;
@@ -316,5 +318,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+  .faq-answer{
+    margin-top: 1rem;
   }
   

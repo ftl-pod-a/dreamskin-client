@@ -10,9 +10,9 @@ import NavBar from '../NavBar/NavBar';
 function HomePage(){
 
     const [faqs, setFaqs] = useState([
-        { question: 'Question 1?', answer: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, aliquid!', isOpen: false },
-        { question: 'Question 2?', answer: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, aliquid!', isOpen: false },
-        { question: 'Question 3?', answer: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, aliquid!', isOpen: false },
+        { question: 'Can I see the ingredients of the recommended products?', answer: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, aliquid!', isOpen: false },
+        { question: 'How does the quiz work?', answer: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, aliquid!', isOpen: false },
+        { question: 'Can I take the quiz multiple times?', answer: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, aliquid!', isOpen: false },
         ]);
         const toggleAnswer = (index) => {
         setFaqs(faqs.map((faq, i) => (
