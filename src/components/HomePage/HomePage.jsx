@@ -117,42 +117,6 @@ function HomePage(){
                 </div>
             </div>
 
-            <div className='homepage-about'>
-                <div className='heading'>
-                    <h2>About Us</h2>
-                </div>
-                <div className='about-content'>
-                <p>We are a passionate team of skincare enthusiasts who have ventured into the skincare industry to address a common problem: the complexity of skincare routines. Our mission is to simplify skincare by offering a streamlined routine consisting of just three essential products: a cleanser, a moisturizer, and a sunscreen.</p>
-                <p>Our innovative solution helps you choose the best products tailored to your skin type and needs, ensuring an effective and manageable skincare routine.</p>
-                </div>
-            </div>
-
-            <div className='homepage-team'>
-                <div className='heading'>
-                    <h2>Our Lovely Team</h2>
-                </div>
-                <div className='team-content'>
-                    <div className='team-member'>
-                        <img src="src/assets/placeholder.jpg" alt="Image" className='member-image'/>
-                        <h4 className='member-name'>Elizabeth Johnson</h4>
-                        <h5 className='member-title'>Frontend</h5>
-                        <button className='connect-button'>Contact</button>
-                    </div>
-                    <div className='team-member'>
-                        <img src="src/assets/placeholder.jpg" alt="Image" className='member-image'/>
-                        <h4 className='member-name'>Maria Perez</h4>
-                        <h5 className='member-title'>Backend</h5>
-                        <button className='connect-button'>Contact</button>
-                    </div>
-                    <div className='team-member'>
-                        <img src="src/assets/placeholder.jpg" alt="Image" className='member-image'/>
-                        <h4 className='member-name'>Evelyn Zhinin</h4>
-                        <h5 className='member-title'>Frontend</h5>
-                        <button className='connect-button'>Contact</button>
-                    </div>
-                </div>
-            </div>
-
             <div className='homepage-faq'>
                 <div className='heading'>
                     <h2>FREQUENTLY ASKED QUESTIONS</h2>
@@ -174,6 +138,41 @@ function HomePage(){
                     ))}
                 </div>
             </div>
+
+            <div className='homepage-about'>
+                <div className='heading'>
+                    <h2>About Us</h2>
+                </div>
+                <div className='about-content'>
+                <p>We are a passionate team of skincare enthusiasts who have ventured into the skincare industry to address a common problem: the complexity of skincare routines. Our mission is to simplify skincare by offering a streamlined routine consisting of just three essential products: a cleanser, a moisturizer, and a sunscreen.</p>
+                <p>Our innovative solution helps you choose the best products tailored to your skin type and needs, ensuring an effective and manageable skincare routine.</p>
+                </div>
+            </div>
+
+            <div className='homepage-team'>
+                <div className='heading'>
+                    <h2>Our Lovely Team</h2>
+                </div>
+                <div className='team-content'>
+                    <div className='team-member'>
+                        <img src="src/assets/IMG_2370.jpg" alt="Image" className='member-image'/>
+                        <h4 className='member-name'>Elizabeth J.</h4>
+                        <button className='connect-button'>Contact</button>
+                    </div>
+                    <div className='team-member'>
+                        <img src="src/assets/IMG_2369.jpg" alt="Image" className='member-image'/>
+                        <h4 className='member-name'>Maria P.</h4>
+                        <button className='connect-button'>Contact</button>
+                    </div>
+                    <div className='team-member'>
+                        <img src="src/assets/IMG_2371.jpg" alt="Image" className='member-image'/>
+                        <h4 className='member-name'>Evelyn Z.</h4>
+                        <button className='connect-button'>Contact</button>
+                    </div>
+                </div>
+            </div>
+
+            
         </div>
         </>
     );
