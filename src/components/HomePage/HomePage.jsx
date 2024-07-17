@@ -85,27 +85,34 @@ function HomePage(){
                         <img src="src/assets/placeholder.jpg" alt="Image"/>
                     </div>
                     <div className='quiz-box'>
-                        <div className='quiz-row'>
                             <div className='box-content'>
-                                <i className="fa-regular fa-pen-to-square"></i>
-                                <p className='box-par'>Lorem ipsum dolor sit a</p>
+                                <div className='quiz-row'>
+                                    <i className="fas fa-question-circle"></i>
+                                    <p className='box-par'>Answer Questions</p>
+                                </div>
+                                <p className='box-par'>You'll answer a series of questions designed to understand your preferences and needs.</p>
                             </div>
                             <div className='box-content'>
-                                <i className="fa-solid fa-wand-magic-sparkles"></i>
-                                
-                                <p className='box-par'>Lorem ipsum dolor sit a</p>
-                            </div>
-                        </div>
-                        <div className='quiz-row'>
-                            <div className='box-content'>
-                                <i className='fas fa-comments'>ICON</i>
-                                <p className='box-par'>Lorem ipsum dolor sit a</p>
+                                <div className='quiz-row'>
+                                    <i className="fas fa-flask"></i>
+                                    <p className='box-par'>Ingredient Analysis</p>
+                                </div>
+                                <p className='box-par'>Based on your answers, an AI analyzes the data to determine which ingredients best suit your individual needs.</p>
                             </div>
                             <div className='box-content'>
-                                <i className='fas fa-comments'>ICON</i>
-                                <p className='box-par'>Lorem ipsum dolor sit a</p>
+                                <div className='quiz-row'>
+                                    <i className="fas fa-search"></i>
+                                    <p className='box-par'>Product Matching</p>
+                                </div>
+                                <p className='box-par'>Once the AI identifies the key ingredients tailored to you, it searches through a range of products.</p>
                             </div>
-                        </div>
+                            <div className='box-content'>
+                                <div className='quiz-row'>
+                                    <i className="fas fa-list-alt"></i>
+                                    <p className='box-par'>Personalized Routine</p>
+                                </div>
+                                <p className='box-par'>A customized routine page is generated for you based on the matched products.</p>
+                            </div>
                     </div>
                 </div>
             </div>
@@ -115,7 +122,8 @@ function HomePage(){
                     <h2>About Us</h2>
                 </div>
                 <div className='about-content'>
-                <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque porro totam commodi placeat distinctio aliquid rerum ipsam nam molestiae quasi, repellendus ullam, ducimus nesciunt, explicabo similique assumenda eveniet quos autem.</h3>
+                <p>We are a passionate team of skincare enthusiasts who have ventured into the skincare industry to address a common problem: the complexity of skincare routines. Our mission is to simplify skincare by offering a streamlined routine consisting of just three essential products: a cleanser, a moisturizer, and a sunscreen.</p>
+                <p>Our innovative solution helps you choose the best products tailored to your skin type and needs, ensuring an effective and manageable skincare routine.</p>
                 </div>
             </div>
 
@@ -126,21 +134,21 @@ function HomePage(){
                 <div className='team-content'>
                     <div className='team-member'>
                         <img src="src/assets/placeholder.jpg" alt="Image" className='member-image'/>
-                        <h4 className='member-name'>Elizabeth</h4>
-                        <h5 className='member-title'>FrontEnd</h5>
-                        <button className='connect-button'>Contact Elizabeth</button>
+                        <h4 className='member-name'>Elizabeth Johnson</h4>
+                        <h5 className='member-title'>Frontend</h5>
+                        <button className='connect-button'>Contact</button>
                     </div>
                     <div className='team-member'>
                         <img src="src/assets/placeholder.jpg" alt="Image" className='member-image'/>
-                        <h4 className='member-name'>Maria</h4>
-                        <h5 className='member-title'>BackEnd</h5>
-                        <button className='connect-button'>Contact Maria</button>
+                        <h4 className='member-name'>Maria Perez</h4>
+                        <h5 className='member-title'>Backend</h5>
+                        <button className='connect-button'>Contact</button>
                     </div>
                     <div className='team-member'>
                         <img src="src/assets/placeholder.jpg" alt="Image" className='member-image'/>
-                        <h4 className='member-name'>Evelyn</h4>
-                        <h5 className='member-title'>FrontEnd</h5>
-                        <button className='connect-button'>Contact Evelyn</button>
+                        <h4 className='member-name'>Evelyn Zhinin</h4>
+                        <h5 className='member-title'>Frontend</h5>
+                        <button className='connect-button'>Contact</button>
                     </div>
                 </div>
             </div>
