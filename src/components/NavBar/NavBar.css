@@ -1,7 +1,8 @@
 .navbar {
-    background-color: #333;
-    color: white;
-    padding: 10px 20px;
+    /* background-color: #e6c99e; */
+    background-color: #fff7eb;
+    color: #174933;
+    padding: 0px 20px;
   }
   
   .content {
@@ -13,7 +14,7 @@
   }
   
   .logo {
-    height: 40px;
+    width: 16rem;
   }
   
   .tabs {
@@ -21,21 +22,29 @@
   }
   
   .tabs a {
+    font-family: 'DM Sans Variable', sans-serif;
     text-decoration: none;
-    color: white;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #174933;
     margin-right: 20px;
   }
   
   .buttons button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
+    background-color: #fff7eb;
+    color: #174933;
+    border: 1px solid #174933;
+    padding: 10px 25px;
     cursor: pointer;
     margin-right: 10px;
+    border-radius: 4rem;
+    font-size: 1rem;
+  }
+  .buttons button:hover {
+    background-color: #e6c99e;
   }
   
-  .profile {
+  /* .profile {
     display: flex;
     align-items: center;
   }
@@ -44,7 +53,7 @@
     height: 30px;
     border-radius: 50%;
     margin-right: 10px;
-  }
+  } */
 
   .nav-content{
     display: flex;
