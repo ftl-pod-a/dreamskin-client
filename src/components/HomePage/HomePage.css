@@ -50,13 +50,16 @@
   .header-image img {
     max-width: 100%; /* Ensure image doesn't exceed container */
     height: auto; /* Maintain aspect ratio */
+    border-radius: 8px;
   }
 
   /* Homepage Stats*/
 
   .homepage-numbers {
     background-color: #eee2d1; 
+    margin: 3rem;
     padding: 5rem;
+    border-radius: 2rem;
   }
   .heading h2{
     font-family: 'DM Sans Variable', sans-serif;
@@ -117,56 +120,91 @@
 
   .homepage-quiz {
     padding: 5rem;
-  }
-  
-  .quiz-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex; /* Display image and content side by side */
-    align-items: center; /* Center align vertically */
-  }
-  
-  .quiz-image {
-    flex: 1; /* Image takes up 1/3 of the space */
-    margin-right: 20px; /* margin between image and content */
-  }
-  
-  .quiz-image img {
-    max-width: 100%; /* Ensure image doesn't exceed container */
-    height: auto; /* Maintain aspect ratio */
-  }
-  
-  .quiz-row {
-    flex: 1; /* Each row takes up equal space */
+    /* Adjust padding for smaller screens */
+}
+
+.heading {
+    text-align: center;
+    margin-bottom: 2rem; /* Reduced margin for smaller screens */
+}
+
+.heading h2 {
+    font-size: 24px;
+    color: #333;
+}
+
+.quiz-content {
     display: flex;
-    justify-content: space-between; /* Space items evenly within each row */
-    margin-bottom: 10px; /* margin between rows */
-  }
-  
-  .box-content {
-    flex: 1; /* Each box-content takes up equal space within its row */
-    background-color: white; 
-    border: 1px solid #ccc; 
-    padding: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.quiz-image {
+    flex: 0 0 40%;
+    max-width: 40%;
+    margin-right: 20px;
+}
+
+.quiz-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.quiz-box {
+    flex: 0 0 55%;
+    max-width: 55%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.box-content {
+    /* flex: 0 0 calc(50% - 2rem);  */
+    max-width: 22rem;
+    margin: 1.5rem;
+    padding: 1rem;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.quiz-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.quiz-row i {
+    font-size: 24px;
     margin-right: 10px;
-    display: flex;
-    flex-direction: column; /* Stack icon and paragraph vertically */
-    align-items: center; /* Center align content */
-  }
-  
-  .box-content i {
-    font-size: 2rem; /* icon size */
-    margin-bottom: 10px; /*  margin between icon and paragraph */
-  }
-  
-  .box-content p {
-    font-size: 1.2rem; 
-  }
+    color: #ff5800; 
+}
+.quiz-row p{
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.3rem;
+    color: #174933;
+
+}
+
+.box-par {
+    font-size: 1rem;
+    font-family: 'DM Sans Variable', sans-serif;
+    color: #666;
+}
+
 
   /* About Section*/
   .homepage-about {
-    background-color: #eee2d1; 
-    padding: 40px;
+    /* background-color: #eee2d1;  */
+    margin: 3rem;
+    padding: 2rem;
+    /* border-radius: 2rem; */
+    
     
   }
   
@@ -181,11 +219,13 @@
   }
   
   .about-content {
-    max-width: 800px; 
-    margin: 0 auto; /* Center align content */
+    max-width: 800px;
+    margin: 0 auto; 
   }
   
-  .about-content h3 {
+  .about-content p {
+    font-family: 'DM Sans Variable', sans-serif;
+    margin-bottom: 2rem;
     font-size: 1.2rem; 
     line-height: 1.6; 
     color: #666; 
@@ -194,8 +234,13 @@
 
   /* Team Members */
   .homepage-team {
-   
-    padding: 40px;
+    background-color: #eee2d1; 
+    margin: 3rem;
+    padding: 5rem;
+    border-radius: 2rem;
+    
+/*    
+    padding: 40px; */
     text-align: center; 
   }
   
@@ -216,12 +261,18 @@
   }
   
   .team-member {
+    font-family: 'Poppins', sans-serif;
     text-align: center; 
-    max-width: 400px; 
-    padding: 40px;
-    background-color: white; 
-    border: 1px solid #ccc; 
-    border-radius: 8px; 
+    max-width: 15rem; 
+    padding: 3rem;
+    background-color: #FFEDD8;
+    border: 1px solid #F3D5B5; 
+    border-radius: 3rem; 
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+  .team-member:hover{
+    transform: scale(1.05);
   }
   
   .member-image {
@@ -233,36 +284,37 @@
   
   .member-name {
     font-size: 1.5rem; 
-    margin-bottom: 2px; 
+    margin-bottom: 1rem; 
   }
   
-  .member-title {
-    font-size: 1.2rem; 
-    color: #666; 
-    margin-top: 10px; 
-  }
   
   .connect-button {
-    background-color: #007bff; 
-    color: white; 
+    font-family: 'Poppins', sans-serif;
+    background-color: #e7bc91; 
+    color: #112A46; 
+    font-weight: bold;
+    font-size: 1.25rem;
     border: none;
-    padding: 12px 24px; 
-    border-radius: 4px; 
+    padding: .7rem 1.3rem; 
+    border-radius: 3rem; 
     cursor: pointer;
     transition: background-color 0.3s ease; 
   }
   
   .connect-button:hover {
-    background-color: #0056b3; 
+    background-color: #d8a48f; 
   }
   
   /* Homepage FAQ */
   .homepage-faq {
     background-color: #eee2d1; 
-    padding: 20px;
+    margin: 3rem;
+    padding: 5rem;
+    border-radius: 2rem;
   }
   .heading h2 {
     text-align: center;
+    color: #174933;
   }
   .faq-content {
     margin-top: 20px;
@@ -279,5 +331,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+  .faq-answer{
+    margin-top: 1rem;
   }
   

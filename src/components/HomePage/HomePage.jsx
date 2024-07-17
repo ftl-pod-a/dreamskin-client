@@ -10,9 +10,9 @@ import NavBar from '../NavBar/NavBar';
 function HomePage(){
 
     const [faqs, setFaqs] = useState([
-        { question: 'Question 1?', answer: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, aliquid!', isOpen: false },
-        { question: 'Question 2?', answer: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, aliquid!', isOpen: false },
-        { question: 'Question 3?', answer: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, aliquid!', isOpen: false },
+        { question: 'Can I see the ingredients of the recommended products?', answer: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, aliquid!', isOpen: false },
+        { question: 'How does the quiz work?', answer: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, aliquid!', isOpen: false },
+        { question: 'Can I take the quiz multiple times?', answer: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, aliquid!', isOpen: false },
         ]);
         const toggleAnswer = (index) => {
         setFaqs(faqs.map((faq, i) => (
@@ -85,62 +85,34 @@ function HomePage(){
                         <img src="src/assets/placeholder.jpg" alt="Image"/>
                     </div>
                     <div className='quiz-box'>
-                        <div className='quiz-row'>
                             <div className='box-content'>
-                                <i className="fa-regular fa-pen-to-square"></i>
-                                <p className='box-par'>Lorem ipsum dolor sit a</p>
+                                <div className='quiz-row'>
+                                    <i className="fas fa-question-circle"></i>
+                                    <p className='box-par'>Answer Questions</p>
+                                </div>
+                                <p className='box-par'>You'll answer a series of questions designed to understand your preferences and needs.</p>
                             </div>
                             <div className='box-content'>
-                                <i className="fa-solid fa-wand-magic-sparkles"></i>
-                                
-                                <p className='box-par'>Lorem ipsum dolor sit a</p>
-                            </div>
-                        </div>
-                        <div className='quiz-row'>
-                            <div className='box-content'>
-                                <i className='fas fa-comments'>ICON</i>
-                                <p className='box-par'>Lorem ipsum dolor sit a</p>
+                                <div className='quiz-row'>
+                                    <i className="fas fa-flask"></i>
+                                    <p className='box-par'>Ingredient Analysis</p>
+                                </div>
+                                <p className='box-par'>Based on your answers, an AI analyzes the data to determine which ingredients best suit your individual needs.</p>
                             </div>
                             <div className='box-content'>
-                                <i className='fas fa-comments'>ICON</i>
-                                <p className='box-par'>Lorem ipsum dolor sit a</p>
+                                <div className='quiz-row'>
+                                    <i className="fas fa-search"></i>
+                                    <p className='box-par'>Product Matching</p>
+                                </div>
+                                <p className='box-par'>Once the AI identifies the key ingredients tailored to you, it searches through a range of products.</p>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div className='homepage-about'>
-                <div className='heading'>
-                    <h2>About Us</h2>
-                </div>
-                <div className='about-content'>
-                <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque porro totam commodi placeat distinctio aliquid rerum ipsam nam molestiae quasi, repellendus ullam, ducimus nesciunt, explicabo similique assumenda eveniet quos autem.</h3>
-                </div>
-            </div>
-
-            <div className='homepage-team'>
-                <div className='heading'>
-                    <h2>Our Lovely Team</h2>
-                </div>
-                <div className='team-content'>
-                    <div className='team-member'>
-                        <img src="src/assets/placeholder.jpg" alt="Image" className='member-image'/>
-                        <h4 className='member-name'>Elizabeth</h4>
-                        <h5 className='member-title'>FrontEnd</h5>
-                        <button className='connect-button'>Contact Elizabeth</button>
-                    </div>
-                    <div className='team-member'>
-                        <img src="src/assets/placeholder.jpg" alt="Image" className='member-image'/>
-                        <h4 className='member-name'>Maria</h4>
-                        <h5 className='member-title'>BackEnd</h5>
-                        <button className='connect-button'>Contact Maria</button>
-                    </div>
-                    <div className='team-member'>
-                        <img src="src/assets/placeholder.jpg" alt="Image" className='member-image'/>
-                        <h4 className='member-name'>Evelyn</h4>
-                        <h5 className='member-title'>FrontEnd</h5>
-                        <button className='connect-button'>Contact Evelyn</button>
+                            <div className='box-content'>
+                                <div className='quiz-row'>
+                                    <i className="fas fa-list-alt"></i>
+                                    <p className='box-par'>Personalized Routine</p>
+                                </div>
+                                <p className='box-par'>A customized routine page is generated for you based on the matched products.</p>
+                            </div>
                     </div>
                 </div>
             </div>
@@ -166,6 +138,41 @@ function HomePage(){
                     ))}
                 </div>
             </div>
+
+            <div className='homepage-about'>
+                <div className='heading'>
+                    <h2>About Us</h2>
+                </div>
+                <div className='about-content'>
+                <p>We are a passionate team of skincare enthusiasts who have ventured into the skincare industry to address a common problem: the complexity of skincare routines. Our mission is to simplify skincare by offering a streamlined routine consisting of just three essential products: a cleanser, a moisturizer, and a sunscreen.</p>
+                <p>Our innovative solution helps you choose the best products tailored to your skin type and needs, ensuring an effective and manageable skincare routine.</p>
+                </div>
+            </div>
+
+            <div className='homepage-team'>
+                <div className='heading'>
+                    <h2>Our Lovely Team</h2>
+                </div>
+                <div className='team-content'>
+                    <div className='team-member'>
+                        <img src="src/assets/IMG_2370.jpg" alt="Image" className='member-image'/>
+                        <h4 className='member-name'>Elizabeth J.</h4>
+                        <button className='connect-button'>Contact</button>
+                    </div>
+                    <div className='team-member'>
+                        <img src="src/assets/IMG_2369.jpg" alt="Image" className='member-image'/>
+                        <h4 className='member-name'>Maria P.</h4>
+                        <button className='connect-button'>Contact</button>
+                    </div>
+                    <div className='team-member'>
+                        <img src="src/assets/IMG_2371.jpg" alt="Image" className='member-image'/>
+                        <h4 className='member-name'>Evelyn Z.</h4>
+                        <button className='connect-button'>Contact</button>
+                    </div>
+                </div>
+            </div>
+
+            
         </div>
         </>
     );
