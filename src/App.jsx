@@ -12,7 +12,6 @@ const App = () => {
     
     <div className='App'>
       <BrowserRouter>
-        <NavBar />
         <Routes>
           <Route path='/' element={<HomePage />}></Route>
           <Route path='/quiz' element={<QuizPage />}></Route>
