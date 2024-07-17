@@ -73,3 +73,8 @@
     border: 2px solid #507d68;
     
 }
+
+.progress-bar {
+    margin: auto;
+    width: 35rem;
+}

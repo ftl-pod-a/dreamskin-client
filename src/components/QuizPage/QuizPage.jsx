@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import LinearProgress from '@mui/joy/LinearProgress';
 import "./QuizPage.css";
 import axios from "axios";
 
@@ -47,17 +48,21 @@ const QuizPage = () => {
 
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [response, setResponse] = useState([]);
+    const [progress, setProgress] = useState(0);
     const [showFinish, setShowFinish] = useState(false);
 
     const handleOptionClick = (e) => {
         const nextQuestion = currentQuestion + 1;
+        const newProgress = progress + 25;
         if (nextQuestion < quizQuestions.length) {
             setCurrentQuestion(nextQuestion);
             setResponse([...response, e])
+            setProgress(newProgress);
         }
        else {
         setShowFinish(true);
         quizResponsetoChat()
+        setProgress(newProgress);
         
        }
 
@@ -82,6 +87,7 @@ const QuizPage = () => {
                 <img src="src/assets/quizicon.jpg" alt="quiz banner" className="quiz-icon"/>
             </div>
             <h1>Skincare Quiz</h1>
+            <LinearProgress className="progress-bar" variant="solid" determinate value={progress}/>
             <div className="question">
                 <div className="question-text">{quizQuestions[currentQuestion].question}</div>
                 <div className="options">
