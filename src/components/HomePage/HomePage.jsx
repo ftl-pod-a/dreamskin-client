@@ -153,19 +153,20 @@ function HomePage(){
                 </div>
                 <div className='team-content'>
                     <div className='team-member'>
-                        <img src="src/assets/IMG_2370.jpg" alt="Image" className='member-image'/>
+                        <img src="src/assets/lizimg.png" alt="Image" className='member-image'/>
                         <h4 className='member-name'>Elizabeth J.</h4>
-                        <button className='connect-button'>Contact</button>
+                        <a href='https://www.linkedin.com/in/elizafoam' className='connect-button'>Contact</a>
                     </div>
                     <div className='team-member'>
-                        <img src="src/assets/IMG_2369.jpg" alt="Image" className='member-image'/>
+                        <img src="src/assets/mariaimg.png" alt="Image" className='member-image'/>
                         <h4 className='member-name'>Maria P.</h4>
-                        <button className='connect-button'>Contact</button>
+                        <a href='https://www.linkedin.com/in/maria-gabriela-perez-0ba469244/' className='connect-button'>Contact</a>
                     </div>
                     <div className='team-member'>
-                        <img src="src/assets/IMG_2371.jpg" alt="Image" className='member-image'/>
+                        <img src="src/assets/eveimg.png" alt="Image" className='member-image'/>
                         <h4 className='member-name'>Evelyn Z.</h4>
-                        <button className='connect-button'>Contact</button>
+                        <a href='https://www.linkedin.com/in/evelynzhinin' className='connect-button'>Contact</a>
+                        {/* <button className='connect-button'>Contact</button> */}
                     </div>
                 </div>
             </div>
