@@ -5,7 +5,6 @@ import '@fontsource-variable/montserrat';
 import '@fontsource/poppins';
 import { Link } from "react-router-dom";
 import './HomePage.css';
-import NavBar from '../NavBar/NavBar';
 
 function HomePage(){
 
@@ -23,7 +22,6 @@ function HomePage(){
 
     return(
         <>
-        <NavBar/>
         <div className='homepage-content'>
             <div className='homepage-header'>
                 <div className='header-content'>
