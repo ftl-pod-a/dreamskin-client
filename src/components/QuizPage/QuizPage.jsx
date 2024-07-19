@@ -22,7 +22,6 @@ const QuizPage = () => {
                 "Hyperpigmentation",
                 "Redness/Rosacea",
                 "Dryness",
-                "Rough texture",
                 "Eczema"
             ]
         },
@@ -47,25 +46,69 @@ const QuizPage = () => {
     ]
 
     const [currentQuestion, setCurrentQuestion] = useState(0);
-    const [response, setResponse] = useState([]);
+    const [currentChoice, setCurrentChoice] = useState("");
+    const [response, setResponse] = useState(["", "", "", ""]);
     const [progress, setProgress] = useState(0);
     const [showFinish, setShowFinish] = useState(false);
 
+
+    useEffect(() => {
+        console.log(currentChoice);
+        setCurrentChoice("");
+        console.log(response);
+
+    }, [response]);
+
+    const checkProgress = (newProgress) => {
+        if (newProgress >= 0 && newProgress <= 100){
+            setProgress(newProgress);
+        }
+    }
+
     const handleOptionClick = (e) => {
+        if(currentQuestion > 0 && currentChoice == ""){
+            let newChoice = currentChoice + " , " + e.target.textContent;
+            setCurrentChoice(newChoice)
+        }
+        else setCurrentChoice(e.target.textContent);
+    }
+
+    const handleForwardButtonClick = () => {
         const nextQuestion = currentQuestion + 1;
         const newProgress = progress + 25;
         if (nextQuestion < quizQuestions.length) {
+            let newResponseArr = [...response];
+            newResponseArr[currentQuestion] = currentChoice;
+            setResponse(newResponseArr);
             setCurrentQuestion(nextQuestion);
-            setResponse([...response, e])
-            setProgress(newProgress);
         }
        else {
         setShowFinish(true);
-        quizResponsetoChat()
-        setProgress(newProgress);
-        
+        quizResponsetoChat();
        }
+       checkProgress(newProgress);
+    }
 
+    const handleBackButtonClick = () => {
+        const updatedQuestion = currentQuestion - 1;
+        const newProgress = progress - 25;
+        if (updatedQuestion >= 0){
+            setCurrentQuestion(updatedQuestion);
+            setCurrentChoice(response[currentQuestion])
+        }
+        checkProgress(newProgress); 
+    }
+
+    const t = () => {
+        const updatedQuestion = currentQuestion + 1;
+        const newProgress = progress + 25;
+        if (updatedQuestion < quizQuestions.length){
+            setCurrentQuestion(updatedQuestion);
+        }
+        if (newProgress <= 100){
+            setProgress(newProgress);
+        }
+        checkProgress(newProgress);
     }
 
     const quizResponsetoChat = async () => {
@@ -78,7 +121,7 @@ const QuizPage = () => {
         } catch (error) {
           console.error("Error getting ingredients", error); 
         }
-      };
+    };
 
     return (
         <div className="Quiz">
@@ -93,15 +136,21 @@ const QuizPage = () => {
                 <div className="options">
                     {
                         quizQuestions[currentQuestion].options.map((option) => (
-                            <button key={option} className="option" onClick={(e) => handleOptionClick(e.target.textContent)}>{option}</button>
+                            <button key={option} className="option" onClick={(e) => handleOptionClick(e)}>{option}</button>
                         ))
                     }
                 </div>
             </div>
-            <div className=""></div>
+            <div className="buttons">
+                { currentQuestion > 0 &&
+                <button className="back" onClick={handleBackButtonClick}>Back</button>
+                }
+                { currentQuestion < quizQuestions.length && currentChoice != "" &&
+                <button className="forward" onClick={handleForwardButtonClick}>Continue</button>
+                }
+            </div>
         </div>
     )
 }
 
 export default QuizPage;
-

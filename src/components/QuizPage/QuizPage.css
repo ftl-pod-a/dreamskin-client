@@ -2,7 +2,7 @@
     font-family: 'Poppins', sans-serif;
     text-align: center;
     width: 75vw;
-    height: 80vh;
+    height: 90vh;
     background-color: #FCF7F2;
     margin: auto;
     margin-top: 2rem;
@@ -42,6 +42,7 @@
     justify-content: center;
     gap: 1rem;
     padding: 0 4rem;
+    height: 15rem;
 }
 
 .question-text {
@@ -52,6 +53,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    padding: 0 10rem;
 }
 
 .options * {
@@ -59,7 +61,7 @@
 }
 
 .option {
-    width: 12rem;
+    width: 14rem;
     font-size: 1.25rem;
     padding: 0.5rem;
     color: white;
@@ -77,4 +79,8 @@
 .progress-bar {
     margin: auto;
     width: 35rem;
+}
+
+.buttons {
+    margin-top: 1rem;
 }
