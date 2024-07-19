@@ -37,8 +37,10 @@
     padding: 10px 25px;
     cursor: pointer;
     margin-right: 10px;
+    margin-bottom: 12px;
     border-radius: 4rem;
     font-size: 1rem;
+    
   }
   .buttons button:hover {
     background-color: #e6c99e;
