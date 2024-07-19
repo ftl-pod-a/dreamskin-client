@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import LinearProgress from '@mui/joy/LinearProgress';
 import "./QuizPage.css";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const QuizPage = () => {
 
@@ -49,6 +50,7 @@ const QuizPage = () => {
     const [currentChoice, setCurrentChoice] = useState("");
     const [response, setResponse] = useState(["", "", "", ""]);
     const [progress, setProgress] = useState(0);
+    const [products, setProducts] = useState([])
     const [showFinish, setShowFinish] = useState(false);
 
 
@@ -57,7 +59,7 @@ const QuizPage = () => {
         setCurrentChoice("");
         console.log(response);
 
-    }, [response]);
+    }, [response, products]);
 
     const checkProgress = (newProgress) => {
         if (newProgress >= 0 && newProgress <= 100){
@@ -99,29 +101,41 @@ const QuizPage = () => {
         checkProgress(newProgress); 
     }
 
-    const t = () => {
-        const updatedQuestion = currentQuestion + 1;
-        const newProgress = progress + 25;
-        if (updatedQuestion < quizQuestions.length){
-            setCurrentQuestion(updatedQuestion);
-        }
-        if (newProgress <= 100){
-            setProgress(newProgress);
-        }
-        checkProgress(newProgress);
-    }
-
     const quizResponsetoChat = async () => {
         try {
           console.log(response);
           let ingredientQuestion = `This user has ${response[0]} and they are dealing with ${response[1]}, they are hoping to ${response[2]}. What are the best ingredients for this user, only provide the name of ingredients in an array`;
           console.log(ingredientQuestion);
-          const r = await axios.post("http://localhost:3000/api/chat", {prompt: ingredientQuestion });
-          console.log("Ingredients:", r.data);
+          const r = await axios.post("http://localhost:3000/api/chat", {prompt: ingredientQuestion});
+          let geminiIngredients = r.data.response;
+          console.log("Gemini", geminiIngredients);
+
+        let cleanedStr = geminiIngredients.replace(/```/g, '').trim();
+        console.log(cleanedStr)
+
+        let ingredientsArray = JSON.parse(cleanedStr);
+        ingredientsArray = {
+            ingredients: ingredientsArray
+          };
+        console.log("Array", ingredientsArray);
+
+        await getRecommendedProducts(ingredientsArray);
         } catch (error) {
           console.error("Error getting ingredients", error); 
         }
-    };
+      };
+      
+      const getRecommendedProducts = async (ingredients) => {
+        try {
+          const response = await axios.post("http://localhost:3000/products/products/search", ingredients);
+          setProducts([response.data]);
+          console.log("Response", response.data);
+          console.log("From Product", products);
+        }
+        catch (error){
+          console.log("Error fetching boards", error);
+        }
+      }
 
     return (
         <div className="Quiz">
@@ -145,8 +159,13 @@ const QuizPage = () => {
                 { currentQuestion > 0 &&
                 <button className="back" onClick={handleBackButtonClick}>Back</button>
                 }
-                { currentQuestion < quizQuestions.length && currentChoice != "" &&
+                { currentQuestion < quizQuestions.length - 1 && currentChoice != "" &&
                 <button className="forward" onClick={handleForwardButtonClick}>Continue</button>
+                }
+                { currentQuestion == quizQuestions.length - 1 &&
+                    <Link to={'/routine'}>
+                        <button className="forward" onClick={handleForwardButtonClick}>Finish</button>
+                    </Link>
                 }
             </div>
         </div>
