@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import queryString from "query-string";
 
 const CallBack = () => {
+
   useEffect(() => {
     const urlParams = queryString.parse(window.location.search);
     const token = urlParams.token;
@@ -10,10 +11,10 @@ const CallBack = () => {
     if (token) {
       localStorage.setItem("token", token);
       console.log("Token stored in localStorage"); // Debugging log
-      window.location.href = "/dashboard"; // Redirect to dashboard after successful login
+      window.location.href = "/dashboard"; // Directly change the window location
     } else {
       console.log("No token found, redirecting to login"); // Debugging log
-      window.location.href = "/login"; // Redirect to login if no token found
+      window.location.href = "/login"; // Directly change the window location
     }
   }, []);
 
@@ -21,5 +22,3 @@ const CallBack = () => {
 };
 
 export default CallBack;
-
-
