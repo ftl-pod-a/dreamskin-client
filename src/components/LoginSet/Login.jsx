@@ -1,21 +1,18 @@
 import React from "react";
 
 const Login = () => {
+
   const handleLogin = () => {
-    // Redirect to OAuth login endpoint
+    // This needs to be a full page reload to navigate to the OAuth page
     window.location.href = "http://localhost:3000/auth/login";
   };
 
   return (
     <div>
-      <h2>Login</h2>
-      <button onClick={handleLogin}>Log in with Google</button>
+      {/* <h2>Login</h2> */}
+      <button onClick={handleLogin}>Log in </button>
     </div>
   );
 };
 
 export default Login;
-
-
-
-

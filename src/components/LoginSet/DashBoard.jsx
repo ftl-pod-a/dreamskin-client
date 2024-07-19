@@ -1,28 +1,11 @@
-import React, { useState, useEffect } from "react";
-import axios from 'axios';
+import React from "react";
 import { useNavigate } from "react-router-dom";
+import axios from 'axios';
+import { useState } from 'react'
 
 const DashBoard = () => {
   const navigate = useNavigate();
   const [userInfo, setUserInfo] = useState("");
-
-  useEffect(() => {
-    const fetchResource = async () => {
-      try {
-        const token = localStorage.getItem('token');
-        const resp = await axios.get("http://localhost:3000/protected_route", {
-          headers: {
-            Authorization: `Bearer ${token}`
-          }
-        });
-        setUserInfo(resp.data.user.name);
-      } catch (error) {
-        console.error("Error fetching resource:", error);
-      }
-    };
-
-    fetchResource();
-  }, []);
 
   const handleLogout = () => {
     console.log("Logging out");
@@ -30,15 +13,23 @@ const DashBoard = () => {
     navigate("/login");
   };
 
+  const getResource = async () => {
+    const resp = await axios.get("http://localhost:3000/protected_route", {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    })
+    setUserInfo(resp.data.user.name);
+  }
+
   return (
     <div>
       <h2>Dashboard</h2>
-      <div>User name: {userInfo}</div>
+      <button onClick={getResource}>Get Resource</button> 
+      <div>User name: {userInfo}</div>    
       <button onClick={handleLogout}>Log out</button>
     </div>
   );
 };
 
 export default DashBoard;
-
-

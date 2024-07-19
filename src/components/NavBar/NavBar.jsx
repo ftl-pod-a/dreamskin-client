@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
-import {Link} from 'react-router-dom';
-import LoginButton from '../LoginButton/LoginButton';
-// import LoginModal from '../LoginSet/LoginModal';
+// import {Link} from 'react-router-dom';
 import '@fontsource-variable/dm-sans'
 import './NavBar.css'
+import Login from '../LoginSet/Login';
 
 
 const NavBar = () => {
 
-    const[loggedIn, setLoggedIn] = useState(false);
-    const handleLogout = () => {
-        setLoggedIn(false);
-      };
+    // const[loggedIn, setLoggedIn] = useState(false);
+    // const handleLogout = () => {
+    //     setLoggedIn(false);
+    //   };
     return (
         <>
         <nav className="navbar">
@@ -26,6 +25,10 @@ const NavBar = () => {
                         <a href="education">Education</a>
                     </div>
                     <div className='buttons'>
+                    {/* <a href="login" class="button">Log In</a> */}
+                    <Login/>
+                    </div>
+                    {/* <div className='buttons'>
                         {loggedIn ? (
                             <div className='profile' onClick={toggleDropdown}>
                                 <img src = "src/assets/placeholder.jpg" alt="profile" className='profile-icon'/>
@@ -39,7 +42,7 @@ const NavBar = () => {
                         ) : (
                         <LoginButton/>
                         )}
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </nav>
