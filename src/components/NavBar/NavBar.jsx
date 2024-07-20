@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 // import {Link} from 'react-router-dom';
 import '@fontsource-variable/dm-sans'
 import './NavBar.css'
-import Login from '../LoginSet/Login';
+// import Login from '../LoginSet/Login';
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react";
 
 
 const NavBar = () => {
@@ -26,7 +27,13 @@ const NavBar = () => {
                     </div>
                     <div className='buttons'>
                     {/* <a href="login" class="button">Log In</a> */}
-                    <Login/>
+                    {/* <Login/> */}
+                    <SignedOut>
+        <SignInButton />
+      </SignedOut>
+      <SignedIn>
+        <UserButton />
+      </SignedIn>
                     </div>
                     {/* <div className='buttons'>
                         {loggedIn ? (
