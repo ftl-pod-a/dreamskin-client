@@ -9,10 +9,10 @@ import NavBar from './components/NavBar/NavBar';
 // import CallBack from './components/LoginSet/CallBack';
 // import DashBoard from './components/LoginSet/DashBoard';
 // import LoginModal from './components/LoginSet/LoginModal';
-import Callback from './components/LoginSet/CallBack';
-import Dashboard from './components/LoginSet/DashBoard';
-import PrivateRoute from './components/LoginSet/PrivateRoute';
-import Login from './components/LoginSet/Login';
+// import Callback from './components/LoginSet/CallBack';
+// import Dashboard from './components/LoginSet/DashBoard';
+// import PrivateRoute from './components/LoginSet/PrivateRoute';
+// import Login from './components/LoginSet/Login';
 import './App.css';
 
 const App = () => {
@@ -34,7 +34,7 @@ const App = () => {
           <Route path="/dashboard" element={<DashBoard />} />
           <Route path="/login" element={<LoginModal/>} /> */}
 
-
+{/* 
 <Route path="/login" element={<Login />} />
         <Route path="/callback" element={<Callback />} />
         <Route
@@ -45,7 +45,7 @@ const App = () => {
             </PrivateRoute>
           }
         />
-        <Route path="/login" element={<Navigate to="/login" />} />
+        <Route path="/login" element={<Navigate to="/login" />} /> */}
 
 
         </Routes>
