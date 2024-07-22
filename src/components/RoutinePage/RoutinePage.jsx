@@ -7,7 +7,7 @@ const RoutinePage = () => {
     return (
         <div className="RoutinePage">
             <h1>Routine</h1>
-            <img className="banner-image" src="src/assets/placeholder.jpg" alt="Banner image" />
+            <img className="banner-image" src="src/assets/quizbanner.jpg" alt="Banner image" />
             <ProductsList />
         </div>
     )
