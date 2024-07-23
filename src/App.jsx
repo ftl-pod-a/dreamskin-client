@@ -6,6 +6,7 @@ import QuizPage from './components/QuizPage/QuizPage';
 import RoutinePage from './components/RoutinePage/RoutinePage';
 import SkinHub from './components/SkinHub/SkinHub';
 import NavBar from './components/NavBar/NavBar';
+import Articles from './components/Articles/Articles';
 // import CallBack from './components/LoginSet/CallBack';
 // import DashBoard from './components/LoginSet/DashBoard';
 // import LoginModal from './components/LoginSet/LoginModal';
@@ -29,7 +30,11 @@ const App = () => {
           <Route path='/home' element={<HomePage />}></Route>
           <Route path='/quiz' element={<QuizPage />}></Route>
           <Route path='/skinhub' element={<SkinHub />}></Route>
-          <Route path="/routine" element={<RoutinePage/>} />
+          <Route path='/routine' element={<RoutinePage />}></Route>
+          <Route path='/article' element={<Articles />}></Route>
+          
+
+
           {/* <Route path="/callback" element={<CallBack />} />
           <Route path="/dashboard" element={<DashBoard />} />
           <Route path="/login" element={<LoginModal/>} /> */}

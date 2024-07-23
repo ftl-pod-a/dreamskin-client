@@ -23,7 +23,7 @@ const NavBar = () => {
                     <div className='tabs'>
                         <a href="home">Home</a>
                         <a href="skinhub">SkinHUB</a>
-                        <a href="education">Education</a>
+                        <a href="article">Education</a>
                     </div>
                     <div className='buttons'>
                     {/* <a href="login" class="button">Log In</a> */}
