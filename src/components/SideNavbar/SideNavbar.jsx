@@ -5,17 +5,16 @@ import './SideNavbar.css';
   const categories = ["All", "Cleanser", "Moisturizer", "Sunscreen", "Dry Skin", "Oily Skin", "Combination Skin"];
 
   return (
-    <nav className="SubNavbar">
-      <div className="content">
-        <div className="column">
+    <nav className="SideNavbar">
+      <div className="SideNavbar-content">
           <ul className="category-menu">
             {categories.map((cat) => (
               <li className={activeCategory === cat ? "is-active" : ""} key={cat}>
-                <button onClick={() => setActiveCategory(cat)}>{cat}</button>
+                {/* <button onClick={() => setActiveCategory(cat)}>{cat}</button> */}
+                <a href="#" onClick={() => setActiveCategory(cat)}>{cat}</a>
               </li>
             ))}
           </ul>
-        </div>
       </div>
     </nav>
   );

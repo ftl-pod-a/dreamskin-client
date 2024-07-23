@@ -9,13 +9,34 @@ const Articles = () => {
   const [activeCategory, setActiveCategory] = useState("All");
   const [categoryDetails, setCategoryDetails] = useState({ title: "", image: "", summary: "" });
   const categoryInfo = {
-    "All": { title: "All Articles", image: "path/to/all.jpg", summary: "Browse all articles." },
-    "Cleanser": { title: "Cleanser", image: "path/to/cleanser.jpg", summary: "Find the best cleansers for your skin." },
-    "Moisturizer": { title: "Moisturizer", image: "path/to/moisturizer.jpg", summary: "Discover top moisturizers." },
-    "Sunscreen": { title: "Sunscreen", image: "path/to/sunscreen.jpg", summary: "Protect your skin with the best sunscreens." },
-    "Dry Skin": { title: "Dry Skin", image: "path/to/dry_skin.jpg", summary: "Tips and products for dry skin." },
-    "Oily Skin": { title: "Oily Skin", image: "path/to/oily_skin.jpg", summary: "Manage oily skin effectively." },
-    "Combination Skin": { title: "Combination Skin", image: "path/to/combination_skin.jpg", summary: "Care for combination skin." }
+    "All": { 
+        title: "All Articles", 
+        image: "src/assets/allarticlesimg_720.png", 
+        summary: "Our comprehensive skincare articles are designed to be both informative and accessible, helping you navigate the complexities of skincare with ease. Whether you're looking for the perfect cleanser, moisturizer, or sunscreen, or seeking advice tailored to your specific skin type—be it dry, oily, or combination—our articles provide clear, science-backed insights." },
+    "Cleanser": { 
+        title: "Cleanser", 
+        image: "src/assets/cleanserimg_720.png", 
+        summary: "We break down the science behind different types of cleansers, from foaming to oil-based, and guide you on how to choose the best one for your skin type. Learn about the importance of cleansing, how to properly use cleansers, and tips for avoiding common mistakes to keep your skin clean and healthy." },
+    "Moisturizer": { 
+        title: "Moisturizer", 
+        image: "src/assets/moisturizerimg_720.png", 
+        summary: "We delve into the various types of moisturizers, including creams, gels, and serums, and explain how to select the right one for your skin's needs. Our articles cover everything from the benefits of moisturizing to the best ingredients to look for, ensuring your skin stays nourished and balanced." },
+    "Sunscreen": { 
+        title: "Sunscreen", 
+        image: "src/assets/sunscreenimg_720.png", 
+        summary: "We provide insights into the different types of sunscreens, including chemical and physical options, and help you understand SPF ratings. Learn how to apply sunscreen correctly, the importance of daily use, and tips for choosing the best sunscreen for your lifestyle and skin type." },
+    "Dry Skin": { 
+        title: "Dry Skin", 
+        image: "src/assets/dryskinimg_720.png", 
+        summary: "Combat dryness and achieve a smooth, supple complexion with our dry skin articles. We explore the causes of dry skin and offer practical advice on how to manage and treat it." },
+    "Oily Skin": { 
+        title: "Oily Skin", 
+        image: "src/assets/oilyskinimg_720.png", 
+        summary: "Manage excess oil and achieve a balanced complexion with our oily skin articles. We discuss the underlying causes of oily skin and offer strategies for controlling shine and preventing breakouts." },
+    "Combination Skin": { 
+        title: "Combination Skin", 
+        image: "src/assets/combinationskinimg_720.png", 
+        summary: "Navigate the complexities of combination skin with our targeted articles. We help you understand the unique challenges of having both oily and dry areas and provide tailored advice for balancing your skin." }
     };
 
 
@@ -52,10 +73,14 @@ const Articles = () => {
         // handleOnSearchInputChange={handleOnSearchInputChange}
       />
       < div className='display-article'>
-      <div className="category-header">
-      <h1>{categoryDetails.title}</h1>
-      <img src={categoryDetails.image} alt={categoryDetails.title} />
-      <p>{categoryDetails.summary}</p>
+        <div className="category-header">
+            <div className='category-title'>
+                <h1>{categoryDetails.title}</h1>
+            </div>
+            <div className='category-body'>
+                <img src={categoryDetails.image} alt={categoryDetails.title} />
+                <p>{categoryDetails.summary}</p>
+            </div>
       </div>
       <ArticlesList articles={articles} />
     </div>

@@ -1,21 +1,23 @@
 
 .article-list {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
-    justify-content: center;
+    justify-content: space-evenly;
+    margin: 1rem;
+    padding: 0.5rem;
 }
 
 .article {
     border: 1px solid #ddd;
     padding: 10px;
     border-radius: 5px;
-    width: 200px;
-    text-align: center;
+    
 }
 
 .article a {
     text-decoration: none;
     color: #333;
+    font-size: 1.8rem;
 }
 
