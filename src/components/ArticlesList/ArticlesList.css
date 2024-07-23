@@ -1,0 +1,21 @@
+
+.article-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.article {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    width: 200px;
+    text-align: center;
+}
+
+.article a {
+    text-decoration: none;
+    color: #333;
+}
+

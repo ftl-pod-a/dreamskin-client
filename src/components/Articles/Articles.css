@@ -1,0 +1,27 @@
+.articles-page {
+    margin-left: 8rem;
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.category-header {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.category-header img {
+    max-width: 100%;
+    height: auto;
+}
+
+.display-article {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+
+
