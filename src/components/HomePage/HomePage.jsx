@@ -9,9 +9,9 @@ import './HomePage.css';
 function HomePage(){
 
     const [faqs, setFaqs] = useState([
-        { question: 'Can I see the ingredients of the recommended products?', answer: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, aliquid!', isOpen: false },
-        { question: 'How does the quiz work?', answer: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, aliquid!', isOpen: false },
-        { question: 'Can I take the quiz multiple times?', answer: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, aliquid!', isOpen: false },
+        { question: 'Can I see the ingredients of the recommended products?', answer: 'Yes, users can view the recommended ingredients of the product, specifically highlighting the top 4 key ingredients.', isOpen: false },
+        { question: 'How does the quiz work?', answer: 'The quiz works by asking a series of questions. An AI analyzes the answers to identify the best ingredients of the user needs. Then, it searches through products and creates a customized routine page.', isOpen: false },
+        { question: 'Can I take the quiz multiple times?', answer: 'Yes, users can take the quiz multiple times, but the previous quiz data will not be saved.', isOpen: false },
         ]);
         const toggleAnswer = (index) => {
         setFaqs(faqs.map((faq, i) => (
@@ -25,7 +25,7 @@ function HomePage(){
         <div className='homepage-content'>
             <div className='homepage-header'>
                 <div className='header-content'>
-                    <h1>Personalized Skincare Solution</h1>
+                    <h1>Personalized Skincare</h1>
                     <h2>Simplify Your Skincare Routine with Dreamskin</h2>
                     <p>Are you tired of wasting money on skincare products that don't work for your unique skin needs? Dreamskin is here to help! Our comprehensive and personalized skincare platform is designed to identify the most effective products tailored to your skin type and concerns.</p>
                     <Link to={`quiz`} onClick={() => console.log("switch to quiz page")}>
@@ -33,7 +33,11 @@ function HomePage(){
                     </Link>
                 </div>
                 <div className='header-image'>
-                    <img src="src/assets/placeholder.jpg" alt="Image"/>
+                    {/* <img src="src/assets/placeholder.jpg" alt="Image"/> */}
+                    <video className="video" autoPlay loop muted>
+                    <source src="src/assets/homepagevid.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
                 </div>
             </div>
 

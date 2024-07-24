@@ -1,0 +1,26 @@
+.footer {
+   
+    padding: 1.5rem;
+    display: flex;
+    /* flex-direction: row; */
+    align-items: center;
+    justify-content: space-between;
+    background-color: #b08968;
+ 
+    /* max-width: 1200px; */
+    
+}
+.footer-content{
+    margin: 0 2rem;
+    color: #ffff;
+   
+}
+
+.footer-tags a{
+    font-family: 'DM Sans Variable', sans-serif;
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #ffff;
+    margin-right: 20px;
+}

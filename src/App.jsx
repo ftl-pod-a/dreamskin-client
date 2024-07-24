@@ -8,6 +8,7 @@ import LoginPage from './components/LoginPage/LoginPage';
 import SignupPage from './components/SignupPage/SignupPage';
 import NavBar from './components/NavBar/NavBar';
 import Articles from './components/Articles/Articles';
+import Footer from './components/Footer/Footer';
 import './App.css';
 
 const App = () => {
@@ -28,6 +29,7 @@ const App = () => {
             <Route path='/article' element={<Articles />}></Route>
           </Routes>
       </BrowserRouter>
+      <Footer/>
       
     
     </div>

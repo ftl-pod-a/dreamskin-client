@@ -14,7 +14,7 @@
   }
   
   .logo {
-    width: 16rem;
+    width: 18rem;
   }
   
   .tabs {
@@ -24,7 +24,7 @@
   .tabs * {
     font-family: 'DM Sans Variable', sans-serif;
     text-decoration: none;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     font-weight: bold;
     color: #174933;
     margin-right: 20px;

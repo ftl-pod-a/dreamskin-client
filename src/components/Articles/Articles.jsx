@@ -12,19 +12,19 @@ const Articles = () => {
     "All": { 
         title: "All Articles", 
         image: "src/assets/allarticlesimg_720.png", 
-        summary: "Our comprehensive skincare articles are designed to be both informative and accessible, helping you navigate the complexities of skincare with ease. Whether you're looking for the perfect cleanser, moisturizer, or sunscreen, or seeking advice tailored to your specific skin type—be it dry, oily, or combination—our articles provide clear, science-backed insights." },
+        summary: "Whether you're looking for the perfect cleanser, moisturizer, or sunscreen, or seeking advice tailored to your specific skin type—be it dry, oily, or combination—our articles provide clear, science-backed insights." },
     "Cleanser": { 
         title: "Cleanser", 
         image: "src/assets/cleanserimg_720.png", 
-        summary: "We break down the science behind different types of cleansers, from foaming to oil-based, and guide you on how to choose the best one for your skin type. Learn about the importance of cleansing, how to properly use cleansers, and tips for avoiding common mistakes to keep your skin clean and healthy." },
+        summary: "Learn about the importance of cleansing, how to properly use cleansers, and tips for avoiding common mistakes to keep your skin clean and healthy." },
     "Moisturizer": { 
         title: "Moisturizer", 
         image: "src/assets/moisturizerimg_720.png", 
-        summary: "We delve into the various types of moisturizers, including creams, gels, and serums, and explain how to select the right one for your skin's needs. Our articles cover everything from the benefits of moisturizing to the best ingredients to look for, ensuring your skin stays nourished and balanced." },
+        summary: "Our articles cover everything from the benefits of moisturizing to the best ingredients to look for, ensuring your skin stays nourished and balanced." },
     "Sunscreen": { 
         title: "Sunscreen", 
         image: "src/assets/sunscreenimg_720.png", 
-        summary: "We provide insights into the different types of sunscreens, including chemical and physical options, and help you understand SPF ratings. Learn how to apply sunscreen correctly, the importance of daily use, and tips for choosing the best sunscreen for your lifestyle and skin type." },
+        summary: "Learn how to apply sunscreen correctly, the importance of daily use, and tips for choosing the best sunscreen for your lifestyle and skin type." },
     "Dry Skin": { 
         title: "Dry Skin", 
         image: "src/assets/dryskinimg_720.png", 
