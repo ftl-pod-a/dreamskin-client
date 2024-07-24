@@ -22,7 +22,7 @@ const NavBar = () => {
         <nav className="navbar">
             <div className="content">
                 <div className='logo-content'>
-                    <img src="src/assets/minimalisticLogo.png" alt="logo" className="logo"/>
+                    <img src="src/assets/minimalisticLogoUpdated.png" alt="logo" className="logo"/>
                 </div>
                 <div className='nav-content'>
                     <div className='tabs'>
