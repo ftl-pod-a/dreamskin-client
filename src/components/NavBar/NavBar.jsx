@@ -1,22 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import '@fontsource-variable/dm-sans'
 import './NavBar.css';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const NavBar = () => {
     const [token, setToken] = useState("");
-
+    const navigate = useNavigate();
 
     useEffect(() => {
         const authToken = localStorage.getItem('authToken');
         setToken(authToken)
-        console.log(token);
     }, [token])
-
 
     const handleLogout = () => {
         localStorage.clear()
         setToken("")
+        navigate("/");
     }
     return (
         <>
@@ -61,8 +60,6 @@ const NavBar = () => {
             </div>
         </nav>
         </>
-
-
     );
     
   };
