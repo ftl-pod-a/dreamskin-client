@@ -124,6 +124,9 @@ const QuizPage = () => {
         try {
           const response = await axios.post("http://localhost:3000/products/products/search", ingredients);
           console.log("Response", response.data);
+          localStorage.setItem('products', JSON.stringify(response.data));
+          const localProducts = localStorage.getItem('products');
+          console.log(JSON.parse(localProducts));
         }
         catch (error){
           console.log("Error fetching products", error);

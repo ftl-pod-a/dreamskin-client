@@ -1,12 +1,32 @@
 import React from "react";
 import "./RoutinePage.css";
 import Product from "../Product/Product"
-import { useLocation } from 'react-router-dom';
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { jwtDecode } from 'jwt-decode';
 
 const RoutinePage = () => {
-    
+    const authToken = localStorage.getItem('authToken');
+    const decodedToken = jwtDecode(authToken);
+    const { userId, username } = decodedToken;
+    console.log(userId, username);
+    console.log(authToken);
+    const localProducts = JSON.parse(localStorage.getItem('products'));
+    console.log(localProducts);
+    const hasBalm = localProducts.balm;
+    const hasSunscreen = localProducts.sunscreen;
+    const hasMorningCleanser = localProducts.morning_cleansers;
+    const hasNightCleanser = localProducts.night_cleansers;
+    const hasMorningMoisturizer = localProducts.morning_moisturizers;
+    const hasNightMoisturizer = localProducts.night_moisturizers;
+
+    // Object.entries(localProducts).forEach(([key, value]) => {
+    //     console.log(key, value);
+    // })
+
+    // useEffect(() => {
+    // }, [])
+
 
     const quizResponsetoChat = async () => {
         try {
@@ -49,58 +69,79 @@ const RoutinePage = () => {
         <div className="RoutinePage">
             <h1>Routine</h1>
             <img className="banner-image" src="src/assets/quizbanner.jpg" alt="Banner image" />
-            
             <div className="ProductsList">
                 <div className="day">
                     <h2>Day</h2>
                     <div className="day-products">
-                        <Product 
-                            product_id={0} 
-                            name={"Product name"} 
-                            brand={"Brand name"} 
-                            price={0} 
-                            liked={false}
-                        />
-                        <Product 
-                            product_id={0} 
-                            name={"Product name"} 
-                            brand={"Brand name"} 
-                            price={0} 
-                            liked={false}
-                        />
-                        <Product 
-                            product_id={0} 
-                            name={"Product name"} 
-                            brand={"Brand name"} 
-                            price={0} 
-                            liked={false}
-                        />
+                        {hasMorningCleanser && 
+                            <Product 
+                                product_id={localProducts.morning_cleansers.id}
+                                name={localProducts.morning_cleansers.name} 
+                                brand={localProducts.morning_cleansers.brand} 
+                                price={localProducts.morning_cleansers.price} 
+                                liked={false}
+                                imageUrl={localProducts.morning_cleansers.imageUrl}
+                            />
+                        }
+                        
+                        { hasMorningMoisturizer && 
+                            <Product 
+                                product_id={localProducts.morning_moisturizers.id}
+                                name={localProducts.morning_moisturizers.name} 
+                                brand={localProducts.morning_moisturizers.brand} 
+                                price={localProducts.morning_moisturizers.price} 
+                                liked={false}
+                                imageUrl={localProducts.morning_moisturizers.imageUrl}
+                            />
+                        }
+                        
+                        { hasSunscreen && 
+                            <Product 
+                                product_id={localProducts.sunscreen.id}
+                                name={localProducts.sunscreen.name} 
+                                brand={localProducts.sunscreen.brand} 
+                                price={localProducts.sunscreen.price} 
+                                liked={false}
+                                imageUrl={localProducts.sunscreen.imageUrl}
+                            />
+                        }
                     </div>
                 </div>
                 <div className="night">
                     <h2>Night</h2>
                     <div className="night-products">
-                    <Product 
-                            product_id={0} 
-                            name={"Product name"} 
-                            brand={"Brand name"} 
-                            price={0} 
-                            liked={false}
-                        />
-                        <Product 
-                            product_id={0} 
-                            name={"Product name"} 
-                            brand={"Brand name"} 
-                            price={0} 
-                            liked={false}
-                        />
-                        <Product 
-                            product_id={0} 
-                            name={"Product name"} 
-                            brand={"Brand name"} 
-                            price={0} 
-                            liked={false}
-                        />
+                        { hasBalm && 
+                            <Product 
+                                product_id={localProducts.balm.id}
+                                name={localProducts.balm.name} 
+                                brand={localProducts.balm.brand} 
+                                price={localProducts.balm.price} 
+                                liked={false}
+                                imageUrl={localProducts.balm.imageUrl}
+                            />
+                        }
+
+                        { hasNightCleanser && 
+                            <Product 
+                                product_id={localProducts.night_cleansers.id}
+                                name={localProducts.night_cleansers.name} 
+                                brand={localProducts.night_cleansers.brand} 
+                                price={localProducts.night_cleansers.price} 
+                                liked={false}
+                                imageUrl={localProducts.night_cleansers.imageUrl}
+                            />
+                        }
+
+                        { hasNightMoisturizer && 
+                            <Product 
+                                product_id={localProducts.night_moisturizers.id}
+                                name={localProducts.night_moisturizers.name} 
+                                brand={localProducts.night_moisturizers.brand} 
+                                price={localProducts.night_moisturizers.price} 
+                                liked={false}
+                                imageUrl={localProducts.night_moisturizers.imageUrl}
+                            />
+                        }
                     </div>
                 </div>
             </div>

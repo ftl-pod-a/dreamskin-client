@@ -33,6 +33,7 @@
 }
 
 .product-image {
-    width: 15rem;
+    height: 9rem;
+    width: fit-content;
 }
 
