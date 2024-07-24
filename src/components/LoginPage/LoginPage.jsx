@@ -23,12 +23,16 @@ const LoginPage = () => {
         try {
             const response = await axios.post("http://localhost:3000/users/login", newUser);
             console.log("Response", response.data);
-            //localStorage.setItem('authToken', response.data.token);
-            //navigate("/routine");
-            //window.location.reload();
+            if (response.data.token) {
+                console.log("yes");
+                localStorage.setItem('authToken', response.data.token);
+                navigate("/routine");
+                window.location.reload();
+            }
         }
         catch (error){
             console.log("Error logging in", error);
+            alert("Incorrect username and/or password")
         }
     }
 
@@ -46,7 +50,7 @@ const LoginPage = () => {
                         <label htmlFor="password">Password: </label>
                         <input type="text" placeholder="Enter a password" id="password" value={password} onChange={(event) => setPassword(event.target.value)} required/>
                     </div>
-                    <button className="submit" onClick={handleSubmit}>Create Account</button>
+                    <button className="submit" onClick={handleSubmit}>Login</button>
                     
                 </div>
             </div>
