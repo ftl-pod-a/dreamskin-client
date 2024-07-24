@@ -1,17 +1,23 @@
-import React, { useState } from 'react';
-// import {Link} from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import '@fontsource-variable/dm-sans'
-import './NavBar.css'
-// import Login from '../LoginSet/Login';
-import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react";
-
+import './NavBar.css';
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
+    const [token, setToken] = useState("");
 
-    // const[loggedIn, setLoggedIn] = useState(false);
-    // const handleLogout = () => {
-    //     setLoggedIn(false);
-    //   };
+
+    useEffect(() => {
+        const authToken = localStorage.getItem('authToken');
+        setToken(authToken)
+        console.log(token);
+    }, [token])
+
+
+    const handleLogout = () => {
+        localStorage.clear()
+        setToken("")
+    }
     return (
         <>
         <nav className="navbar">
@@ -21,35 +27,36 @@ const NavBar = () => {
                 </div>
                 <div className='nav-content'>
                     <div className='tabs'>
-                        <a href="home">Home</a>
-                        <a href="skinhub">SkinHUB</a>
-                        <a href="article">Education</a>
+                        <Link to={'/'}>
+                            <div>Home</div>
+                        </Link>
+                        <Link to={'/skinhub'}>
+                            <div>SkinHUB</div>
+                        </Link>
+                        <Link to={'/article'}>
+                            <div>Education</div>
+                        </Link> 
                     </div>
                     <div className='buttons'>
-                    {/* <a href="login" class="button">Log In</a> */}
-                    {/* <Login/> */}
-                    <SignedOut>
-        <SignInButton />
-      </SignedOut>
-      <SignedIn>
-        <UserButton />
-      </SignedIn>
+                        { !token && 
+                            <div>
+                                <Link to={'/signup'}>
+                                    <button>Sign Up</button>
+                                </Link>
+                                <Link to={'/login'}>
+                                    <button>Login</button>
+                                </Link>
+                            </div>
+                            
+                        }
+                        { token && 
+                            <div className='logged-in'>
+                                <img src="src/assets/quizicon.jpg" alt="user logo" className="user-image" />
+                                <button className="logout" onClick={handleLogout}>Log Out</button>
+                            </div>
+                            
+                        }
                     </div>
-                    {/* <div className='buttons'>
-                        {loggedIn ? (
-                            <div className='profile' onClick={toggleDropdown}>
-                                <img src = "src/assets/placeholder.jpg" alt="profile" className='profile-icon'/>
-                                {showDropdown && (
-                                    <div className="dropdown-content">
-                                        <Link to="/profile">Profile</Link>
-                                        <button onClick={handleLogout}>Log Out</button>
-                                    </div>
-                                )}
-                                </div>
-                        ) : (
-                        <LoginButton/>
-                        )}
-                    </div> */}
                 </div>
             </div>
         </nav>

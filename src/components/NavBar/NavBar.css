@@ -21,7 +21,7 @@
     display: flex;
   }
   
-  .tabs a {
+  .tabs * {
     font-family: 'DM Sans Variable', sans-serif;
     text-decoration: none;
     font-size: 1.3rem;
@@ -62,4 +62,28 @@
     align-items: center;
     justify-content: space-between;
   }
-  
+
+
+  .profile-image {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 100%;
+    background-color: blue;
+  }
+
+
+.user-image {
+  width: 3.25rem;
+  border-radius: 100%;
+}
+
+.logged-in {
+  height: 2.5rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.logout {
+  height: 2.5rem;
+}
