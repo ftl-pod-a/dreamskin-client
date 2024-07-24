@@ -168,18 +168,9 @@
     justify-content: space-between;
 }
 
-/* .box-content {
-  
-    max-width: 24rem;
-    margin-bottom: 1.5rem;
-    padding: 1rem;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    height: min-content;
-} */
+.box-content {
+    transition: transform 0.3s ease-in-out;
+}
 .box-content:hover {
   transform: scale(1.05); /* Scale up by 5% on hover */
 }

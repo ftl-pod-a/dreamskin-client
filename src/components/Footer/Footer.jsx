@@ -10,7 +10,7 @@ const Footer = () => {
                 <h3>Copyright © dreamskin 2024</h3>
             </div>
             <div className="footer-logo">
-                <img src="src/assets/minimalisticLogoWhiteVersion-2.png" alt="logo" className="logo"/>
+                <img src="src/assets/minimalisticLogoWhiteVersion-2.png" alt="logo" className="footer-logo"/>
             </div>
             <div className="footer-tags">
                 <a href="home">Home</a>

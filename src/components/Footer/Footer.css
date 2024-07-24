@@ -14,8 +14,11 @@
 }
 .footer-content{
     margin: 0 2rem;
-    color: #ffff;
-   
+    color: #ffff; 
+}
+
+.footer-logo{
+    width: 13rem;
 }
 
 .footer-tags a{
