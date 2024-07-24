@@ -50,7 +50,6 @@ const QuizPage = () => {
     const [currentChoice, setCurrentChoice] = useState("");
     const [response, setResponse] = useState(["", "", "", ""]);
     const [progress, setProgress] = useState(0);
-    const [products, setProducts] = useState([])
     const [showFinish, setShowFinish] = useState(false);
 
 
@@ -59,7 +58,7 @@ const QuizPage = () => {
         setCurrentChoice("");
         console.log(response);
 
-    }, [response, products]);
+    }, [response]);
 
     const checkProgress = (newProgress) => {
         if (newProgress >= 0 && newProgress <= 100){
@@ -68,11 +67,7 @@ const QuizPage = () => {
     }
 
     const handleOptionClick = (e) => {
-        if(currentQuestion > 0 && currentChoice == ""){
-            let newChoice = currentChoice + " , " + e.target.textContent;
-            setCurrentChoice(newChoice)
-        }
-        else setCurrentChoice(e.target.textContent);
+        setCurrentChoice(e.target.textContent);
     }
 
     const handleForwardButtonClick = () => {
@@ -123,19 +118,17 @@ const QuizPage = () => {
         } catch (error) {
           console.error("Error getting ingredients", error); 
         }
-      };
+    };
       
-      const getRecommendedProducts = async (ingredients) => {
+    const getRecommendedProducts = async (ingredients) => {
         try {
           const response = await axios.post("http://localhost:3000/products/products/search", ingredients);
-          setProducts([response.data]);
           console.log("Response", response.data);
-          console.log("From Product", products);
         }
         catch (error){
-          console.log("Error fetching boards", error);
+          console.log("Error fetching products", error);
         }
-      }
+    }
 
     return (
         <div className="Quiz">
