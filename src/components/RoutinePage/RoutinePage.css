@@ -8,3 +8,9 @@
 .RoutinePage {
     text-align: center;
 }
+
+.ProductsList {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
