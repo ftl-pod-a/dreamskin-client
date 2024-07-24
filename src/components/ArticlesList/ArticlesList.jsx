@@ -6,7 +6,17 @@ const ArticlesList = ({ articles }) => {
     <div className="article-list"> 
       {articles.map(article => (
         <div key={article.articleId} className="article">
-          <a href={article.articleUrl} target="_blank" rel="noopener noreferrer">{article.articleTitle}</a>
+          <div className='article-heading'>
+            <p>{article.articleTitle}</p>
+          </div>
+          <div className='article-link'>
+            <a href={article.articleUrl} target="_blank" rel="noopener noreferrer">
+            <i className="fa-solid fa-up-right-from-square"></i>
+          </a>
+       
+
+          </div>
+          
         </div>
       ))}
     </div>
