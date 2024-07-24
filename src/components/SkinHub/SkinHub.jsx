@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './SkinHub.css';
+import axios from 'axios';
+import { jwtDecode } from 'jwt-decode';
 import CommentModal from '../CommentModal/CommentModal';
 
 function SkinHub() {
@@ -10,52 +12,251 @@ function SkinHub() {
         { id: 2, name: 'Moisturizer', brand: 'Brand B', tags: ['tag3', 'tag4'], upvotes: 0, comments: [] },
         { id: 3, name: 'Sunscreen', brand: 'Brand C', tags: ['tag5', 'tag6'], upvotes: 0, comments: [] },
     ]);
-    const [searchTerm, setSearchTerm] = useState('');
-    const [trendingProducts, setTrendingProducts] = useState([]);
 
-    const toggleModal = (productId) => {
-        setShowModal(productId);
+    const [searchTerm, setSearchTerm] = useState('');
+  const [trendingProducts, setTrendingProducts] = useState([]);
+  const [userId, setUserId] = useState(null);
+  const [authToken, setAuthToken] = useState(null);
+
+  // Simulate login or fetch JWT token from localStorage
+  useEffect(() => {
+    const fetchAuthToken = async () => {
+      try {
+        // Mock authentication or fetch token from localStorage
+        const token = localStorage.getItem('authToken');
+        if (token) {
+          setAuthToken(token);
+          const decodedToken = jwtDecode(token);
+          setUserId(decodedToken.userId);
+        } else {
+          console.log('No authToken found in localStorage');
+          // Handle scenario where user is not logged in
+        }
+      } catch (error) {
+        console.error('Error fetching authToken:', error);
+      }
     };
 
-    const handleSubmitComment = () => {
-        if (newComment.trim() === '') {
-            alert('Please enter a comment.');
-            return;
-        }
+    fetchAuthToken();
+  }, []);
 
-        const updatedProducts = products.map(product => {
-            if (product.id === showModal) {
-                return {
-                    ...product,
-                    comments: [...product.comments, { message: newComment, author: 'User' }]
-                };
-            }
-            return product;
+  const toggleModal = (productId) => {
+    setShowModal(productId);
+  };
+
+  const handleSubmitComment = async () => {
+    if (newComment.trim() === '') {
+      alert('Please enter a comment.');
+      return;
+    }
+
+    try {
+      if (!userId) {
+        alert('User not authenticated.'); // Handle case where userId is not available
+        return;
+      }
+
+      const response = await axios.post('http://localhost:3000/comments', {
+        userId: userId, // Use dynamically retrieved userId
+        productId: showModal,
+        text: newComment,
+      });
+
+      const updatedProducts = products.map(product => {
+        if (product.id === showModal) {
+          return {
+            ...product,
+            comments: [...product.comments, response.data], // Add newly created comment to local state
+          };
+        }
+        return product;
+      });
+
+      setProducts(updatedProducts);
+      setNewComment('');
+    } catch (error) {
+      console.error('Error creating comment:', error);
+      alert('Failed to create comment. Please try again.');
+    }
+  };
+
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const handleUpvote = (productId) => {
+    const updatedProducts = products.map(product =>
+      product.id === productId ? { ...product, upvotes: product.upvotes + 1 } : product
+    );
+    setProducts(updatedProducts);
+  };
+
+  useEffect(() => {
+    const sortedProducts = [...products].sort((a, b) => b.upvotes - a.upvotes);
+    setTrendingProducts(sortedProducts.slice(0, 3));
+  }, [products]);
+
+  useEffect(() => {
+    const fetchComments = async () => {
+      try {
+        const productPromises = products.map(async product => {
+          const response = await axios.get(`http://localhost:3000/comments/product/${product.id}`);
+          return { ...product, comments: response.data };
         });
 
-        setProducts(updatedProducts);
-        setNewComment('');
+        const productsWithComments = await Promise.all(productPromises);
+        setProducts(productsWithComments);
+      } catch (error) {
+        console.error('Error fetching comments:', error);
+      }
     };
 
-    const handleSearchChange = (event) => {
-        setSearchTerm(event.target.value);
-    };
+    fetchComments();
+  }, []);
 
-    const handleUpvote = (productId) => {
-        const updatedProducts = products.map(product =>
-            product.id === productId ? { ...product, upvotes: product.upvotes + 1 } : product
-        );
-        setProducts(updatedProducts);
-    };
+  const filteredProducts = products.filter(product =>
+    product.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
-    useEffect(() => {
-        const sortedProducts = [...products].sort((a, b) => b.upvotes - a.upvotes);
-        setTrendingProducts(sortedProducts.slice(0, 3));
-    }, [products]);
 
-    const filteredProducts = products.filter(product =>
-        product.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+
+    // const [searchTerm, setSearchTerm] = useState('');
+    // const [trendingProducts, setTrendingProducts] = useState([]);
+
+    // useEffect(() => {
+    //     const authToken = localStorage.getItem('authToken');
+    //     if (authToken) {
+    //       const decodedToken = jwtDecode(authToken);
+    //       const { userId, username } = decodedToken;
+    //       console.log(userId, username);
+    //     } else {
+    //       console.log('No authToken found in localStorage');
+    //     }
+    //   }, []);
+    
+    //   const toggleModal = (productId) => {
+    //     setShowModal(productId);
+    //   };
+    
+    //   const handleSubmitComment = async () => {
+    //     if (newComment.trim() === '') {
+    //       alert('Please enter a comment.');
+    //       return;
+    //     }
+    
+    //     try {
+    //       if (!userId) {
+    //         alert('User not authenticated.');
+    //         return;
+    //       }
+    
+    //       const response = await axios.post('http://localhost:3000/comments', {
+    //         userId: userId,
+    //         productId: showModal,
+    //         text: newComment,
+    //       });
+    
+    //       const updatedProducts = products.map(product => {
+    //         if (product.id === showModal) {
+    //           return {
+    //             ...product,
+    //             comments: [...product.comments, response.data],
+    //           };
+    //         }
+    //         return product;
+    //       });
+    
+    //       setProducts(updatedProducts);
+    //       setNewComment('');
+    //     } catch (error) {
+    //       console.error('Error creating comment:', error);
+    //       alert('Failed to create comment. Please try again.');
+    //     }
+    //   };
+    
+    //   const handleSearchChange = (event) => {
+    //     setSearchTerm(event.target.value);
+    //   };
+    
+    //   const handleUpvote = (productId) => {
+    //     const updatedProducts = products.map(product =>
+    //       product.id === productId ? { ...product, upvotes: product.upvotes + 1 } : product
+    //     );
+    //     setProducts(updatedProducts);
+    //   };
+    
+    //   useEffect(() => {
+    //     const sortedProducts = [...products].sort((a, b) => b.upvotes - a.upvotes);
+    //     setTrendingProducts(sortedProducts.slice(0, 3));
+    //   }, [products]);
+    
+    //   useEffect(() => {
+    //     const fetchComments = async () => {
+    //       try {
+    //         const productPromises = products.map(async product => {
+    //           const response = await axios.get(`http://localhost:3000/comments/product/${product.id}`);
+    //           return { ...product, comments: response.data };
+    //         });
+    
+    //         const productsWithComments = await Promise.all(productPromises);
+    //         setProducts(productsWithComments);
+    //       } catch (error) {
+    //         console.error('Error fetching comments:', error);
+    //       }
+    //     };
+    
+    //     fetchComments();
+    //   }, []);
+    
+    //   const filteredProducts = products.filter(product =>
+    //     product.name.toLowerCase().includes(searchTerm.toLowerCase())
+    //   );
+    
+
+
+    // const toggleModal = (productId) => {
+    //     setShowModal(productId);
+    // };
+
+    // const handleSubmitComment = () => {
+    //     if (newComment.trim() === '') {
+    //         alert('Please enter a comment.');
+    //         return;
+    //     }
+
+    //     const updatedProducts = products.map(product => {
+    //         if (product.id === showModal) {
+    //             return {
+    //                 ...product,
+    //                 comments: [...product.comments, { message: newComment, author: 'User' }]
+    //             };
+    //         }
+    //         return product;
+    //     });
+
+    //     setProducts(updatedProducts);
+    //     setNewComment('');
+    // };
+
+    // const handleSearchChange = (event) => {
+    //     setSearchTerm(event.target.value);
+    // };
+
+    // const handleUpvote = (productId) => {
+    //     const updatedProducts = products.map(product =>
+    //         product.id === productId ? { ...product, upvotes: product.upvotes + 1 } : product
+    //     );
+    //     setProducts(updatedProducts);
+    // };
+
+    // useEffect(() => {
+    //     const sortedProducts = [...products].sort((a, b) => b.upvotes - a.upvotes);
+    //     setTrendingProducts(sortedProducts.slice(0, 3));
+    // }, [products]);
+
+    // const filteredProducts = products.filter(product =>
+    //     product.name.toLowerCase().includes(searchTerm.toLowerCase())
+    // );
 
     return (
         <div className='skinhub-content'>
