@@ -1,0 +1,14 @@
+.LoginPage {
+    display: flex;
+    background-color: #FCF7F2;
+    align-items: center;
+    justify-content: center;
+    width: 90vw;
+    height: 80vh;
+    gap: 1rem;
+
+}
+
+.LoginPage img {
+    width: 20rem;
+}
