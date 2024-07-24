@@ -84,7 +84,7 @@ function HomePage(){
                 </div>
                 <div className='quiz-content'>
                     <div className='quiz-image'>
-                        <img src="src/assets/placeholder.jpg" alt="Image"/>
+                        <img src="src/assets/quizImg.png" alt="Image"/>
                     </div>
                     <div className='quiz-box'>
                             <div className='box-content'>

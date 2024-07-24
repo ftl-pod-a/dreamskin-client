@@ -161,14 +161,15 @@
 .quiz-box {
     flex: 0 0 55%;
     max-width: 55%;
+    /* gap: 2rem; */
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
-.box-content {
-    /* flex: 0 0 calc(50% - 2rem);  */
+/* .box-content {
+  
     max-width: 24rem;
     margin-bottom: 1.5rem;
     padding: 1rem;
@@ -177,7 +178,8 @@
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
-}
+    height: min-content;
+} */
 .box-content:hover {
   transform: scale(1.05); /* Scale up by 5% on hover */
 }
