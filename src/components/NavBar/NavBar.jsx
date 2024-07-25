@@ -2,19 +2,21 @@ import React, { useState, useEffect } from 'react';
 import '@fontsource-variable/dm-sans'
 import './NavBar.css';
 import { Link, useNavigate } from "react-router-dom";
+import { useToken } from '../../context/TokenContext';
 
 const NavBar = () => {
-    const [token, setToken] = useState("");
+
+    const {tokenContext, setTokenContext} = useToken();
     const navigate = useNavigate();
 
     useEffect(() => {
-        const authToken = localStorage.getItem('authToken');
-        setToken(authToken)
-    }, [token])
+        const authToken = localStorage.getItem('token');
+        setTokenContext(authToken)
+    }, [tokenContext])
 
     const handleLogout = () => {
         localStorage.clear()
-        setToken("")
+        setTokenContext("")
         navigate("/");
     }
     return (
@@ -37,18 +39,15 @@ const NavBar = () => {
                         </Link> 
                     </div>
                     <div className='buttons'>
-                        { !token && 
+                        { !tokenContext && 
                             <div>
-                                <Link to={'/signup'}>
-                                    <button>Sign Up</button>
-                                </Link>
-                                <Link to={'/login'}>
-                                    <button>Login</button>
+                                <Link to={'/register'}>
+                                    <button>Log in</button>
                                 </Link>
                             </div>
                             
                         }
-                        { token && 
+                        { tokenContext && 
                             <div className='logged-in'>
                                 <img src="src/assets/quizicon.jpg" alt="user logo" className="user-image" />
                                 <button className="logout" onClick={handleLogout}>Log Out</button>
