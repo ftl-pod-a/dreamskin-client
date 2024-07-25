@@ -13,58 +13,18 @@ const RoutinePage = () => {
     console.log(authToken);
     const localProducts = JSON.parse(localStorage.getItem('products'));
     console.log(localProducts);
-    const hasBalm = localProducts.balm;
-    const hasSunscreen = localProducts.sunscreen;
-    const hasMorningCleanser = localProducts.morning_cleansers;
-    const hasNightCleanser = localProducts.night_cleansers;
-    const hasMorningMoisturizer = localProducts.morning_moisturizers;
-    const hasNightMoisturizer = localProducts.night_moisturizers;
+    const hasBalm = localProducts[2];
+    const hasSunscreen = localProducts[5];
+    const hasMorningCleanser = localProducts[0];
+    const hasNightCleanser = localProducts[1];
+    const hasMorningMoisturizer = localProducts[3];
+    const hasNightMoisturizer = localProducts[4];
 
     // Object.entries(localProducts).forEach(([key, value]) => {
     //     console.log(key, value);
     // })
 
-    // useEffect(() => {
-    // }, [])
-
-
-    const quizResponsetoChat = async () => {
-        try {
-          console.log(response);
-          let ingredientQuestion = `This user has ${response[0]} and they are dealing with ${response[1]}, they are hoping to ${response[2]}. What are the best ingredients for this user, only provide the name of ingredients in an array`;
-          console.log(ingredientQuestion);
-          const r = await axios.post("http://localhost:3000/api/chat", {prompt: ingredientQuestion});
-          let geminiIngredients = r.data.response;
-          console.log("Gemini", geminiIngredients);
-
-        let cleanedStr = geminiIngredients.replace(/```/g, '').trim();
-        console.log(cleanedStr)
-
-        let ingredientsArray = JSON.parse(cleanedStr);
-        ingredientsArray = {
-            ingredients: ingredientsArray
-          };
-        console.log("Array", ingredientsArray);
-
-        const generatedProduct = await getRecommendedProducts(ingredientsArray);
-        console.log("Returned Response", generatedProduct);
-        } catch (error) {
-          console.error("Error getting ingredients", error); 
-        }
-    }
-      
-    const getRecommendedProducts = async (ingredients) => {
-        try {
-          const response = await axios.post("http://localhost:3000/products/products/search", ingredients);
-          setProducts([response.data])
-          return response.data;
-        }
-        catch (error){
-          console.log("Error getting products", error);
-        }
-    }
-
-
+    
     return (
         <div className="RoutinePage">
             <h1>Routine</h1>
@@ -75,34 +35,34 @@ const RoutinePage = () => {
                     <div className="day-products">
                         {hasMorningCleanser && 
                             <Product 
-                                product_id={localProducts.morning_cleansers.id}
-                                name={localProducts.morning_cleansers.name} 
-                                brand={localProducts.morning_cleansers.brand} 
-                                price={localProducts.morning_cleansers.price} 
+                                product_id={localProducts[0].id}
+                                name={localProducts[0].name} 
+                                brand={localProducts[0].brand} 
+                                price={localProducts[0].price} 
                                 liked={false}
-                                imageUrl={localProducts.morning_cleansers.imageUrl}
+                                imageUrl={localProducts[0].imageUrl}
                             />
                         }
                         
                         { hasMorningMoisturizer && 
                             <Product 
-                                product_id={localProducts.morning_moisturizers.id}
-                                name={localProducts.morning_moisturizers.name} 
-                                brand={localProducts.morning_moisturizers.brand} 
-                                price={localProducts.morning_moisturizers.price} 
+                                product_id={localProducts[3].id}
+                                name={localProducts[3].name} 
+                                brand={localProducts[3].brand} 
+                                price={localProducts[3].price} 
                                 liked={false}
-                                imageUrl={localProducts.morning_moisturizers.imageUrl}
+                                imageUrl={localProducts[3].imageUrl}
                             />
                         }
                         
                         { hasSunscreen && 
                             <Product 
-                                product_id={localProducts.sunscreen.id}
-                                name={localProducts.sunscreen.name} 
-                                brand={localProducts.sunscreen.brand} 
-                                price={localProducts.sunscreen.price} 
+                                product_id={localProducts[5].id}
+                                name={localProducts[5].name} 
+                                brand={localProducts[5].brand} 
+                                price={localProducts[5].price} 
                                 liked={false}
-                                imageUrl={localProducts.sunscreen.imageUrl}
+                                imageUrl={localProducts[5].imageUrl}
                             />
                         }
                     </div>
@@ -112,34 +72,34 @@ const RoutinePage = () => {
                     <div className="night-products">
                         { hasBalm && 
                             <Product 
-                                product_id={localProducts.balm.id}
-                                name={localProducts.balm.name} 
-                                brand={localProducts.balm.brand} 
-                                price={localProducts.balm.price} 
+                                product_id={localProducts[2].id}
+                                name={localProducts[2].name} 
+                                brand={localProducts[2].brand} 
+                                price={localProducts[2].price} 
                                 liked={false}
-                                imageUrl={localProducts.balm.imageUrl}
+                                imageUrl={localProducts[2].imageUrl}
                             />
                         }
 
                         { hasNightCleanser && 
                             <Product 
-                                product_id={localProducts.night_cleansers.id}
-                                name={localProducts.night_cleansers.name} 
-                                brand={localProducts.night_cleansers.brand} 
-                                price={localProducts.night_cleansers.price} 
+                                product_id={localProducts[1].id}
+                                name={localProducts[1].name} 
+                                brand={localProducts[1].brand} 
+                                price={localProducts[1].price} 
                                 liked={false}
-                                imageUrl={localProducts.night_cleansers.imageUrl}
+                                imageUrl={localProducts[1].imageUrl}
                             />
                         }
 
                         { hasNightMoisturizer && 
                             <Product 
-                                product_id={localProducts.night_moisturizers.id}
-                                name={localProducts.night_moisturizers.name} 
-                                brand={localProducts.night_moisturizers.brand} 
-                                price={localProducts.night_moisturizers.price} 
+                                product_id={localProducts[4].id}
+                                name={localProducts[4].name} 
+                                brand={localProducts[4].brand} 
+                                price={localProducts[4].price} 
                                 liked={false}
-                                imageUrl={localProducts.night_moisturizers.imageUrl}
+                                imageUrl={localProducts[4].imageUrl}
                             />
                         }
                     </div>

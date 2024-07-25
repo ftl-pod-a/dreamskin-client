@@ -23,9 +23,12 @@ const LoginPage = () => {
         try {
             const response = await axios.post("http://localhost:3000/users/register", newUser);
             console.log("Response", response.data.token);
+            localStorage.clear();
             localStorage.setItem('authToken', response.data.token);
-            navigate("/quiz");
             window.location.reload();
+            navigate("/quiz");
+            
+            
         }
         catch (error){
             console.log("Error creating new user", error);
