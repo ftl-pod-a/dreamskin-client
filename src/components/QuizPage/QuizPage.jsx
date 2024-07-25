@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import LinearProgress from '@mui/joy/LinearProgress';
 import "./QuizPage.css";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { jwtDecode } from 'jwt-decode';
 
 const QuizPage = () => {
 
@@ -51,6 +52,7 @@ const QuizPage = () => {
     const [response, setResponse] = useState(["", "", "", ""]);
     const [progress, setProgress] = useState(0);
     const [showFinish, setShowFinish] = useState(false);
+    const navigate = useNavigate();
 
 
     useEffect(() => {
@@ -70,7 +72,7 @@ const QuizPage = () => {
         setCurrentChoice(e.target.textContent);
     }
 
-    const handleForwardButtonClick = () => {
+    const handleForwardButtonClick = async () => {
         const nextQuestion = currentQuestion + 1;
         const newProgress = progress + 25;
         if (nextQuestion < quizQuestions.length) {
@@ -81,7 +83,8 @@ const QuizPage = () => {
         }
        else {
         setShowFinish(true);
-        quizResponsetoChat();
+        await quizResponsetoChat();
+        navigate("/routine");
        }
        checkProgress(newProgress);
     }
@@ -125,11 +128,39 @@ const QuizPage = () => {
           const response = await axios.post("http://localhost:3000/products/products/search", ingredients);
           console.log("Response", response.data);
           localStorage.setItem('products', JSON.stringify(response.data));
-          const localProducts = localStorage.getItem('products');
-          console.log(JSON.parse(localProducts));
+          await saveRoutine();
         }
         catch (error){
           console.log("Error fetching products", error);
+        }
+    }
+
+    const saveRoutine = async () => {
+        try {
+          const localProducts = JSON.parse(localStorage.getItem('products'));
+          const authToken = localStorage.getItem('authToken');
+          const decodedToken = jwtDecode(authToken);
+          const { userId, username } = decodedToken;
+          console.log(userId, username);
+          
+
+          const userRoutine = {
+            user_id: userId,
+            products: [
+                {id: localProducts[0].id}, 
+                {id: localProducts[3].id}, 
+                {id: localProducts[5].id}, 
+                {id: localProducts[2].id}, 
+                {id: localProducts[1].id}, 
+                {id: localProducts[4].id}, 
+            ]
+          }
+          console.log(userRoutine);
+          const response = await axios.post("http://localhost:3000/routine", userRoutine);
+          console.log("Saved Routine", response.data);
+        }
+        catch (error){
+          console.log("Error saving routine", error);
         }
     }
 
@@ -159,9 +190,8 @@ const QuizPage = () => {
                 <button className="forward" onClick={handleForwardButtonClick}>Continue</button>
                 }
                 { currentQuestion == quizQuestions.length - 1 &&
-                    <Link to={'/routine'}>
-                        <button className="forward" onClick={handleForwardButtonClick}>Finish</button>
-                    </Link>
+                    <button className="forward" onClick={handleForwardButtonClick}>Finish</button>
+                    
                 }
             </div>
         </div>
