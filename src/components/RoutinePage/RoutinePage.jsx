@@ -26,7 +26,6 @@ const RoutinePage = () => {
     
     return (
         <div className="RoutinePage">
-            <h1>Routine</h1>
             <img className="banner-image" src="src/assets/quizbanner.jpg" alt="Banner image" />
             <div className="ProductsList">
                 <div className="day">
