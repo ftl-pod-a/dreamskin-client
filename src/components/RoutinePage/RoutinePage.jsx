@@ -39,6 +39,8 @@ const RoutinePage = () => {
                                 price={localProducts[0].price} 
                                 liked={false}
                                 imageUrl={localProducts[0].imageUrl}
+                                ingredients={localProducts[0].ingredients}
+                                description={localProducts[0].description}
                             />
                         }
                         
@@ -50,6 +52,8 @@ const RoutinePage = () => {
                                 price={localProducts[2].price} 
                                 liked={false}
                                 imageUrl={localProducts[2].imageUrl}
+                                ingredients={localProducts[2].ingredients}
+                                description={localProducts[2].description}
                             />
                         }
                         
@@ -61,6 +65,8 @@ const RoutinePage = () => {
                                 price={localProducts[4].price} 
                                 liked={false}
                                 imageUrl={localProducts[4].imageUrl}
+                                ingredients={localProducts[4].ingredients}
+                                description={localProducts[4].description}
                             />
                         }
                     </div>
@@ -76,6 +82,8 @@ const RoutinePage = () => {
                                 price={localProducts[1].price} 
                                 liked={false}
                                 imageUrl={localProducts[1].imageUrl}
+                                ingredients={localProducts[1].ingredients}
+                                description={localProducts[1].description}
                             />
                         }
 
@@ -87,6 +95,8 @@ const RoutinePage = () => {
                                 price={localProducts[3].price} 
                                 liked={false}
                                 imageUrl={localProducts[3].imageUrl}
+                                ingredients={localProducts[3].ingredients}
+                                description={localProducts[3].description}
                             />
                         }
                     </div>
