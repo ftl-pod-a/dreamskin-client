@@ -26,7 +26,7 @@ const RoutinePage = () => {
     
     return (
         <div className="RoutinePage">
-            <img className="banner-image" src="src/assets/routinebanner-3.png" alt="Banner image" />
+            <img className="banner-image" src="src/assets/newroutinebanner.png" alt="Banner image" />
             <div className="ProductsList">
                 <div className="day">
                     <h2>Day</h2>
