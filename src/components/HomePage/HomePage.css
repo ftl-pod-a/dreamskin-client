@@ -105,6 +105,12 @@
     flex-direction: column; /* Stack icon and number vertically */
     flex-wrap: wrap;
     align-items: center; /* Center align content */
+    transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+    will-change: transform, opacity;
+  }
+
+  .box:hover {
+    transform: scale(1.04);
   }
   
   .box i {
@@ -169,10 +175,13 @@
 }
 
 .box-content {
-    transition: transform 0.3s ease-in-out;
+  transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+  will-change: transform, opacity;
+  /* transition: transform 0.3s ease-in-out; */
 }
+
 .box-content:hover {
-  transform: scale(1.05); /* Scale up by 5% on hover */
+  transform: scale(1.02); /* Scale up by 5% on hover */
 }
 
 .quiz-row {
