@@ -47,6 +47,7 @@
     border-radius: 0.5rem;
     color: white;
     padding: 0.5rem;
+    cursor: pointer;
 }
 
 .product-image {
@@ -58,3 +59,7 @@
 .Product h3, .Product h4 {
     font-weight: bold;
 }
+
+.modal-body img{
+    width: 20rem;
+  }
