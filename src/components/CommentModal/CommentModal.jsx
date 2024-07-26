@@ -22,6 +22,15 @@ const CommentModal = ({ isOpen, onClose, comments, newComment, setNewComment, ha
                     <button onClick={onClose}>Close</button>
                 </div>
                 <div className='modal-body'>
+                <div className='add-comment'>
+                        <input
+                            type="text"
+                            value={newComment}
+                            onChange={(e) => setNewComment(e.target.value)}
+                            placeholder="Write a comment..."
+                        />
+                        <button onClick={handleSubmitComment}>Submit</button>
+                    </div>
                     <ul>
                         {comments.map((comment, index) => (
                             <li key={index}>
@@ -33,7 +42,7 @@ const CommentModal = ({ isOpen, onClose, comments, newComment, setNewComment, ha
                             </li>
                         ))}
                     </ul>
-                    <div className='add-comment'>
+                    {/* <div className='add-comment'>
                         <input
                             type="text"
                             value={newComment}
@@ -41,7 +50,7 @@ const CommentModal = ({ isOpen, onClose, comments, newComment, setNewComment, ha
                             placeholder="Write a comment..."
                         />
                         <button onClick={handleSubmitComment}>Submit</button>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>

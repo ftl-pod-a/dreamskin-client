@@ -9,6 +9,8 @@ import SignupPage from './components/SignupPage/SignupPage';
 import NavBar from './components/NavBar/NavBar';
 import Articles from './components/Articles/Articles';
 import Footer from './components/Footer/Footer';
+import Trying from './components/Trying/Trying';
+
 import './App.css';
 
 const App = () => {
@@ -27,6 +29,7 @@ const App = () => {
             <Route path="/login" element={<LoginPage/>}></Route>
             <Route path="/signup" element={<SignupPage/>}></Route>
             <Route path='/article' element={<Articles />}></Route>
+            <Route path='/trying' element={<Trying />}></Route>
           </Routes>
       </BrowserRouter>
       <Footer/>
