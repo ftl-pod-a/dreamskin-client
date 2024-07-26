@@ -7,13 +7,15 @@ import CommentModal from '../CommentModal/CommentModal';
 // import jwtDecode from 'jwt-decode';
 import './Trying.css';
 import { jwtDecode } from 'jwt-decode';
+import { useToken } from '../../context/TokenContext';
 
 function Trying() {
   const [showModal, setShowModal] = useState(false);
   const [newComment, setNewComment] = useState('');
   const [products, setProducts] = useState([]);
   const [userId, setUserId] = useState(null);
-  const [authToken, setAuthToken] = useState(null);
+  const {tokenContext, setTokenContext} = useToken();
+  //const [authToken, setAuthToken] = useState(null);
   const [addComment, setAddComment] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(5); // Assuming a default value or fetch initially
@@ -22,9 +24,9 @@ function Trying() {
   useEffect(() => {
     const fetchAuthToken = async () => {
       try {
-        const token = localStorage.getItem('authToken');
+        const token = localStorage.getItem('token');
         if (token) {
-          setAuthToken(token);
+          setTokenContext(token);
           const decodedToken = jwtDecode(token);
           setUserId(decodedToken.userId);
         } else {

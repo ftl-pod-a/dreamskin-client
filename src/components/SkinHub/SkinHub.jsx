@@ -11,6 +11,7 @@ import axios from 'axios';
 import { jwtDecode } from 'jwt-decode';
 import _ from 'lodash'; // Import lodash for debounce
 import CommentModal from '../CommentModal/CommentModal';
+import { useToken } from '../../context/TokenContext';
 import './SkinHub.css';
 
 function SkinHub() {
@@ -20,7 +21,8 @@ function SkinHub() {
   const [searchTerm, setSearchTerm] = useState('');
   const [trendingProducts, setTrendingProducts] = useState([]);
   const [userId, setUserId] = useState(null);
-  const [authToken, setAuthToken] = useState(null);
+  const {tokenContext, setTokenContext} = useToken();
+  //const [authToken, setAuthToken] = useState(null);
   const [addComment, setAddComment] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
@@ -29,9 +31,9 @@ function SkinHub() {
   useEffect(() => {
     const fetchAuthToken = async () => {
       try {
-        const token = localStorage.getItem('authToken');
+        const token = localStorage.getItem('token');
         if (token) {
-          setAuthToken(token);
+          setTokenContext(token);
           const decodedToken = jwtDecode(token);
           setUserId(decodedToken.userId);
         } else {
