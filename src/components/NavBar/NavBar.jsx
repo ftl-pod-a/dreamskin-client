@@ -39,9 +39,12 @@ const NavBar = () => {
                         <Link to={'/skinhub'}>
                             <div>SkinHUB</div>
                         </Link>
+                        <Link to={'/trending'}>
+                            <div>Trending</div>
+                        </Link>
                         <Link to={'/article'}>
                             <div>Education</div>
-                        </Link> 
+                        </Link>  
                     </div>
                     <div className='buttons'>
                         { !tokenContext && 

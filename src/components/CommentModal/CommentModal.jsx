@@ -29,7 +29,8 @@ const CommentModal = ({ isOpen, onClose, comments, newComment, setNewComment, ha
                             onChange={(e) => setNewComment(e.target.value)}
                             placeholder="Write a comment..."
                         />
-                        <button onClick={handleSubmitComment}>Submit</button>
+                        
+                        <button onClick={handleSubmitComment}><i className="fa-solid fa-paper-plane" ></i></button>
                     </div>
                     <ul>
                         {comments.map((comment, index) => (
