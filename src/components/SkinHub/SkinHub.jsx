@@ -8,10 +8,10 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
-import { jwtDecode } from 'jwt-decode';
+// import { jwtDecode } from 'jwt-decode';
 import _ from 'lodash'; // Import lodash for debounce
-import CommentModal from '../CommentModal/CommentModal';
-import { useToken } from '../../context/TokenContext';
+// import CommentModal from '../CommentModal/CommentModal';
+// import { useToken } from '../../context/TokenContext';
 import './SkinHub.css';
 
 function SkinHub() {
@@ -19,33 +19,33 @@ function SkinHub() {
   const [newComment, setNewComment] = useState('');
   const [products, setProducts] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
-  const [trendingProducts, setTrendingProducts] = useState([]);
-  const [userId, setUserId] = useState(null);
-  const {tokenContext, setTokenContext} = useToken();
+  // const [trendingProducts, setTrendingProducts] = useState([]);
+  // const [userId, setUserId] = useState(null);
+  // const {tokenContext, setTokenContext} = useToken();
   //const [authToken, setAuthToken] = useState(null);
-  const [addComment, setAddComment] = useState(false);
+  // const [addComment, setAddComment] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [loading, setLoading] = useState(false); // State for loading feedback
 
-  useEffect(() => {
-    const fetchAuthToken = async () => {
-      try {
-        const token = localStorage.getItem('token');
-        if (token) {
-          setTokenContext(token);
-          const decodedToken = jwtDecode(token);
-          setUserId(decodedToken.userId);
-        } else {
-          console.log('No authToken found in localStorage');
-        }
-      } catch (error) {
-        console.error('Error fetching authToken:', error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchAuthToken = async () => {
+  //     try {
+  //       const token = localStorage.getItem('token');
+  //       if (token) {
+  //         setTokenContext(token);
+  //         const decodedToken = jwtDecode(token);
+  //         setUserId(decodedToken.userId);
+  //       } else {
+  //         console.log('No authToken found in localStorage');
+  //       }
+  //     } catch (error) {
+  //       console.error('Error fetching authToken:', error);
+  //     }
+  //   };
 
-    fetchAuthToken();
-  }, []);
+  //   fetchAuthToken();
+  // }, []);
 
   // Debounced search function
   const debouncedSearch = useCallback(
@@ -95,55 +95,55 @@ function SkinHub() {
   };
 
   // Fetch trending products
-  useEffect(() => {
-    const fetchTrendingProducts = async () => {
-      try {
-        const cleanserResponse = await axios.get('http://localhost:3000/products?category=cleanser&sort=likes');
-        const moisturizerResponse = await axios.get('http://localhost:3000/products?category=moisturizer&sort=likes');
-        const sunscreenResponse = await axios.get('http://localhost:3000/products?category=sunscreen&sort=likes');
+  // useEffect(() => {
+  //   const fetchTrendingProducts = async () => {
+  //     try {
+  //       const cleanserResponse = await axios.get('http://localhost:3000/products?category=cleanser&sort=likes');
+  //       const moisturizerResponse = await axios.get('http://localhost:3000/products?category=moisturizer&sort=likes');
+  //       const sunscreenResponse = await axios.get('http://localhost:3000/products?category=sunscreen&sort=likes');
 
-        const trendingProductsData = [
-          cleanserResponse.data?.[0],
-          moisturizerResponse.data?.[0],
-          sunscreenResponse.data?.[0],
-        ].filter(product => product); // Filter out any undefined products
+  //       const trendingProductsData = [
+  //         cleanserResponse.data?.[0],
+  //         moisturizerResponse.data?.[0],
+  //         sunscreenResponse.data?.[0],
+  //       ].filter(product => product); // Filter out any undefined products
 
-        setTrendingProducts(trendingProductsData);
-      } catch (error) {
-        console.error('Error fetching trending products:', error);
-      }
-    };
+  //       setTrendingProducts(trendingProductsData);
+  //     } catch (error) {
+  //       console.error('Error fetching trending products:', error);
+  //     }
+  //   };
 
-    fetchTrendingProducts();
-  }, []);
+  //   fetchTrendingProducts();
+  // }, []);
 
   // Fetch comments for products
-  useEffect(() => {
-    const fetchComments = async () => {
-      try {
-        const productPromises = products.map(async product => {
-          const response = await axios.get(`http://localhost:3000/comments/product/${product.id}`);
-          return { ...product, comments: response.data || [] }; // Ensure comments are an array
-        });
+  // useEffect(() => {
+  //   const fetchComments = async () => {
+  //     try {
+  //       const productPromises = products.map(async product => {
+  //         const response = await axios.get(`http://localhost:3000/comments/product/${product.id}`);
+  //         return { ...product, comments: response.data || [] }; // Ensure comments are an array
+  //       });
 
-        const productsWithComments = await Promise.all(productPromises);
+  //       const productsWithComments = await Promise.all(productPromises);
 
-        setProducts(prevProducts => {
-          return prevProducts.map(prevProduct => {
-            const foundProduct = productsWithComments.find(updatedProduct => updatedProduct.id === prevProduct.id);
-            if (foundProduct) {
-              return { ...prevProduct, comments: foundProduct.comments };
-            }
-            return prevProduct;
-          });
-        });
-      } catch (error) {
-        console.error('Error fetching comments:', error);
-      }
-    };
+  //       setProducts(prevProducts => {
+  //         return prevProducts.map(prevProduct => {
+  //           const foundProduct = productsWithComments.find(updatedProduct => updatedProduct.id === prevProduct.id);
+  //           if (foundProduct) {
+  //             return { ...prevProduct, comments: foundProduct.comments };
+  //           }
+  //           return prevProduct;
+  //         });
+  //       });
+  //     } catch (error) {
+  //       console.error('Error fetching comments:', error);
+  //     }
+  //   };
 
-    fetchComments();
-  }, [addComment]);
+  //   fetchComments();
+  // }, [addComment]);
 
   // Handle page change to load more products
   const handleLoadMore = () => {
@@ -159,64 +159,64 @@ function SkinHub() {
     setShowModal(productId);
   };
 
-  const handleSubmitComment = async () => {
-    if (newComment.trim() === '') {
-      alert('Please enter a comment.');
-      return;
-    }
+  // const handleSubmitComment = async () => {
+  //   if (newComment.trim() === '') {
+  //     alert('Please enter a comment.');
+  //     return;
+  //   }
 
-    try {
-      if (!userId) {
-        alert('User not authenticated.');
-        return;
-      }
+  //   try {
+  //     if (!userId) {
+  //       alert('User not authenticated.');
+  //       return;
+  //     }
 
-      const response = await axios.post('http://localhost:3000/comments', {
-        userId: userId,
-        productId: showModal,
-        text: newComment,
-      });
+  //     const response = await axios.post('http://localhost:3000/comments', {
+  //       userId: userId,
+  //       productId: showModal,
+  //       text: newComment,
+  //     });
 
-      const updatedProducts = products.map(product => {
-        if (product.id === showModal) {
-          return {
-            ...product,
-            comments: [...product.comments, response.data], // Add newly created comment to local state
-          };
-        }
-        return product;
-      });
+  //     const updatedProducts = products.map(product => {
+  //       if (product.id === showModal) {
+  //         return {
+  //           ...product,
+  //           comments: [...product.comments, response.data], // Add newly created comment to local state
+  //         };
+  //       }
+  //       return product;
+  //     });
 
-      setProducts(updatedProducts);
-      setNewComment('');
-      setAddComment(false);
-    } catch (error) {
-      console.error('Error creating comment:', error);
-      alert('Failed to create comment. Please try again.');
-    }
-  };
+  //     setProducts(updatedProducts);
+  //     setNewComment('');
+  //     setAddComment(false);
+  //   } catch (error) {
+  //     console.error('Error creating comment:', error);
+  //     alert('Failed to create comment. Please try again.');
+  //   }
+  // };
 
-  const handleUpvote = async (productId) => {
-    try {
-      if (!userId) {
-        alert('User not authenticated.');
-        return;
-      }
+  // const handleUpvote = async (productId) => {
+  //   try {
+  //     if (!userId) {
+  //       alert('User not authenticated.');
+  //       return;
+  //     }
 
-      const response = await axios.post(`http://localhost:3000/products/${productId}/like`, {
-        userId: userId,
-      });
+  //     const response = await axios.post(`http://localhost:3000/products/${productId}/like`, {
+  //       userId: userId,
+  //     });
 
-      const updatedProducts = products.map(product =>
-        product.id === productId ? { ...product, likes: response.data.likes } : product
-      );
+  //     const updatedProducts = products.map(product =>
+  //       product.id === productId ? { ...product, likes: response.data.likes } : product
+  //     );
 
-      setProducts(updatedProducts);
-    } catch (error) {
-      console.error('Error liking product:', error);
-      alert('Failed to like product. Please try again.');
-    }
-  };
+  //     setProducts(updatedProducts);
+  //   } catch (error) {
+  //     console.error('Error liking product:', error);
+  //     alert('Failed to like product. Please try again.');
+  //   }
+  // };
 
   // Filter products based on search term
   const filteredProducts = products.filter(product =>
@@ -226,14 +226,14 @@ function SkinHub() {
   return (
     <div className='skinhub-content'>
       <div className='skinhub-banner'>
-        <img src="src/assets/placeholder.jpg" alt="Image" />
+        <img src="src/assets/productsBanner.png" alt="Image" />
       </div>
 
       <div className='search-container'>
         <div className='skinhub-search'>
           <input
             type="text"
-            placeholder="Search by product name..."
+            placeholder="Search by product name cerave, tatcha, aveno, etc..."
             value={searchTerm}
             onChange={handleSearchChange}
           />
@@ -241,8 +241,7 @@ function SkinHub() {
         </div>
       </div>
 
-      <div className='skinhub-trending'>
-        <h3 className='trending-heading'>Trending</h3>
+      {/* <div className='skinhub-trending'>
         <div className='trending-products'>
           {trendingProducts.map(product => (
             <div key={product.id} className='trending-product'>
@@ -251,28 +250,32 @@ function SkinHub() {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
+
+     
 
       <div className='products'>
         {filteredProducts.map(product => (
           <div className='products-card' key={product.id}>
-            <div className='products-upvote' onClick={() => handleUpvote(product.id)}>
+            {/* <div className='products-upvote' onClick={() => handleUpvote(product.id)}>
               <i className="fas fa-caret-up"></i>
               <span>{product.likes}</span>
-            </div>
+            </div> */}
 
             <div className='product-details'>
               <h3>{product.name}</h3>
               <h4>{product.brand}</h4>
-              <h4>{product.category}</h4>
-              <h4>{product.description}</h4>
+              {/* <h4>{product.category}</h4>
+              <h4>{product.description}</h4> */}
               <p>Price: ${product.price}</p>
               <img src={product.imageUrl} alt={product.name} style={{ width: '200px', height: '200px' }} />
+              <h5>{product.category}</h5>
+              <p>{product.description}</p>
             </div>
 
-            <div className='products-review'>
+            {/* <div className='products-review'>
               <i className="far fa-comments" onClick={() => toggleModal(product.id)}></i>
-            </div>
+            </div> */}
           </div>
         ))}
       </div>
@@ -286,7 +289,7 @@ function SkinHub() {
         </button>
       </div>
 
-      <CommentModal
+      {/* <CommentModal
         isOpen={showModal !== false}
         onClose={() => setShowModal(false)}
         comments={products.find(product => product.id === showModal)?.comments || []}
@@ -294,7 +297,7 @@ function SkinHub() {
         setNewComment={setNewComment}
         handleSubmitComment={handleSubmitComment}
         setAddComment={setAddComment}
-      />
+      /> */}
     </div>
   );
 }
