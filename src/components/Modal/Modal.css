@@ -13,7 +13,7 @@
     text-align: left;
   }
   
-  .modal-content {
+  .Modal .modal-content {
     background-color: rgb(91, 102, 112);
     color: white;
     padding: 2rem;
@@ -22,12 +22,12 @@
     width: 60%;
   }
   
-  .modal-header {
+  .Modal .modal-header {
     display: flex;
     justify-content: flex-end;
   }
   
-  .modal-body {
+  .Modal .modal-body {
     margin-top: 20px;
     display: flex;
     align-items: center;
@@ -36,14 +36,14 @@
     gap: 2rem;
   }
 
-  .modal-body * {
+  .Modal .modal-body * {
     margin: 0.5rem;
   }
 
 
-  .close {
-    font-size: 4rem;
-    background-color: white;
+  .Modal .close {
+    font-size: 1rem;
+    background-color: transparent;
     border: none;
     color: white;
   }
