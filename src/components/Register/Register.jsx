@@ -4,7 +4,7 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { useToken } from '../../context/TokenContext';
 
-const LoginPage = () => {
+const Register = () => {
     const navigate = useNavigate();
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -28,7 +28,7 @@ const LoginPage = () => {
 
       //store the toekn in the localstorage as token
       localStorage.setItem("token", loginResponse.data.token);
-      navigate("/");
+      navigate("/quiz");
     } catch (error) {
       alert("Registration failed. Try again");
     }
@@ -50,9 +50,9 @@ const LoginPage = () => {
                             <input type="text" placeholder="Password" id="password" value={"*".repeat(password.length)} onChange={(e) => setPassword(e.target.value)} required/>
                         </div>
                         <div className="signup">
-                          Don't have an account?
+                          Already have an account?
                           <Link to={'/login'}>
-                            <button className="redirect">Sign Up</button>
+                            <button className="redirect">Log In</button>
                           </Link>
                         </div>
                         <button className="submit" onClick={handleRegister}>Create Account</button>
@@ -64,4 +64,4 @@ const LoginPage = () => {
     )
 }
 
-export default LoginPage;
+export default Register;

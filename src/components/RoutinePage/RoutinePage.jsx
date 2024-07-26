@@ -6,19 +6,18 @@ import { useState, useEffect } from "react";
 import { jwtDecode } from 'jwt-decode';
 
 const RoutinePage = () => {
-    const authToken = localStorage.getItem('authToken');
+    const authToken = localStorage.getItem('token');
     const decodedToken = jwtDecode(authToken);
     const { userId, username } = decodedToken;
     console.log(userId, username);
     console.log(authToken);
     const localProducts = JSON.parse(localStorage.getItem('products'));
     console.log(localProducts);
-    const hasBalm = localProducts[2];
-    const hasSunscreen = localProducts[5];
+    const hasSunscreen = localProducts[4];
     const hasMorningCleanser = localProducts[0];
     const hasNightCleanser = localProducts[1];
-    const hasMorningMoisturizer = localProducts[3];
-    const hasNightMoisturizer = localProducts[4];
+    const hasMorningMoisturizer = localProducts[2];
+    const hasNightMoisturizer = localProducts[3];
 
     // Object.entries(localProducts).forEach(([key, value]) => {
     //     console.log(key, value);
@@ -46,32 +45,6 @@ const RoutinePage = () => {
                         
                         { hasMorningMoisturizer && 
                             <Product 
-                                product_id={localProducts[3].id}
-                                name={localProducts[3].name} 
-                                brand={localProducts[3].brand} 
-                                price={localProducts[3].price} 
-                                liked={false}
-                                imageUrl={localProducts[3].imageUrl}
-                            />
-                        }
-                        
-                        { hasSunscreen && 
-                            <Product 
-                                product_id={localProducts[5].id}
-                                name={localProducts[5].name} 
-                                brand={localProducts[5].brand} 
-                                price={localProducts[5].price} 
-                                liked={false}
-                                imageUrl={localProducts[5].imageUrl}
-                            />
-                        }
-                    </div>
-                </div>
-                <div className="night">
-                    <h2>Night</h2>
-                    <div className="night-products">
-                        { hasBalm && 
-                            <Product 
                                 product_id={localProducts[2].id}
                                 name={localProducts[2].name} 
                                 brand={localProducts[2].brand} 
@@ -80,7 +53,22 @@ const RoutinePage = () => {
                                 imageUrl={localProducts[2].imageUrl}
                             />
                         }
-
+                        
+                        { hasSunscreen && 
+                            <Product 
+                                product_id={localProducts[4].id}
+                                name={localProducts[4].name} 
+                                brand={localProducts[4].brand} 
+                                price={localProducts[4].price} 
+                                liked={false}
+                                imageUrl={localProducts[4].imageUrl}
+                            />
+                        }
+                    </div>
+                </div>
+                <div className="night">
+                    <h2>Night</h2>
+                    <div className="night-products">
                         { hasNightCleanser && 
                             <Product 
                                 product_id={localProducts[1].id}
@@ -94,12 +82,12 @@ const RoutinePage = () => {
 
                         { hasNightMoisturizer && 
                             <Product 
-                                product_id={localProducts[4].id}
-                                name={localProducts[4].name} 
-                                brand={localProducts[4].brand} 
-                                price={localProducts[4].price} 
+                                product_id={localProducts[3].id}
+                                name={localProducts[3].name} 
+                                brand={localProducts[3].brand} 
+                                price={localProducts[3].price} 
                                 liked={false}
-                                imageUrl={localProducts[4].imageUrl}
+                                imageUrl={localProducts[3].imageUrl}
                             />
                         }
                     </div>

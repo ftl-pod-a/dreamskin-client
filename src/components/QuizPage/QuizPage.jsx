@@ -138,7 +138,7 @@ const QuizPage = () => {
     const saveRoutine = async () => {
         try {
           const localProducts = JSON.parse(localStorage.getItem('products'));
-          const authToken = localStorage.getItem('authToken');
+          const authToken = localStorage.getItem('token');
           const decodedToken = jwtDecode(authToken);
           const { userId, username } = decodedToken;
           console.log(userId, username);
@@ -147,12 +147,11 @@ const QuizPage = () => {
           const userRoutine = {
             user_id: userId,
             products: [
-                {id: localProducts[0].id}, 
-                {id: localProducts[3].id}, 
-                {id: localProducts[5].id}, 
-                {id: localProducts[2].id}, 
-                {id: localProducts[1].id}, 
-                {id: localProducts[4].id}, 
+                {id: localProducts[0].id},  // morning cleanser
+                {id: localProducts[1].id},  // night cleanser
+                {id: localProducts[2].id},  // morning moisturizer
+                {id: localProducts[3].id},  // night moisturizer
+                {id: localProducts[4].id}, // sunscreen
             ]
           }
           console.log(userRoutine);
