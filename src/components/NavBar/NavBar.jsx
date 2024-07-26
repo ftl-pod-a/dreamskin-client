@@ -31,6 +31,11 @@ const NavBar = () => {
                         <Link to={'/'}>
                             <div>Home</div>
                         </Link>
+                        { tokenContext && 
+                            <Link to={'/routine'}>
+                                <div>Routine</div>
+                            </Link> 
+                        }
                         <Link to={'/skinhub'}>
                             <div>SkinHUB</div>
                         </Link>

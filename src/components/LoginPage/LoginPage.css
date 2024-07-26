@@ -1,14 +1,57 @@
-.LoginPage {
+.login {
+    font-family: 'Poppins', sans-serif;
+    margin: auto;
     display: flex;
+    padding: 2rem;
     background-color: #FCF7F2;
     align-items: center;
     justify-content: center;
-    width: 90vw;
-    height: 80vh;
-    gap: 1rem;
-
+    border: 1px solid rgb(223, 223, 223);
+    border-radius: 1rem;
+    gap: 2rem;
+    width: 60vw;
 }
 
-.LoginPage img {
-    width: 20rem;
+.Login {
+    padding: 4rem;
+}
+
+.login-image {
+    width: 30vw;
+}
+
+.input-container * {
+    margin: 0.25rem;
+    display: block;
+}
+
+.login button {
+    background-color: #3c6050;
+    color: white;
+    padding: 0.5rem;
+    border: 1px solid #3c6050;
+    border-radius: 1rem;
+    margin-top: 1rem;
+}
+
+.Login input {
+    font-size: large;
+}
+
+.Login h1 {
+    font-size: 3rem;
+}
+
+.Login .signup *{
+    display: inline;
+}
+
+.Login .redirect {
+    padding: 0;
+    font-size: 1rem;
+    text-decoration: none;
+    color: rgb(26, 26, 153);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 }
