@@ -23,7 +23,7 @@ function SkinHub() {
       }
 
       try {
-        const response = await axios.get('http://localhost:3000/products', {
+        const response = await axios.get('https://dreamskin-server-tzka.onrender.com/products', {
           params: {
             name: searchTerm,
             page,
