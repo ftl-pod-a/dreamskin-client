@@ -77,14 +77,13 @@
         font-size: 1.8rem;
         font-family: 'Montserrat Variable', sans-serif;
         text-align: center;
-        border: 1px solid purple;
     }
 
     .category-body p{
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 0.8rem;
+        font-size: 1.2rem;
         padding-top: 0.6rem;
         font-family: 'DM Sans Variable', sans-serif;
     }
