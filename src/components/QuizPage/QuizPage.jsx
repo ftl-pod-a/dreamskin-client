@@ -102,9 +102,7 @@ const QuizPage = () => {
     const quizResponsetoChat = async () => {
         try {
           console.log(response);
-          let ingredientQuestion = `This user has ${response[0]} and they are dealing with ${response[1]}, they are hoping to ${response[2]}. What are the best ingredients for this user, only provide the name of ingredients in an array`;
-          console.log(ingredientQuestion);
-          const r = await axios.post("http://localhost:3000/api/chat", {prompt: ingredientQuestion});
+          const r = await axios.post("http://localhost:3000/api/chat", {userResponse: response});
           let geminiIngredients = r.data.response;
           console.log("Gemini", geminiIngredients);
 
