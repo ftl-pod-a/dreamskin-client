@@ -9,10 +9,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap;
-}
 
-.logo {
     width: 18rem;
 }
 
@@ -61,16 +58,7 @@
   width: 3.25rem;
   border-radius: 100%;
   }
-  .logged-in {
-    height: 2.5rem;
-    display: flex;
-    justify-content: flex-end;
-    gap: 0.5rem;
-  }
-  
-  .logout {
-    height: 2.5rem;
-  }  
+
 
 .menu-toggle {
     display: none;
