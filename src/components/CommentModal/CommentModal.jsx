@@ -43,7 +43,7 @@ const CommentModal = ({ isOpen, onClose, comments, newComment, setNewComment, ha
                 </div>
             </div>
         </div>
-    );
+    )
 };
 
 export default CommentModal;

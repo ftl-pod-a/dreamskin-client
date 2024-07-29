@@ -11,16 +11,13 @@ const ArticlesList = ({ articles }) => {
           </div>
           <div className='article-link'>
             <a href={article.articleUrl} target="_blank" rel="noopener noreferrer">
-            <i className="fa-solid fa-up-right-from-square"></i>
-          </a>
-       
-
+              <i className="fa-solid fa-up-right-from-square"></i>
+            </a>
           </div>
-          
         </div>
       ))}
     </div>
-  );
+  )
 };
 
 export default ArticlesList;

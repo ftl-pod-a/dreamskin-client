@@ -10,7 +10,7 @@ const Register = () => {
     const [password, setPassword] = useState("");
     const {tokenContext, setTokenContext} = useToken();
 
-    //handle register
+  //handle register
   const handleRegister = async () => {
     try {
       //register the user

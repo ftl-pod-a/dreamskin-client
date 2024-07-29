@@ -10,6 +10,7 @@ const Product = ({ product_id, name, brand, price, liked, imageUrl, ingredients,
         setActiveModal(true);
         console.log("open modal");
     }
+    
     return (
         <div className="Product" key={product_id}>
             <img className="product-image" src={imageUrl} alt="Product image" />

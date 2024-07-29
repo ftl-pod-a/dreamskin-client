@@ -1,4 +1,3 @@
-
 .Modal {
     position: fixed;
     top: 0;
@@ -11,43 +10,42 @@
     align-items: center;
     z-index: 1000; /* Ensure modal is on top of other content */
     text-align: left;
-  }
+}
   
-  .Modal .modal-content {
-    background-color: rgb(91, 102, 112);
-    color: white;
-    padding: 2rem;
-    border-radius: 2rem;
-    position: relative;
-    width: 60%;
-  }
+.Modal .modal-content {
+  background-color: rgb(91, 102, 112);
+  color: white;
+  padding: 2rem;
+  border-radius: 2rem;
+  position: relative;
+  width: 60%;
+}
   
-  .Modal .modal-header {
-    display: flex;
-    justify-content: flex-end;
-  }
-  
-  .Modal .modal-body {
-    margin-top: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem 5rem;
-    gap: 2rem;
-  }
+.Modal .modal-header {
+  display: flex;
+  justify-content: flex-end;
+}
 
-  .Modal .modal-body * {
-    margin: 0.5rem;
-  }
+.Modal .modal-body {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 5rem;
+  gap: 2rem;
+}
 
-
-  .Modal .close {
-    font-size: 1rem;
-    background-color: transparent;
-    border: none;
-    color: white;
-  }
+.Modal .modal-body * {
+  margin: 0.5rem;
+}
 
 
+.Modal .close {
+  font-size: 1rem;
+  background-color: transparent;
+  border: none;
+  color: white;
+}
 
-  
+
+

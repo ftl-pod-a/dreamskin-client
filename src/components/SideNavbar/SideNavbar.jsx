@@ -10,7 +10,6 @@ import './SideNavbar.css';
           <ul className="category-menu">
             {categories.map((cat) => (
               <li className={activeCategory === cat ? "is-active" : ""} key={cat}>
-                {/* <button onClick={() => setActiveCategory(cat)}>{cat}</button> */}
                 <a href="#" onClick={() => setActiveCategory(cat)}>{cat}</a>
               </li>
             ))}
