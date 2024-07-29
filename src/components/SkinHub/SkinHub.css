@@ -31,7 +31,15 @@
     padding: 12px 40px 12px 12px; 
     font-size: 16px;
     border: 1px solid #ccc;
+    border-radius: 5px;
+}
 
+.skinhub-search .search-icon {
+    position: absolute;
+    right: 10px;
+    color: #b08968;
+    cursor: pointer;
+    font-size: 1.5rem; 
 }
 
 .products {
