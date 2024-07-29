@@ -1,4 +1,4 @@
-  /* Homepage Header*/
+  Homepage Header
   .homepage {
     padding: 20px; /* Adjust padding as needed */
   }
@@ -339,4 +339,356 @@
   .faq-answer{
     margin-top: 1rem;
   }
-  
+
+  /* Responsive Navbar */
+@media (max-width: 600px) {
+  .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 1rem;
+  }
+
+  .nav-links {
+      display: none; /* Hide links by default on mobile */
+      flex-direction: column;
+      width: 100%;
+      gap: 1rem;
+  }
+
+  .nav-links.active {
+      display: flex; /* Show links when menu is active */
+  }
+
+  .menu-toggle {
+      display: block;
+      font-size: 1.5rem;
+      cursor: pointer;
+  }
+
+  .navbar .logo {
+      font-size: 1.2rem;
+  }
+
+  .header-content h1 {
+      font-size: 2.5rem;
+  }
+
+  .header-content h2 {
+      font-size: 1.5rem;
+  }
+
+  .header-content p {
+      font-size: 1.4rem;
+  }
+
+  .header-content button {
+      font-size: 1rem;
+      padding: 10px 20px;
+  }
+
+  .header-image video {
+      max-width: 100%;
+  }
+
+  .homepage-numbers {
+      padding: 2rem;
+  }
+
+  .heading h2 {
+      font-size: 2rem;
+  }
+
+  .numbers-par p {
+      font-size: 1.3rem;
+  }
+
+  .box {
+      margin-right: 0.5rem;
+      padding: 0.5rem;
+  }
+
+  .quiz-image {
+      flex: 0 0 100%;
+      max-width: 100%;
+      margin-right: 0;
+  }
+
+  .quiz-box {
+      flex: 0 0 100%;
+      max-width: 100%;
+  }
+
+  .faq-content {
+      padding: 0px 20px;
+  }
+
+  .team-content {
+      gap: 20px;
+  }
+
+  .team-member {
+      max-width: 100%;
+      padding: 2rem;
+  }
+
+  .member-image {
+      width: 120px;
+      height: 120px;
+  }
+}
+
+/* Responsive Navbar for tablets and small screens */
+@media (min-width: 601px) and (max-width: 768px) {
+  .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 1.5rem;
+  }
+
+  .nav-links {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      gap: 1rem;
+  }
+
+  .menu-toggle {
+      display: none;
+  }
+
+  .header-content h1 {
+      font-size: 2.8rem;
+  }
+
+  .header-content h2 {
+      font-size: 1.8rem;
+  }
+
+  .header-content p {
+      font-size: 1.5rem;
+  }
+
+  .header-content button {
+      font-size: 1.1rem;
+      padding: 10px 24px;
+  }
+
+  .header-image video {
+      max-width: 90%;
+  }
+
+  .homepage-numbers {
+      padding: 3rem;
+  }
+
+  .heading h2 {
+      font-size: 2.2rem;
+  }
+
+  .numbers-par p {
+      font-size: 1.4rem;
+  }
+
+  .box {
+      margin-right: 0.75rem;
+      padding: 0.75rem;
+  }
+
+  .quiz-image {
+      flex: 0 0 50%;
+      max-width: 50%;
+  }
+
+  .quiz-box {
+      flex: 0 0 50%;
+      max-width: 50%;
+  }
+
+  .faq-content {
+      padding: 0px 50px;
+  }
+
+  .team-content {
+      gap: 40px;
+  }
+
+  .team-member {
+      max-width: 20rem;
+  }
+
+  .member-image {
+      width: 150px;
+      height: 150px;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px to 992px) */
+@media (min-width: 769px) and (max-width: 992px) {
+  .navbar {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+  }
+
+  .nav-links {
+      display: flex;
+      gap: 1.5rem;
+  }
+
+  .menu-toggle {
+      display: none;
+  }
+
+  .header-content h1 {
+      font-size: 2.8rem;
+  }
+
+  .header-content h2 {
+      font-size: 1.8rem;
+  }
+
+  .header-content p {
+      font-size: 1.5rem;
+  }
+
+  .header-content button {
+      font-size: 1.1rem;
+      padding: 10px 24px;
+  }
+
+  .header-image video {
+      max-width: 90%;
+  }
+
+  .homepage-numbers {
+      padding: 4rem;
+  }
+
+  .heading h2 {
+      font-size: 2.3rem;
+  }
+
+  .numbers-par p {
+      font-size: 1.4rem;
+  }
+
+  .box {
+      margin-right: 1rem;
+      padding: 1rem;
+  }
+
+  .quiz-image {
+      flex: 0 0 45%;
+      max-width: 45%;
+  }
+
+  .quiz-box {
+      flex: 0 0 50%;
+      max-width: 50%;
+  }
+
+  .faq-content {
+      padding: 0px 100px;
+  }
+
+  .team-content {
+      gap: 60px;
+  }
+
+  .team-member {
+      max-width: 25rem;
+  }
+
+  .member-image {
+      width: 160px;
+      height: 160px;
+  }
+}
+
+/* Large devices (desktops) */
+@media (min-width: 993px) {
+  .navbar {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+  }
+
+  .nav-links {
+      display: flex;
+      gap: 2rem;
+  }
+
+  .menu-toggle {
+      display: none;
+  }
+
+  .header-content h1 {
+      font-size: 3rem;
+  }
+
+  .header-content h2 {
+      font-size: 2rem;
+  }
+
+  .header-content p {
+      font-size: 1.7rem;
+  }
+
+  .header-content button {
+      font-size: 1.2rem;
+      padding: 12px 28px;
+  }
+
+  .header-image video {
+      max-width: 80%;
+  }
+
+  .homepage-numbers {
+      padding: 5rem;
+  }
+
+  .heading h2 {
+      font-size: 2.5rem;
+  }
+
+  .numbers-par p {
+      font-size: 1.5rem;
+  }
+
+  .box {
+      margin-right: 1.5rem;
+      padding: 1.5rem;
+  }
+
+  .quiz-image {
+      flex: 0 0 40%;
+      max-width: 40%;
+  }
+
+  .quiz-box {
+      flex: 0 0 55%;
+      max-width: 55%;
+  }
+
+  .faq-content {
+      padding: 0px 200px;
+  }
+
+  .team-content {
+      gap: 80px;
+  }
+
+  .team-member {
+      max-width: 30rem;
+  }
+
+  .member-image {
+      width: 180px;
+      height: 180px;
+  }
+}
+
+
+

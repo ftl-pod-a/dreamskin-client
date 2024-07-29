@@ -171,6 +171,108 @@
     
 }
 
+/* Top Products Section */
+.trending-trending {
+    margin-bottom: 20px;
+    padding: 0px 200px;
+    /* min-height: 100vh; */
+}
+
+.trending-trending-heading {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.trending-trending-products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+/* Individual Product Card */
+.trending-trending-product {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: fit-content;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.trending-trending-product:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.trending-trending-product span {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.trending-trending-product i {
+    font-size: 0.8rem;
+    color: #007bff;
+}
+
+
+/* trending products
+.skinhub-trending {
+    margin-bottom: 20px;
+    padding: 0px 200px;
+    min-height: 100vh;
+}
+
+.trending-heading {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.trending-products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+} */
+
+/* .trending-product {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #f0f0f0; 
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: fit-content; 
+}
+
+.trending-product span {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.trending-product i {
+    font-size: 0.8rem; 
+    color: #007bff; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* 
 .tags {
     display: flex;
@@ -185,3 +287,7 @@
     border-radius: 5px;
     cursor: default;
 } */
+
+
+
+
