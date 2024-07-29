@@ -10,17 +10,12 @@ import NavBar from './components/NavBar/NavBar';
 import Articles from './components/Articles/Articles';
 import Footer from './components/Footer/Footer';
 import Trying from './components/Trying/Trying';
-
 import './App.css';
 
 const App = () => {
-  const [token, setToken] = useState("");
-
   return (
-    
     <div className='App'>
       <BrowserRouter>
-        {/* <NavBar setToken={setToken} token={token}/> */}
         <NavBar />
           <Routes>
             <Route path='/' element={<HomePage />}></Route>
@@ -35,10 +30,8 @@ const App = () => {
           </Routes>
       </BrowserRouter>
       <Footer/>
-      
-    
     </div>
   )
 }
 
-export default App
+export default App;

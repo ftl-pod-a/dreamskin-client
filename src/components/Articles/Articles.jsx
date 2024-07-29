@@ -9,6 +9,7 @@ const Articles = () => {
   const [articles, setArticles] = useState([]);
   const [activeCategory, setActiveCategory] = useState("All");
   const [categoryDetails, setCategoryDetails] = useState({ title: "", image: "", summary: "" });
+
   const categoryInfo = {
     "All": { 
         title: "All Articles", 
@@ -40,7 +41,6 @@ const Articles = () => {
         summary: "Navigate the complexities of combination skin with our targeted articles. We help you understand the unique challenges of having both oily and dry areas and provide tailored advice for balancing your skin." }
     };
 
-
   useEffect(() => {
     const fetchArticles = async () => {
       try {
@@ -57,8 +57,6 @@ const Articles = () => {
         console.error("Error fetching articles", error);
       }
     };
-
-    
 
     fetchArticles();
     setCategoryDetails(categoryInfo[activeCategory]);
@@ -85,7 +83,7 @@ const Articles = () => {
       <ArticlesList articles={articles} />
     </div>
     </div>
-  );
+  )
 };
 
 export default Articles;

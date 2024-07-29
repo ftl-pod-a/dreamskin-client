@@ -21,7 +21,7 @@ function HomePage(){
 
 
     return(
-        <>
+        <div className='HomePage'>
         <div className='homepage-content'>
             <div className='homepage-header'>
                 <div className='header-content'>
@@ -174,10 +174,8 @@ function HomePage(){
                     </div>
                 </div>
             </div>
-
-            
+            </div>
         </div>
-        </>
-    );
+    )
 };
 export default HomePage;

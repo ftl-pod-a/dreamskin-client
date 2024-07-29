@@ -1,10 +1,8 @@
-
 .trending-banner{
     width: 100%;
     max-width: 100%;
     overflow: hidden;
     border-radius: 8px;
-    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  */
 }
 
 .trending-banner img {
@@ -13,8 +11,6 @@
     border-radius: 8px;
     object-fit: cover;
 }
-
-
 
 /* trending products*/
 .skinhub-trending {
@@ -26,7 +22,6 @@
     font-size: 1.5rem;
     color: #333;
     margin: 2rem 0rem;
-  
 }
 
 .trending-products {
@@ -55,12 +50,12 @@
     color: #007bff; 
 }
 
-
 .trending-products-content{
     padding-top: 3rem;
     padding-right: 20rem;
     padding-left: 20rem;
 }
+
 .trending-products-card {
     display: flex;
     align-items: center;
@@ -92,13 +87,12 @@
 .trending-product-details-image{
     width: fit-content;
 }
+
 .trending-product-details-text {
-    font-size: 1.5rem;
-   
-    
+    font-size: 1.5rem;   
 }
+
 .trending-product-text{
-  
     padding-top: 0.8rem;
 }
 
@@ -161,16 +155,13 @@
     font-size: 1.6rem;
     padding: 0.5rem 0.5rem;
     border-radius: 1rem;
-    border: none;
-    
-    
+    border: none;   
 }
 
 /* Top Products Section */
 .trending-trending {
     margin-bottom: 20px;
     padding: 0px 200px;
-    /* min-height: 100vh; */
 }
 
 .trending-trending-heading {
@@ -213,4 +204,3 @@
     font-size: 0.8rem;
     color: #007bff;
 }
-
