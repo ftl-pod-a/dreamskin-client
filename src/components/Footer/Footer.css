@@ -1,16 +1,12 @@
 .footer {
     padding: 0 2rem;
-    /* padding: 1.5rem; */
     display: flex;
-    /* flex-direction: row; */
     align-items: center;
     justify-content: space-between;
     background-color: #b08968;
     clear: both;
     position:relative;
- 
-    /* max-width: 1200px; */
-    
+
 }
 .footer-content{
     margin: 0 2rem;

@@ -34,8 +34,6 @@
     max-height: 200px; /* Set maximum height to control size */
     width: auto; /* Let the width adjust according to max-width */
     border-radius: 8px;
-    /* max-width: 30%;
-    height: auto; */
     border-radius: 15px;
     margin-right: 1rem;
 }

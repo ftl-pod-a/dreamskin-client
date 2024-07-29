@@ -19,10 +19,6 @@ const RoutinePage = () => {
     const hasMorningMoisturizer = localProducts[2];
     const hasNightMoisturizer = localProducts[3];
 
-    // Object.entries(localProducts).forEach(([key, value]) => {
-    //     console.log(key, value);
-    // })
-
     
     return (
         <div className="RoutinePage">

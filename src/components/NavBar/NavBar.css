@@ -9,7 +9,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* max-width: 1200px; */
     
   }
   
@@ -46,16 +45,7 @@
     background-color: #e6c99e;
   }
   
-  /* .profile {
-    display: flex;
-    align-items: center;
-  }
   
-  .profile-icon {
-    height: 30px;
-    border-radius: 50%;
-    margin-right: 10px;
-  } */
 
   .nav-content{
     display: flex;
