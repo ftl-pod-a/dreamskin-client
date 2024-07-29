@@ -1,9 +1,4 @@
 
-/* banner */
-/* .skinhub-content {
-    padding: 0 20px; 
-} */
-
 .skinhub-banner{
     width: 100%;
     max-width: 100%;
@@ -19,13 +14,12 @@
     object-fit: cover;
 }
 
-
-/* search bar */
-.search-container{
+.search-container {
     padding: 0px 200px;
 }
 
 .skinhub-search {
+    position: relative;
     display: flex;
     align-items: center;
     width: 100%;
@@ -33,171 +27,45 @@
 }
 
 .skinhub-search input {
-    flex: 1; 
-    padding: 12px;
+    flex: 1;
+    padding: 12px 40px 12px 12px; 
     font-size: 16px;
     border: 1px solid #ccc;
-    border-radius: 5px 0 0 5px; 
+    border-radius: 5px;
 }
 
 .skinhub-search .search-icon {
-    padding: 1rem;
-    background-color: #b08968; 
-    color: white;
-    border-radius: 0 5px 5px 0; 
+    position: absolute;
+    right: 10px;
+    color: #b08968;
     cursor: pointer;
-}
-
-.skinhub-search .search-icon:hover {
-    background-color: #e6b8a2; 
-}
-
-/* trending products*/
-/* .skinhub-trending {
-    margin-bottom: 20px;
-    padding: 0px 200px;
-    min-height: 100vh;
-}
-
-.trending-heading {
-    font-size: 1.5rem;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.trending-products {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-} */
-
-/* .trending-product {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    background-color: #f0f0f0; 
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: fit-content; 
-}
-
-.trending-product span {
-    margin-right: 10px;
-    font-weight: bold;
-}
-
-.trending-product i {
-    font-size: 0.8rem; 
-    color: #007bff; 
-} */
-
-
-/* .products{
-    min-height: 100vh;
-} */
-
-
-
-/* 
-.products{
-    padding: 0px 200px;
-}
-.products-card {
-    display: flex;
-    align-items: center;
-    padding: 20px;
-    border: 1px solid #ccc;
-    margin-bottom: 20px;
-} */
-
-/* .products-upvote {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-right: 20px;
-}
-
-.products-upvote i {
-    font-size: 2rem; 
-    cursor: pointer;
-} */
-
-/* .product-details {
-    flex: 1; 
-} */
-
-/* .products-review {
-    margin-left: auto; 
-}
-
-.products-review i {
     font-size: 1.5rem; 
-    cursor: pointer;
 }
-
-.comment-box {
-    display: none; 
-    margin-top: 10px;
-}
-
-.comment-box input {
-    width: 100%;
-    padding: 5px;
-    margin-right: 10px;
-}
-
-.comment-box button {
-    padding: 5px 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
-} */
-
-/* Show comment box when comment icon is clicked */
-/* .comment-box.active {
-    display: flex;
-}
-
-
-.tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-}
-
-.tag {
-    background-color: #007bff;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: default;
-} */
 
 .products {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px; /* Adjust the gap between items as needed */
-    padding: 3rem 12rem; /* Optional: Add padding to the container */
+    gap: 20px; 
+    padding: 3rem 12rem; 
     min-height: 100vh;
   }
   
   .products-card {
-    background-color: white; /* Optional: Background color for the card */
-    border: 1px solid #ddd; /* Optional: Border for the card */
-    border-radius: 8px; /* Optional: Border radius for rounded corners */
-    padding: 20px; /* Add padding inside the card */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow effect */
+    background-color: white; 
+    border: 1px solid #ddd; 
+    border-radius: 8px; 
+    padding: 20px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
   }
   
   .product-details {
-    text-align: center; /* Center the text inside the product details */
+    text-align: center; 
   }
   
   .product-details h3, 
   .product-details h4,
   .product-details h5 {
-    margin: 10px 0; /* Add some space between the text elements */
+    margin: 10px 0; 
     font-size: 1.5rem;
   }
    
@@ -207,10 +75,10 @@
   
   .product-details img {
     display: block;
-    margin: 0 auto; /* Center the image */
+    margin: 0 auto;
     width: 200px;
     height: 200px;
-    object-fit: cover; /* Ensure the image covers the defined area */
+    object-fit: cover; 
   }
 
   .pagination{
@@ -229,3 +97,46 @@
     border-radius: 1rem;
     border: none;
   }
+
+
+
+/* Media Queries for Mobile Screens */
+@media (max-width: 767px) {
+    .search-container {
+        padding: 0 1rem;
+    }
+
+    .skinhub-search {
+        flex-direction: column;
+    }
+
+    .skinhub-search input {
+        border-radius: 5px;
+        margin-bottom: 10px;
+        padding: 12px 40px 12px 12px;
+    }
+
+    .skinhub-search .search-icon {
+        display: none;
+    }
+
+    .products {
+        grid-template-columns: 1fr;
+        padding: 1.5rem;
+    }
+
+    .product-details h3, 
+    .product-details h4,
+    .product-details h5 {
+        font-size: 1.2rem;
+    }
+
+    .product-details p {
+        padding: 1rem;
+    }
+
+    .product-details img {
+        width: 150px;
+        height: 150px;
+    }
+}

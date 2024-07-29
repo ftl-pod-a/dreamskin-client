@@ -1,89 +1,157 @@
-.navbar {
+
+  .navbar {
     background-color: #ede0d4;
-    
     color: #174933;
     padding: 0px 20px;
-  }
-  
-  .content {
+}
+
+.content {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* max-width: 1200px; */
-    
-  }
-  
-  .logo {
+    flex-wrap: wrap;
+}
+
+.logo {
     width: 18rem;
-  }
-  
-  .tabs {
+}
+
+.nav-content {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.tabs {
     display: flex;
-  }
-  
-  .tabs * {
+    flex-direction: column;
+}
+
+.tabs * {
     font-family: 'DM Sans Variable', sans-serif;
     text-decoration: none;
     font-size: 1.5rem;
     font-weight: bold;
     color: #174933;
-    margin-right: 20px;
-  }
-  
-  .buttons button {
+    margin-bottom: 10px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.buttons button {
     background-color: #fff7eb;
     color: #174933;
     border: 1px solid #174933;
     padding: 10px 25px;
     cursor: pointer;
-    margin-right: 10px;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     border-radius: 4rem;
     font-size: 1rem;
-    
-  }
-  .buttons button:hover {
+}
+
+.buttons button:hover {
     background-color: #e6c99e;
-  }
-  
-  /* .profile {
-    display: flex;
-    align-items: center;
-  }
-  
-  .profile-icon {
-    height: 30px;
-    border-radius: 50%;
-    margin-right: 10px;
-  } */
-
-  .nav-content{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-
-  .profile-image {
-    width: 4rem;
-    height: 4rem;
-    border-radius: 100%;
-    background-color: blue;
-  }
-
+}
 
 .user-image {
   width: 3.25rem;
   border-radius: 100%;
+  }
+  .logged-in {
+    height: 2.5rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+  }
+  
+  .logout {
+    height: 2.5rem;
+  }  
+
+.menu-toggle {
+    display: none;
 }
 
-.logged-in {
-  height: 2.5rem;
-  display: flex;
-  justify-content: flex-end;
-  gap: 0.5rem;
+.menu-icon {
+    display: block;
+    cursor: pointer;
 }
 
-.logout {
-  height: 2.5rem;
+.hamburger {
+    width: 30px;
+    height: 2px;
+    background-color: #174933;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    width: 30px;
+    height: 2px;
+    background-color: #174933;
+    position: absolute;
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger::before {
+    top: -10px;
+}
+
+.hamburger::after {
+    top: 10px;
+}
+
+.menu-toggle:checked + .menu-icon .hamburger {
+    transform: rotate(45deg);
+}
+
+.menu-toggle:checked + .menu-icon .hamburger::before {
+    top: 0;
+    transform: rotate(90deg);
+}
+
+.menu-toggle:checked + .menu-icon .hamburger::after {
+    top: 0;
+    transform: rotate(90deg);
+}
+
+.menu-toggle:checked ~ .nav-content {
+    display: flex;
+}
+
+@media (min-width: 768px) {
+    .nav-content {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: auto;
+    }
+
+    .tabs {
+        flex-direction: row;
+    }
+
+    .tabs * {
+        margin-right: 20px;
+        margin-bottom: 0;
+    }
+
+    .buttons {
+        flex-direction: row;
+    }
+
+    .buttons button {
+        margin-bottom: 0;
+        margin-right: 10px;
+    }
+
+    .menu-icon {
+        display: none;
+    }
 }
