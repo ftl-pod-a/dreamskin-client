@@ -29,10 +29,10 @@
     
 }
 .category-body img {
-    max-width: 50%; /* Ensure image doesn't exceed container width */
-    height: auto; /* Maintain aspect ratio */
-    max-height: 200px; /* Set maximum height to control size */
-    width: auto; /* Let the width adjust according to max-width */
+    max-width: 50%;
+    height: auto; 
+    max-height: 200px; 
+    width: auto; 
     border-radius: 8px;
     border-radius: 15px;
     margin-right: 1rem;
@@ -44,6 +44,9 @@
     font-size: 2.3rem;
     font-family: 'DM Sans Variable', sans-serif;
 
+}
+.linktoArticles{
+    display: none;
 }
 
 .display-article {

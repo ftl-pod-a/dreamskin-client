@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import SideNavbar from '../SideNavbar/SideNavbar';
 import ArticlesList from '../ArticlesList/ArticlesList';
+import { Link } from 'react-router-dom';
 import './Articles.css';
 
 const Articles = () => {
@@ -69,8 +70,6 @@ const Articles = () => {
       <SideNavbar
         activeCategory={activeCategory}
         setActiveCategory={setActiveCategory}
-        // searchInputValue={searchInputValue}
-        // handleOnSearchInputChange={handleOnSearchInputChange}
       />
       < div className='display-article'>
         <div className="category-header">
@@ -80,6 +79,7 @@ const Articles = () => {
             <div className='category-body'>
                 <img src={categoryDetails.image} alt={categoryDetails.title} />
                 <p>{categoryDetails.summary}</p>
+                <Link to="/articles-list" className="linktoArticles">Go to articles</Link>
             </div>
       </div>
       <ArticlesList articles={articles} />
