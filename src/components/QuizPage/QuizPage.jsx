@@ -140,7 +140,6 @@ const QuizPage = () => {
           const decodedToken = jwtDecode(authToken);
           const { userId, username } = decodedToken;
           console.log(userId, username);
-          
 
           const userRoutine = {
             user_id: userId,

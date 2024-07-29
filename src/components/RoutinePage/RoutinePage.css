@@ -26,3 +26,14 @@
     display: flex;
     gap: 2rem;
 }
+
+@media (max-width: 769px) {
+    .day-products, .night-products {
+        flex-direction: column;
+    }
+
+    .RoutinePage  h2 {
+        margin-bottom: 1rem;
+        font-size: 3rem;
+    }   
+}
