@@ -23,7 +23,9 @@ const NavBar = () => {
         <nav className="navbar">
             <div className="content">
                 <div className="logo-content">
-                    <img src="assets/minimalisticLogoUpdated.png" alt="logo" className="logo" />
+                    <Link to={'/'}>
+                        <img src="assets/minimalisticLogoUpdated.png" alt="logo" className="logo" />
+                    </Link>
                 </div>
                 <input type="checkbox" id="menu-toggle" className="menu-toggle" />
                 <label htmlFor="menu-toggle" className="menu-icon">
