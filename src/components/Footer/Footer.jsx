@@ -11,7 +11,7 @@ const Footer = () => {
                 <a href="article">Education</a>
             </div>
             <div className="footer-logo">
-                <img src="src/assets/minimalisticLogoWhiteVersion-2.png" alt="logo" className="footer-logo" />
+                <img src="assets/minimalisticLogoWhiteVersion-2.png" alt="logo" className="footer-logo" />
             </div>
             <div className="footer-content">
                 <p>Copyright © dreamskin 2024</p>

@@ -81,7 +81,7 @@ function SkinHub() {
   return (
     <div className='skinhub-content'>
       <div className='skinhub-banner'>
-        <img src="src/assets/skinhubBannerImg.png" alt="Image" />
+        <img src="assets/skinhubBannerImg.png" alt="Image" />
       </div>
 
       <div className='search-container'>

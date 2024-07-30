@@ -37,7 +37,7 @@ const Register = () => {
     return (
         <div className="Register">
             <div className="register">
-                <img src="src/assets/login-banner.avif" alt="banner" className="register-image"/>
+                <img src="assets/login-banner.avif" alt="banner" className="register-image"/>
                 <div className="info">
                     <h1>Register</h1>
                     <div className="input-container">

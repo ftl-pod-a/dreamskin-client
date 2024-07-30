@@ -163,8 +163,8 @@ const QuizPage = () => {
     return (
         <div className="Quiz">
             <div className="quiz-top">
-                <img src="src/assets/quizbanner.jpg" alt="quiz banner" className="quiz-banner"/>
-                <img src="src/assets/quizicon.jpg" alt="quiz banner" className="quiz-icon"/>
+                <img src="assets/quizbanner.jpg" alt="quiz banner" className="quiz-banner"/>
+                <img src="assets/quizicon.jpg" alt="quiz banner" className="quiz-icon"/>
             </div>
             <h1>Skincare Quiz</h1>
             <LinearProgress className="progress-bar" variant="solid" determinate value={progress}/>

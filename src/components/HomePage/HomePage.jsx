@@ -35,7 +35,7 @@ function HomePage(){
                 <div className='header-image'>
                     {/* <img src="src/assets/placeholder.jpg" alt="Image"/> */}
                     <video className="video" autoPlay loop muted>
-                    <source src="src/assets/homepagevid.mp4" type="video/mp4" />
+                    <source src="assets/homepagevid.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
                 </div>
@@ -84,7 +84,7 @@ function HomePage(){
                 </div>
                 <div className='quiz-content'>
                     <div className='quiz-image'>
-                        <img src="src/assets/quizImg.png" alt="Image"/>
+                        <img src="assets/quizImg.png" alt="Image"/>
                     </div>
                     <div className='quiz-box'>
                             <div className='box-content'>
@@ -157,17 +157,17 @@ function HomePage(){
                 </div>
                 <div className='team-content'>
                     <div className='team-member'>
-                        <img src="src/assets/lizimg.png" alt="Image" className='member-image'/>
+                        <img src="assets/lizimg.png" alt="Image" className='member-image'/>
                         <h4 className='member-name'>Elizabeth J.</h4>
                         <a href='https://www.linkedin.com/in/elizafoam' className='connect-button'>Contact</a>
                     </div>
                     <div className='team-member'>
-                        <img src="src/assets/mariaimg.png" alt="Image" className='member-image'/>
+                        <img src="assets/mariaimg.png" alt="Image" className='member-image'/>
                         <h4 className='member-name'>Maria P.</h4>
                         <a href='https://www.linkedin.com/in/maria-gabriela-perez-0ba469244/' className='connect-button'>Contact</a>
                     </div>
                     <div className='team-member'>
-                        <img src="src/assets/eveimg.png" alt="Image" className='member-image'/>
+                        <img src="assets/eveimg.png" alt="Image" className='member-image'/>
                         <h4 className='member-name'>Evelyn Z.</h4>
                         <a href='https://www.linkedin.com/in/evelynzhinin' className='connect-button'>Contact</a>
                         {/* <button className='connect-button'>Contact</button> */}

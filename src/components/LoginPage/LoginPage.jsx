@@ -55,7 +55,7 @@ const Login = () => {
     return (
         <div className="Login">
             <div className="login">
-                <img src="src/assets/login-banner.avif" alt="banner" className="register-image"/>
+                <img src="assets/login-banner.avif" alt="banner" className="register-image"/>
                 <div className="info">
                     <h1>Log In</h1>
                     <div className="input-container">

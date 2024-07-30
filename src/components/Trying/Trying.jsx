@@ -179,7 +179,7 @@ function Trying() {
   return (
     <div className='trending-content'>
       <div className='trending-banner'>
-        <img src="src/assets/trendingBannerImg.png" alt="Banner" />
+        <img src="assets/trendingBannerImg.png" alt="Banner" />
       </div>
 
       <div className='trending-trending'>

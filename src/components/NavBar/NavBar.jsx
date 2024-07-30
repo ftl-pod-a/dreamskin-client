@@ -23,7 +23,7 @@ const NavBar = () => {
         <nav className="navbar">
             <div className="content">
                 <div className="logo-content">
-                    <img src="src/assets/minimalisticLogoUpdated.png" alt="logo" className="logo" />
+                    <img src="assets/minimalisticLogoUpdated.png" alt="logo" className="logo" />
                 </div>
                 <input type="checkbox" id="menu-toggle" className="menu-toggle" />
                 <label htmlFor="menu-toggle" className="menu-icon">
@@ -59,7 +59,7 @@ const NavBar = () => {
                         }
                         {tokenContext &&
                             <div className="logged-in">
-                                <img src="src/assets/quizicon.jpg" alt="user logo" className="user-image" />
+                                <img src="assets/quizicon.jpg" alt="user logo" className="user-image" />
                                 <button className="logout" onClick={handleLogout}>Log Out</button>
                             </div>
                         }
