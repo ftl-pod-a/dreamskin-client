@@ -102,7 +102,7 @@ const QuizPage = () => {
     const quizResponsetoChat = async () => {
         try {
           console.log(response);
-          const r = await axios.post("https://dreamskin-server-tzka.onrender.com/api/chat", {userResponse: response});
+          const r = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/chat`, {userResponse: response});
           let geminiIngredients = r.data.response;
           console.log("Gemini", geminiIngredients);
 
@@ -123,7 +123,7 @@ const QuizPage = () => {
       
     const getRecommendedProducts = async (ingredients) => {
         try {
-          const response = await axios.post("https://dreamskin-server-tzka.onrender.com/products/products/search", ingredients);
+          const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/products/products/search`, ingredients);
           console.log("Response", response.data);
           localStorage.setItem('products', JSON.stringify(response.data));
           await saveRoutine();
@@ -152,7 +152,7 @@ const QuizPage = () => {
             ]
           }
           console.log(userRoutine);
-          const response = await axios.post("https://dreamskin-server-tzka.onrender.com/routine", userRoutine);
+          const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/routine`, userRoutine);
           console.log("Saved Routine", response.data);
         }
         catch (error){

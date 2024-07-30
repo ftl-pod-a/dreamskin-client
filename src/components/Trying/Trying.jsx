@@ -46,9 +46,9 @@ function Trying() {
       try {
         // Fetch the most liked products by category
         const [cleanserResponse, moisturizerResponse, sunscreenResponse] = await Promise.all([
-          axios.get('https://dreamskin-server-tzka.onrender.com/products?category=cleanser&sort=likes'),
-          axios.get('https://dreamskin-server-tzka.onrender.com/products?category=moisturizer&sort=likes'),
-          axios.get('https://dreamskin-server-tzka.onrender.com/products?category=sunscreen&sort=likes'),
+          axios.get(`${import.meta.env.VITE_BACKEND_URL}/products?category=cleanser&sort=likes`),
+          axios.get(`${import.meta.env.VITE_BACKEND_URL}/products?category=moisturizer&sort=likes`),
+          axios.get(`${import.meta.env.VITE_BACKEND_URL}/products?category=sunscreen&sort=likes`),
         ]);
 
         // Extract the most liked product from each response
@@ -61,7 +61,7 @@ function Trying() {
         });
 
         // Fetch the most liked products for pagination
-        const response = await axios.get('https://dreamskin-server-tzka.onrender.com/products', {
+        const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/products`, {
           params: {
             sort: 'likes',
             page: currentPage,
@@ -92,7 +92,7 @@ function Trying() {
     const fetchComments = async () => {
       try {
         const productPromises = products.map(async (product) => {
-          const response = await axios.get(`https://dreamskin-server-tzka.onrender.com/comments/product/${product.id}`);
+          const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/comments/product/${product.id}`);
           return { ...product, comments: response.data || [] };
         });
 
@@ -123,7 +123,7 @@ function Trying() {
         return;
       }
 
-      const response = await axios.post('https://dreamskin-server-tzka.onrender.com/comments', {
+      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/comments`, {
         userId: userId,
         productId: showModal,
         text: newComment,
@@ -155,7 +155,7 @@ function Trying() {
         return;
       }
 
-      const response = await axios.post(`https://dreamskin-server-tzka.onrender.com/products/${productId}/like`, {
+      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/products/${productId}/like`, {
         userId: userId,
       });
 
