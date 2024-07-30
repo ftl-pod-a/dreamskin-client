@@ -162,33 +162,36 @@ const QuizPage = () => {
 
     return (
         <div className="Quiz">
-            <div className="quiz-top">
-                <img src="assets/quizbanner.jpg" alt="quiz banner" className="quiz-banner"/>
-                <img src="assets/quizicon.jpg" alt="quiz banner" className="quiz-icon"/>
-            </div>
-            <h1>Skincare Quiz</h1>
-            <LinearProgress className="progress-bar" variant="solid" determinate value={progress}/>
-            <div className="question">
-                <div className="question-text">{quizQuestions[currentQuestion].question}</div>
-                <div className="options">
-                    {
-                        quizQuestions[currentQuestion].options.map((option) => (
-                            <button key={option} className="option" onClick={(e) => handleOptionClick(e)}>{option}</button>
-                        ))
-                    }
+            <div className="Quiz-Modal">
+                <div className="quiz-top">
+                    <img src="assets/quizbanner.jpg" alt="quiz banner" className="quiz-banner"/>
                 </div>
-            </div>
-            <div className="buttons">
-                { currentQuestion > 0 &&
-                <button className="back" onClick={handleBackButtonClick}>Back</button>
-                }
-                { currentQuestion < quizQuestions.length - 1 && currentChoice != "" &&
-                <button className="forward" onClick={handleForwardButtonClick}>Continue</button>
-                }
-                { currentQuestion == quizQuestions.length - 1 &&
-                    <button className="forward" onClick={handleForwardButtonClick}>Finish</button>
-                    
-                }
+                <div className="group-data">
+                <h1>Skincare Quiz</h1>
+                <LinearProgress className="progress-bar" variant="solid" determinate value={progress}/>
+                    <div className="question">
+                        <div className="question-text">{quizQuestions[currentQuestion].question}</div>
+                        <div className="options">
+                            {
+                                quizQuestions[currentQuestion].options.map((option) => (
+                                    <button key={option} className="option" onClick={(e) => handleOptionClick(e)}>{option}</button>
+                                ))
+                            }
+                        </div>
+                    </div>
+                    <div className="buttons">
+                        { currentQuestion > 0 &&
+                        <button className="back" onClick={handleBackButtonClick}>Back</button>
+                        }
+                        { currentQuestion < quizQuestions.length - 1 && currentChoice != "" &&
+                        <button className="forward" onClick={handleForwardButtonClick}>Continue</button>
+                        }
+                        { currentQuestion == quizQuestions.length - 1 &&
+                            <button className="forward" onClick={handleForwardButtonClick}>Finish</button> 
+                        }
+                    </div>
+
+                </div>
             </div>
         </div>
     )
