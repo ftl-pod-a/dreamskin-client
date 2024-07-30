@@ -33,7 +33,7 @@ const RoutinePage = () => {
                                 name={localProducts[0].name} 
                                 brand={localProducts[0].brand} 
                                 price={localProducts[0].price} 
-                                liked={false}
+                                liked={localProducts[0].likes}
                                 imageUrl={localProducts[0].imageUrl}
                                 ingredients={localProducts[0].ingredients}
                                 description={localProducts[0].description}
@@ -46,7 +46,7 @@ const RoutinePage = () => {
                                 name={localProducts[2].name} 
                                 brand={localProducts[2].brand} 
                                 price={localProducts[2].price} 
-                                liked={false}
+                                liked={localProducts[2].likes}
                                 imageUrl={localProducts[2].imageUrl}
                                 ingredients={localProducts[2].ingredients}
                                 description={localProducts[2].description}
@@ -59,7 +59,7 @@ const RoutinePage = () => {
                                 name={localProducts[4].name} 
                                 brand={localProducts[4].brand} 
                                 price={localProducts[4].price} 
-                                liked={false}
+                                liked={localProducts[4].likes}
                                 imageUrl={localProducts[4].imageUrl}
                                 ingredients={localProducts[4].ingredients}
                                 description={localProducts[4].description}
@@ -76,7 +76,7 @@ const RoutinePage = () => {
                                 name={localProducts[1].name} 
                                 brand={localProducts[1].brand} 
                                 price={localProducts[1].price} 
-                                liked={false}
+                                liked={localProducts[1].likes}
                                 imageUrl={localProducts[1].imageUrl}
                                 ingredients={localProducts[1].ingredients}
                                 description={localProducts[1].description}
@@ -89,7 +89,7 @@ const RoutinePage = () => {
                                 name={localProducts[3].name} 
                                 brand={localProducts[3].brand} 
                                 price={localProducts[3].price} 
-                                liked={false}
+                                liked={localProducts[3].likes}
                                 imageUrl={localProducts[3].imageUrl}
                                 ingredients={localProducts[3].ingredients}
                                 description={localProducts[3].description}

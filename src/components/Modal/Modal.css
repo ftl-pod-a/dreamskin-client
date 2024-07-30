@@ -13,8 +13,8 @@
 }
   
 .Modal .modal-content {
-  background-color: rgb(91, 102, 112);
-  color: white;
+  background-color: rgb(255, 255, 255);
+  color: black;
   padding: 2rem;
   border-radius: 2rem;
   position: relative;
@@ -44,8 +44,38 @@
   font-size: 1rem;
   background-color: transparent;
   border: none;
-  color: white;
+  color: black;
 }
 
 
+@media (max-width: 1200px) {
+  .Product .modal-image{
+      width: 10rem;
+  }
 
+  .Modal .modal-body {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .Modal .modal-content {
+    width: 70%;
+    height: 70%;
+  }
+
+  .modal-body h3 {
+    font-size: 1.25rem;
+  }
+
+  .modal-body h4 {
+    font-size: 1rem;
+  }
+
+  .modal-body p {
+    font-size: 0.75rem;
+  }
+    
+    
+
+}

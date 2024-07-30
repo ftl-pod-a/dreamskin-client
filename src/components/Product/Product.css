@@ -62,4 +62,14 @@
 
 .modal-body img{
     width: 20rem;
-  }
+}
+
+.heart {
+    color: black;
+}
+
+@media (max-width: 769px) {
+    .Product .modal-image{
+        width: 10rem;
+    }  
+}
