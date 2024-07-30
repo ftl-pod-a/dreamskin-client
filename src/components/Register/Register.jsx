@@ -15,12 +15,12 @@ const Register = () => {
     try {
       //register the user
       const response = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}/users/register`,
+        "https://dreamskin-server-tzka.onrender.com/users/register",
         { username, password }
       );
       //login the user
       const loginResponse = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}/users/login`,
+        "https://dreamskin-server-tzka.onrender.com/users/login",
         { username, password }
       );
       console.log(response);

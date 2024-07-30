@@ -46,9 +46,9 @@ const Articles = () => {
       try {
         let response;
         if (activeCategory === "All") {
-          response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/articles`);
+          response = await axios.get("https://dreamskin-server-tzka.onrender.com/articles");
         } else {
-          response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/articles`, {
+          response = await axios.get("https://dreamskin-server-tzka.onrender.com/articles", {
             params: { articleCategory: activeCategory }
           });
         }

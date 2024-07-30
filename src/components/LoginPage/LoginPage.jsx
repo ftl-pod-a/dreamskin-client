@@ -18,7 +18,7 @@ const Login = () => {
     try {
       //login the user
       const loginResponse = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}/users/login`,
+        "https://dreamskin-server-tzka.onrender.com/users/login",
         { username, password }
       );
       console.log(loginResponse);
@@ -40,7 +40,7 @@ const Login = () => {
             const decodedToken = jwtDecode(authToken);
             const { userId, username } = decodedToken;
             console.log(userId, username);
-            const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/routine/${userId}`);
+            const response = await axios.get(`https://dreamskin-server-tzka.onrender.com/routine/${userId}`);
             localStorage.setItem('products', JSON.stringify(response.data.products));
             console.log("Response", response.data.products);
             return response.data.products;
