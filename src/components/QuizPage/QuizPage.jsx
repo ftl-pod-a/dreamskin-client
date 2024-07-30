@@ -70,6 +70,7 @@ const QuizPage = () => {
 
     const handleOptionClick = (e) => {
         setCurrentChoice(e.target.textContent);
+        e.target.style.backgroundColor = "#507d68";
     }
 
     const handleForwardButtonClick = async () => {
