@@ -6,6 +6,7 @@ import '@fontsource/poppins';
 import { Link } from "react-router-dom";
 import { jwtDecode } from 'jwt-decode';
 import './HomePage.css';
+import ScrollToTop from '../ScrollToTop/ScrollToTop';
 
 function HomePage(){
     const authToken = localStorage.getItem('token');
@@ -23,6 +24,7 @@ function HomePage(){
 
 
     return(
+        
         <div className='HomePage'>
         <div className='homepage-content'>
             <div className='homepage-header'>
@@ -122,7 +124,7 @@ function HomePage(){
 
             <div className='homepage-faq'>
                 <div className='heading'>
-                    <h2>FREQUENTLY ASKED QUESTIONS</h2>
+                    <h2>Frequently Asked Questions</h2>
                 </div>
                 <div className='faq-content'>
                     {faqs.map((faq, index)=> (
@@ -176,6 +178,7 @@ function HomePage(){
                 </div>
             </div>
             </div>
+            <ScrollToTop/>
         </div>
     )
 };

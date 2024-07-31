@@ -8,6 +8,7 @@ const Footer = () => {
             <div className="footer-tags">
                 <a href="home">Home</a>
                 <a href="skinhub">SkinHUB</a>
+                <a href="trending">Trending</a>
                 <a href="article">Education</a>
             </div>
             <div className="footer-logo">
