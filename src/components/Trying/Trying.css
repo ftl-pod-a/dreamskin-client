@@ -229,6 +229,22 @@
     color: #000; /* Changed color from blue to black */
 }
 
+/* Add to Trying.css */
+.trending-products-upvote {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+  
+  .trending-products-upvote .fa-heart {
+    color: #ccc; /* Default color */
+    transition: color 0.3s ease;
+  }
+  
+  .trending-products-upvote.liked .fa-heart {
+    color: #e74c3c; /* Change color on like */
+  }
+  
 /* Media Queries */
 
 /* Mobile Devices */
