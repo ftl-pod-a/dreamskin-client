@@ -23,6 +23,7 @@ const RoutinePage = () => {
         try {
             const response = await axios.get(`https://dreamskin-server-tzka.onrender.com/users/${userId}`, {user_id: userId});
             localStorage.setItem("likedProducts", JSON.stringify(response.data.likedProducts));   
+            console.log(response.data.likedProducts);
         } catch (error) {
             console.log("Error getting user", error);
         }

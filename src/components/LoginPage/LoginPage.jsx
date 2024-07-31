@@ -8,10 +8,10 @@ import { jwtDecode } from 'jwt-decode';
 
 
 const Login = () => {
-    const navigate = useNavigate();
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    const {tokenContext, setTokenContext} = useToken();
+  const navigate = useNavigate();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const {tokenContext, setTokenContext} = useToken();
 
     //handle register
   const handleLogin = async () => {
@@ -35,21 +35,20 @@ const Login = () => {
   };
 
     const getRecommendedProducts = async () => {
-        try {
-            const authToken = localStorage.getItem('token');
-            const decodedToken = jwtDecode(authToken);
-            const { userId, username } = decodedToken;
-            console.log(userId, username);
+      try {
+          const authToken = localStorage.getItem('token');
+          const decodedToken = jwtDecode(authToken);
+          const { userId, username } = decodedToken;
+          console.log(userId, username);
             const response = await axios.get(`https://dreamskin-server-tzka.onrender.com/routine/${userId}`);
-            localStorage.setItem('products', JSON.stringify(response.data.products));
-            console.log("Response", response.data.products);
-            return response.data.products;
-                    //console.log("Products", response.data.products);
-            
-        
-        } catch (error){
-            console.log("Error getting recommendated products", error);
-        }
+          localStorage.setItem('products', JSON.stringify(response.data.products));
+          console.log("Response", response.data.products);
+          const response2 = await axios.get(`https://dreamskin-server-tzka.onrender.com/users/${userId}`, {user_id: userId});
+          localStorage.setItem("likedProducts", JSON.stringify(response2.data.likedProducts));   
+          console.log(response2.data.likedProducts);   
+      } catch (error){
+          console.log("Error getting recommendated products", error);
+      }
     }
 
     return (
