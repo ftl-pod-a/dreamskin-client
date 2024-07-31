@@ -1,51 +1,120 @@
-import React, {useEffect} from 'react';
+import React, { useEffect, useCallback } from 'react';
 import './CommentModal.css'; // Import your modal CSS file
 
 const CommentModal = ({ isOpen, onClose, comments, newComment, setNewComment, handleSubmitComment, setAddComment }) => {
+  
+  // Function to handle the ESC key press
+  const escFunction = useCallback((event) => {
+    if (event.key === "Escape") {
+      onClose(); // Close the modal on ESC key press
+    }
+  }, [onClose]);
 
-    useEffect(() => {
-        if (isOpen) {
-            setAddComment(true);
-        }
-    }, [isOpen, setAddComment]);
+  // Set up and clean up the event listener for ESC key press
+  useEffect(() => {
+    if (isOpen) {
+      document.addEventListener("keydown", escFunction, false);
+      setAddComment(true); // Call setAddComment when modal opens
+    }
 
-    if (!isOpen) return null;
-    return (
-        <div className='modal-overlay'>
-            <div className='modal'>
-                <div className='modal-header'>
-                    <h2>Comments</h2>
-                    <button onClick={onClose}>Close</button>
-                </div>
-                <div className='modal-body'>
-                <div className='add-comment'>
-                        <input
-                            type="text"
-                            value={newComment}
-                            onChange={(e) => setNewComment(e.target.value)}
-                            placeholder="Write a comment..."
-                        />
-                        
-                        <button onClick={handleSubmitComment}><i className="fa-solid fa-paper-plane" ></i></button>
-                    </div>
-                    <ul>
-                        {comments.map((comment, index) => (
-                            <li key={index}>
-                                <p>{comment.text}</p>
-                                {                                
-                                // comment.user && <small>by {comment.user.username}</small>
-                                comment.user && <small>by {comment.user.username}</small>
-                                }
-                            </li>
-                        ))}
-                    </ul>
-                    
-                </div>
-            </div>
+    return () => {
+      document.removeEventListener("keydown", escFunction, false);
+    };
+  }, [isOpen, escFunction, setAddComment]);
+
+  // Don't render the modal if it's not open
+  if (!isOpen) return null;
+
+  return (
+    <div className='modal-overlay'>
+      <div className='modal'>
+        <div className='modal-header'>
+          <h2>Comments</h2>
+          <button onClick={onClose}>Close</button>
         </div>
-    )
+        <div className='modal-body'>
+          <div className='add-comment'>
+            <input
+              type="text"
+              value={newComment}
+              onChange={(e) => setNewComment(e.target.value)}
+              placeholder="Write a comment..."
+            />
+            <button onClick={handleSubmitComment}>
+              <i className="fa-solid fa-paper-plane"></i>
+            </button>
+          </div>
+          <ul>
+            {comments.map((comment, index) => (
+              <li key={index}>
+                <p>{comment.text}</p>
+                {comment.user && <small>by {comment.user.username}</small>}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default CommentModal;
+
+
+
+
+
+
+
+//MAIN VERSION OF THE CODE
+// import React, {useEffect} from 'react';
+// import './CommentModal.css'; // Import your modal CSS file
+
+// const CommentModal = ({ isOpen, onClose, comments, newComment, setNewComment, handleSubmitComment, setAddComment }) => {
+
+//     useEffect(() => {
+//         if (isOpen) {
+//             setAddComment(true);
+//         }
+//     }, [isOpen, setAddComment]);
+
+//     if (!isOpen) return null;
+//     return (
+//         <div className='modal-overlay'>
+//             <div className='modal'>
+//                 <div className='modal-header'>
+//                     <h2>Comments</h2>
+//                     <button onClick={onClose}>Close</button>
+//                 </div>
+//                 <div className='modal-body'>
+//                 <div className='add-comment'>
+//                         <input
+//                             type="text"
+//                             value={newComment}
+//                             onChange={(e) => setNewComment(e.target.value)}
+//                             placeholder="Write a comment..."
+//                         />
+                        
+//                         <button onClick={handleSubmitComment}><i className="fa-solid fa-paper-plane" ></i></button>
+//                     </div>
+//                     <ul>
+//                         {comments.map((comment, index) => (
+//                             <li key={index}>
+//                                 <p>{comment.text}</p>
+//                                 {                                
+//                                 // comment.user && <small>by {comment.user.username}</small>
+//                                 comment.user && <small>by {comment.user.username}</small>
+//                                 }
+//                             </li>
+//                         ))}
+//                     </ul>
+                    
+//                 </div>
+//             </div>
+//         </div>
+//     )
+// };
+
+// export default CommentModal;
 
 

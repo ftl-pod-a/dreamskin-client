@@ -96,7 +96,10 @@
     border: none;
   }
 
-
+  .black-icon {
+    color: black; /* Makes the icon black */
+  }
+  
 
 /* Media Queries for Mobile Screens */
 @media (max-width: 767px) {
