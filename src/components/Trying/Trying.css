@@ -229,17 +229,6 @@
     color: #000; /* Changed color from blue to black */
 }
 
-
-.trending-products-upvote i {
-    font-size: 2rem;
-    cursor: pointer;
-    color: #000; /* Default color when not liked */
-    transition: color 0.3s ease;
-}
-
-.trending-products-upvote i.liked {
-    color: red; /* Color when liked */
-}
 /* Media Queries */
 
 /* Mobile Devices */
