@@ -235,7 +235,10 @@
 /* Team Members */
 .homepage-team {
   background-color: #eee2d1; 
-  margin: 3rem;
+  margin-top: 3rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
+  margin-bottom: 5rem;
   padding: 5rem;
   border-radius: 2rem;
   
