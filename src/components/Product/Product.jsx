@@ -8,7 +8,7 @@ import { colors } from "@mui/joy";
 
 const Product = ({ product_id, name, brand, price, liked, imageUrl, ingredients, description}) => {
     const [activeModal, setActiveModal] = useState(false);
-    let likedProducts = JSON.parse(localStorage.getItem('likedProducts'));
+    let likedProducts = JSON.parse(localStorage.getItem('likedProducts')) || [];
     const authToken = localStorage.getItem('token');
     const decodedToken = jwtDecode(authToken);
     const { userId, username } = decodedToken;
