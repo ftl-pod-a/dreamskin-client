@@ -2,8 +2,8 @@
     font-family: 'DM Sans Variable', sans-serif;
     display: flex;
     flex-direction: column;
-    width: 25ch;
-    height: 20rem;
+    width: 27ch;
+    height: 21rem;
     align-items: center;
     gap: 1rem;
     background-color: white;
@@ -12,22 +12,22 @@
     border-radius: 1rem;
     padding-top: 1rem;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    color: #7d512b;
 }
 
 .product-info {
     width: 25ch;
-    height: 10rem;
-    padding-bottom: 0.5rem;
+    height: 9rem;
+    padding: 0.5rem 0.7rem;
     display: flex;
     flex-direction: column;
     justify-content: top;
-    padding-top: 0.5rem;
-    background-color: #d5d5d5cc;
+    background-color: #d4c5b9c1;
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
 }
 
-.name-price *{
+.name-price * {
     display: inline;
     margin: 0.5rem;
 }
@@ -42,10 +42,11 @@
 }
 
 .learn-more {
-    background-color: #304a7a;
-    border: 2px #304a7a solid;
+    background-color: #15616d;
+    border: 2px #15616d solid;
     border-radius: 0.5rem;
-    color: white;
+    color: #efece9;
+    font-size: 0.85rem;
     padding: 0.5rem;
     cursor: pointer;
 }

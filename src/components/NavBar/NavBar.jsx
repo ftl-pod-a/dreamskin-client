@@ -54,7 +54,7 @@ const NavBar = () => {
                     <div className="buttons">
                         {!tokenContext &&
                             <div>
-                                <Link to={'/register'}>
+                                <Link to={'/login'}>
                                     <button>Log in</button>
                                 </Link>
                             </div>

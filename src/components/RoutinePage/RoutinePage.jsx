@@ -19,13 +19,25 @@ const RoutinePage = () => {
     const hasMorningMoisturizer = localProducts[2];
     const hasNightMoisturizer = localProducts[3];
 
-    
+    const getLikedProducts = async () => {
+        try {
+            const response = await axios.get(`https://dreamskin-server-tzka.onrender.com/users/${userId}`, {user_id: userId});
+            localStorage.setItem("likedProducts", JSON.stringify(response.data.likedProducts));   
+        } catch (error) {
+            console.log("Error getting user", error);
+        }
+    }
+
+    useEffect(() =>  {
+        getLikedProducts(); 
+    }, []);
+
     return (
         <div className="RoutinePage">
             <img className="banner-image" src="assets/routineBannerImg.png" alt="Banner image" />
             <div className="ProductsList">
                 <div className="day">
-                    <h2>Day</h2>
+                    <h2>Day ☀️</h2>
                     <div className="day-products">
                         {hasMorningCleanser && 
                             <Product 
@@ -68,7 +80,7 @@ const RoutinePage = () => {
                     </div>
                 </div>
                 <div className="night">
-                    <h2>Night</h2>
+                    <h2>Night 🌙</h2>
                     <div className="night-products">
                         { hasNightCleanser && 
                             <Product 

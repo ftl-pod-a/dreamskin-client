@@ -10,7 +10,7 @@
 
 .RoutinePage  h2 {
     margin-bottom: 1rem;
-    font-size: 5rem;
+    font-size: 4rem;
 }
 
 .ProductsList {
@@ -20,6 +20,7 @@
     padding: 0 3rem;
     justify-content: center;
     align-items: center;
+    padding-bottom: 7rem;
 }
 
 .day-products, .night-products {
