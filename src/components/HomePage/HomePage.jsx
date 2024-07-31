@@ -35,7 +35,6 @@ function HomePage(){
                     </Link>
                 </div>
                 <div className='header-image'>
-                    {/* <img src="src/assets/placeholder.jpg" alt="Image"/> */}
                     <video className="video" autoPlay loop muted>
                     <source src="assets/homepagevid.mp4" type="video/mp4" />
           Your browser does not support the video tag.
@@ -54,7 +53,7 @@ function HomePage(){
                     <div className='number-box'>
                         <div className='box'>
                             <i className='fas fa-globe'></i>
-                            <h3 className='box-number'>$145.3 Billion</h3>
+                            <h3 className='box-number'>$145.3 bn</h3>
                             <p className='box-number'>2023 Skincare Market Value</p>
                             
                         </div>
@@ -92,7 +91,7 @@ function HomePage(){
                             <div className='box-content'>
                                 <div className='quiz-row'>
                                     <i className="fas fa-question-circle"></i>
-                                    <p className='box-par'>Answer Questions</p>
+                                    <p>Answer Questions</p>
                                 </div>
                                 <p className='box-par'>You'll answer a series of questions designed to understand your preferences and needs.</p>
                             </div>

@@ -124,7 +124,7 @@ border-radius: 100%;
   display: flex;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 358px) {
   .nav-content {
       display: flex;
       flex-direction: row;
