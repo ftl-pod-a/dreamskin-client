@@ -4,7 +4,6 @@ import Modal from '../Modal/Modal';
 import { jwtDecode } from 'jwt-decode';
 import axios from "axios";
 import "./Product.css";
-import { colors } from "@mui/joy";
 
 const Product = ({ product_id, name, brand, price, liked, imageUrl, ingredients, description}) => {
     const [activeModal, setActiveModal] = useState(false);
