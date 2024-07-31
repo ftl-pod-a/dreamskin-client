@@ -23,7 +23,7 @@
   text-decoration: underline; 
 }
 
-@media (max-width: 768px) {
+@media (min-width: 374px) and (max-width: 1024px){
   .SideNavbar-content{
     display: flex;
     justify-content: center;
@@ -32,15 +32,17 @@
   }
   .category-menu{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
+    text-align: center;
   }
   .category-menu a {
     cursor: pointer; 
     font-size: 1.8rem; 
-    font-weight: bold;
+    padding: 0 2rem;
   }
+
 }
 
 
