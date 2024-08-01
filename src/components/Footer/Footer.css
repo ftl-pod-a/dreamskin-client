@@ -36,7 +36,7 @@
     margin-right: 20px;
 }
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
     .footer-content {
         order: 3;
         width: auto;
@@ -57,9 +57,13 @@
     }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 769px) {
     .footer-logo {
         display: none;
+    }
+    .footer {
+        padding: 1rem;
+    
     }
 }
 @media (max-width: 416px) {
@@ -71,4 +75,61 @@
         margin-top: 2rem;
         margin-bottom: 1rem;
     }
-}
+    .footer {
+        padding-bottom: 1rem;
+    
+    }
+} */
+
+
+
+/* Styles for screens narrow than 1200px */
+@media (max-width: 1200px){
+    .footer-content {
+      order: 3;
+      width: auto;
+    }
+  
+    .footer-tags {
+      order: 1;
+      width: auto;
+    }
+  
+    .footer {
+      flex-wrap: nowrap;
+      text-align: left;
+      padding: 1rem;
+    }
+    .footer-logo {
+        display: none;
+    }
+  }
+  
+  /* Styles for screens narrower than 769px */
+  @media (max-width: 768px) {
+    .footer {
+      padding: 1rem; /* Additional padding for smaller screens */
+    }
+    .footer-logo {
+        display: none;
+    }
+  }
+  
+  /* Styles for screens narrower than 416px */
+  @media (max-width: 415px) {
+    .footer-tags {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+  
+    .footer {
+      padding-bottom: 1rem; /* Additional bottom padding for smallest screens */
+    }
+    .footer-logo {
+        display: none;
+    }
+  }
