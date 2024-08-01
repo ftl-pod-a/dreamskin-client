@@ -7,7 +7,7 @@ import { useToken } from '../../context/TokenContext';
 const NavBar = () => {
     const { tokenContext, setTokenContext } = useToken();
     const navigate = useNavigate();
-    const [activeTab, setActiveTab] = useState('/')
+    const [activeTab, setActiveTab] = useState('')
 
     useEffect(() => {
         const authToken = localStorage.getItem('token');
