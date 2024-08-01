@@ -15,7 +15,8 @@ const Footer = () => {
                 <img src="assets/minimalisticLogoWhiteVersion-2.png" alt="logo" className="footer-logo" />
             </div>
             <div className="footer-content">
-                <p>Copyright © dreamskin 2024</p>
+                <p className="copyright">Copyright © dreamskin 2024</p>
+                <p className="powered">Powered by Gemini</p>
             </div>
         </div>
     )

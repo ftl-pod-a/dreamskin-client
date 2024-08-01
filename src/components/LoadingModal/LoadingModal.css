@@ -1,4 +1,3 @@
-/* LoadingModal.css */
 .loading-modal {
     position: fixed;
     top: 0;
@@ -9,7 +8,7 @@
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 9999; /* Ensure it appears above other content */
+    z-index: 9999; 
   }
   
   .loading-modal-dialog {
