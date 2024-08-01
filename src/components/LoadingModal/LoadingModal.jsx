@@ -1,8 +1,8 @@
 import React from 'react';
-import './LoadingModal.css'; // Import your custom styles
+import './LoadingModal.css'; 
 
 const LoadingModal = ({ isVisible }) => {
-  if (!isVisible) return null; // Render nothing if not visible
+  if (!isVisible) return null; 
 
   return (
     <div className="loading-modal">
