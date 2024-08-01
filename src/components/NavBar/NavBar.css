@@ -38,6 +38,7 @@
 }
 .navbar .tabs .active-tab {
   color: #6f1d1b; 
+  border-bottom: 2px solid #6f1d1b;
 }
 
 .buttons {
