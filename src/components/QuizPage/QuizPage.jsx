@@ -4,6 +4,7 @@ import "./QuizPage.css";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { jwtDecode } from 'jwt-decode';
+import LoadingModal from "../LoadingModal/LoadingModal";
 
 const QuizPage = () => {
 
@@ -54,6 +55,7 @@ const QuizPage = () => {
     const [progress, setProgress] = useState(0);
     const [showFinish, setShowFinish] = useState(false);
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
 
 
     useEffect(() => {
@@ -84,7 +86,9 @@ const QuizPage = () => {
         }
        else {
         setShowFinish(true);
+        setLoading(true);
         await quizResponsetoChat();
+        setLoading(false);
         navigate("/routine");
        }
        checkProgress(newProgress);
@@ -163,6 +167,7 @@ const QuizPage = () => {
 
     return (
         <div className="Quiz">
+            {loading && <LoadingModal isVisible={loading} />}
             <div className="quiz-container">
                 <div className="image-container">
                     <img src="assets/quizbannerimage.jpg" alt="quiz banner image" className="image"/>
