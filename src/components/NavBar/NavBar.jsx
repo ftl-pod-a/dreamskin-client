@@ -1,28 +1,44 @@
 import React, { useEffect, useState } from 'react';
 import '@fontsource-variable/dm-sans';
 import './NavBar.css';
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useToken } from '../../context/TokenContext';
 
 const NavBar = () => {
     const { tokenContext, setTokenContext } = useToken();
     const navigate = useNavigate();
-    const [activeTab, setActiveTab] = useState('')
+    const location = useLocation();
+    const [activeTab, setActiveTab] = useState('');
 
     useEffect(() => {
         const authToken = localStorage.getItem('token');
-        setTokenContext(authToken)
-    }, []); //this used to have tokenContext inside the array, which can cause an infinity loop
+        setTokenContext(authToken);
+
+        if (authToken) {
+            setActiveTab(''); // Clear active tab on successful login
+        }
+    }, [setTokenContext]);
+
+    useEffect(() => {
+        if (!tokenContext) {
+            setActiveTab('');
+        }
+    }, [tokenContext]);
 
     const handleLogout = () => {
         localStorage.clear();
         setTokenContext("");
+        setActiveTab('');
         navigate("/");
-    }
+    };
+
+    const handleLoginClick = () => {
+        setActiveTab('');
+    };
 
     const handleTabClick = (tab) => {
         setActiveTab(tab);
-    }
+    };
 
     return (
         <nav className="navbar">
@@ -55,14 +71,12 @@ const NavBar = () => {
                         <Link to={'/article'} onClick={() => handleTabClick('/article')}>
                             <div className={activeTab === '/article' ? 'active-tab' : ''}>Education</div>
                         </Link>
-
-
                     </div>
                     <div className="buttons">
                         {!tokenContext &&
                             <div>
                                 <Link to={'/login'}>
-                                    <button>Log in</button>
+                                    <button onClick={handleLoginClick}>Log in</button>
                                 </Link>
                             </div>
                         }
