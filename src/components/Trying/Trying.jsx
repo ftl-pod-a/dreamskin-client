@@ -51,9 +51,9 @@ function Trying() {
     const fetchTopProducts = async () => {
       try {
         const [cleanserResponse, moisturizerResponse, sunscreenResponse] = await Promise.all([
-          axios.get('https://dreamskin-server-tzka.onrender.com/products', { params: { category: 'cleanser', sort: 'likes' } }),
-          axios.get('https://dreamskin-server-tzka.onrender.com/products', { params: { category: 'moisturizer', sort: 'likes' } }),
-          axios.get('https://dreamskin-server-tzka.onrender.com/products', { params: { category: 'sunscreen', sort: 'likes' } }),
+          axios.get('http://localhost:3000/products', { params: { category: 'cleanser', sort: 'likes' } }),
+          axios.get('http://localhost:3000/products', { params: { category: 'moisturizer', sort: 'likes' } }),
+          axios.get('http://localhost:3000/products', { params: { category: 'sunscreen', sort: 'likes' } }),
         ]);
 
         const getTopProduct = (response) => response.data.products[0] || null;
@@ -75,7 +75,7 @@ function Trying() {
     const fetchProducts = async () => {
       setLoading(true);
       try {
-        const response = await axios.get('https://dreamskin-server-tzka.onrender.com/products', {
+        const response = await axios.get('http://localhost:3000/products', {
           params: {
             sort: 'likes',
             page: currentPage,
@@ -118,7 +118,7 @@ function Trying() {
     const fetchComments = async () => {
       try {
         const productPromises = products.map(async (product) => {
-          const response = await axios.get(`https://dreamskin-server-tzka.onrender.com/comments/product/${product.id}`);
+          const response = await axios.get(`http://localhost:3000/comments/product/${product.id}`);
           return { ...product, comments: response.data || [] };
         });
 
@@ -136,7 +136,7 @@ function Trying() {
   const getLikedProducts = async () => {
     try {
       if (userId) {
-        const response = await axios.get(`https://dreamskin-server-tzka.onrender.com/users/${userId}`, { params: { user_id: userId } });
+        const response = await axios.get(`http://localhost:3000/users/${userId}`, { params: { user_id: userId } });
         const likedProducts = response.data.likedProducts;
         localStorage.setItem("likedProducts", JSON.stringify(likedProducts));
         setLikedProductIds(new Set(likedProducts.map(product => product.id)));
@@ -168,7 +168,7 @@ function Trying() {
         return;
       }
 
-      const response = await axios.post('https://dreamskin-server-tzka.onrender.com/comments', {
+      const response = await axios.post('http://localhost:3000/comments', {
         userId: userId,
         productId: showModal,
         text: newComment,
@@ -195,7 +195,7 @@ function Trying() {
 
   const handleDeleteComment = async (commentId) => {
     try {
-      await axios.delete(`https://dreamskin-server-tzka.onrender.com/comments/${commentId}`, { params: { userId } });
+      await axios.delete(`http://localhost:3000/comments/${commentId}`, { params: { userId } });
  
  
       // Update products state to remove the deleted comment
@@ -225,7 +225,7 @@ function Trying() {
       const product = products.find(product => product.id === productId);
       const hasLiked = product ? product.liked : false;
 
-      const response = await axios.post(`https://dreamskin-server-tzka.onrender.com/products/${productId}/like`, {
+      const response = await axios.post(`http://localhost:3000/products/${productId}/like`, {
         userId: userId,
       });
 
@@ -276,21 +276,21 @@ function Trying() {
           {topProducts.cleanser && (
             <div className='trending-trending-product'>
               <span>{topProducts.cleanser.name}</span>
-              <img src={topProducts.cleanser.imageUrl} style={{ width: '200px', height: '200px' }} />
+              <img src={topProducts.cleanser.imageUrl} style={{ width: 'fit-content', height: '200px' }} />
               <i className="fa-solid fa-arrow-trend-up"></i>
             </div>
           )}
           {topProducts.moisturizer && (
             <div className='trending-trending-product'>
               <span>{topProducts.moisturizer.name}</span>
-              <img src={topProducts.moisturizer.imageUrl} style={{ width: '200px', height: '200px' }} />
+              <img src={topProducts.moisturizer.imageUrl} style={{ width: 'fit-content', height: '200px' }} />
               <i className="fa-solid fa-arrow-trend-up"></i>
             </div>
           )}
           {topProducts.sunscreen && (
             <div className='trending-trending-product'>
               <span>{topProducts.sunscreen.name}</span>
-              <img src={topProducts.sunscreen.imageUrl} style={{ width: '200px', height: '200px' }} />
+              <img src={topProducts.sunscreen.imageUrl} style={{ width: 'fit-content', height: '200px' }} />
               <i className="fa-solid fa-arrow-trend-up"></i>
             </div>
           )}
@@ -310,7 +310,7 @@ function Trying() {
 
             <div className='trending-product-details'>
               <div className='trending-product-details-image'>
-                <img src={product.imageUrl} alt={product.name} style={{ width: '200px', height: '200px' }} />
+                <img src={product.imageUrl} alt={product.name} style={{ width: 'fit-content', height: '200px' }} />
               </div>
               <div className='trending-product-details-text'>
                 <h3 className='trending-product-text'>{product.name}</h3>
@@ -475,9 +475,9 @@ export default Trying;
 //     const fetchTopProducts = async () => {
 //       try {
 //         const [cleanserResponse, moisturizerResponse, sunscreenResponse] = await Promise.all([
-//           axios.get('https://dreamskin-server-tzka.onrender.com/products', { params: { category: 'cleanser', sort: 'likes' } }),
-//           axios.get('https://dreamskin-server-tzka.onrender.com/products', { params: { category: 'moisturizer', sort: 'likes' } }),
-//           axios.get('https://dreamskin-server-tzka.onrender.com/products', { params: { category: 'sunscreen', sort: 'likes' } }),
+//           axios.get('http://localhost:3000/products', { params: { category: 'cleanser', sort: 'likes' } }),
+//           axios.get('http://localhost:3000/products', { params: { category: 'moisturizer', sort: 'likes' } }),
+//           axios.get('http://localhost:3000/products', { params: { category: 'sunscreen', sort: 'likes' } }),
 //         ]);
 
 //         const getTopProduct = (response) => response.data.products[0] || null;
@@ -499,7 +499,7 @@ export default Trying;
 //     const fetchProducts = async () => {
 //       setLoading(true);
 //       try {
-//         const response = await axios.get('https://dreamskin-server-tzka.onrender.com/products', {
+//         const response = await axios.get('http://localhost:3000/products', {
 //           params: {
 //             sort: 'likes',
 //             page: currentPage,
@@ -542,7 +542,7 @@ export default Trying;
 //     const fetchComments = async () => {
 //       try {
 //         const productPromises = products.map(async (product) => {
-//           const response = await axios.get(`https://dreamskin-server-tzka.onrender.com/comments/product/${product.id}`);
+//           const response = await axios.get(`http://localhost:3000/comments/product/${product.id}`);
 //           return { ...product, comments: response.data || [] };
 //         });
 
@@ -560,7 +560,7 @@ export default Trying;
 //   const getLikedProducts = async () => {
 //     try {
 //       if (userId) {
-//         const response = await axios.get(`https://dreamskin-server-tzka.onrender.com/users/${userId}`, { params: { user_id: userId } });
+//         const response = await axios.get(`http://localhost:3000/users/${userId}`, { params: { user_id: userId } });
 //         const likedProducts = response.data.likedProducts;
 //         localStorage.setItem("likedProducts", JSON.stringify(likedProducts));
 //         setLikedProductIds(new Set(likedProducts.map(product => product.id)));
@@ -592,7 +592,7 @@ export default Trying;
 //         return;
 //       }
 
-//       const response = await axios.post('https://dreamskin-server-tzka.onrender.com/comments', {
+//       const response = await axios.post('http://localhost:3000/comments', {
 //         userId: userId,
 //         productId: showModal,
 //         text: newComment,
@@ -627,7 +627,7 @@ export default Trying;
 //       const product = products.find(product => product.id === productId);
 //       const hasLiked = product ? product.liked : false;
 
-//       const response = await axios.post(`https://dreamskin-server-tzka.onrender.com/products/${productId}/like`, {
+//       const response = await axios.post(`http://localhost:3000/products/${productId}/like`, {
 //         userId: userId,
 //       });
 

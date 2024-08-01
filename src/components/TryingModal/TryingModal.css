@@ -10,6 +10,7 @@
     align-items: center;
     z-index: 1000; /* Ensure modal is on top of other content */
     text-align: left;
+    
   }
   
   .TryingModal-content {
@@ -19,6 +20,9 @@
     border-radius: 2rem;
     position: relative;
     width: 60%;
+    max-height: 80vh;
+    overflow: scroll;
+    
   }
   
   .TryingModal-header {
@@ -62,7 +66,7 @@
 
   @media (max-width: 1200px) {
     .TryingModal .modal-image {
-      width: 10rem;
+      width: fit-content;
     }
   
     .TryingModal-body {

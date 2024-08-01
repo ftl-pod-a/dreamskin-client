@@ -103,7 +103,8 @@
 }
 
 .trending-product-details-image {
-    width: 200px; /* Set a fixed width for images */
+    /* width: 200px; Set a fixed width for images */
+    width: 15rem;
 }
 
 .trending-product-details-text {
@@ -255,7 +256,7 @@
     }
 
     .trending-products-content {
-        padding: 0;
+        padding: 1;
     }
 
     .trending-products-card,

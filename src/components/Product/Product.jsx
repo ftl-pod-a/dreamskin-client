@@ -20,7 +20,7 @@ const Product = ({ product_id, name, brand, price, liked, imageUrl, ingredients,
 
     const getLikedProducts = async (params = {}) => {
         try {
-            const response = await axios.get(`https://dreamskin-server-tzka.onrender.com/users/${userId}`, {user_id: userId});
+            const response = await axios.get(`http://localhost:3000/users/${userId}`, {user_id: userId});
             localStorage.setItem("likedProducts", JSON.stringify(response.data.likedProducts));
             likedProducts = JSON.parse(localStorage.getItem('likedProducts'));
         } catch (error) {
@@ -34,10 +34,10 @@ const Product = ({ product_id, name, brand, price, liked, imageUrl, ingredients,
 
     const handleLike = async () => {
         try {
-            const response = await axios.post(`https://dreamskin-server-tzka.onrender.com/products/${product_id}/like`, {
+            const response = await axios.post(`http://localhost:3000/products/${product_id}/like`, {
                 userId: userId,
             });
-            const response1 = await axios.get(`https://dreamskin-server-tzka.onrender.com/users/${userId}`, {user_id: userId});
+            const response1 = await axios.get(`http://localhost:3000/users/${userId}`, {user_id: userId});
             //console.log("liked", response1.data.likedProducts);
 
             if (response1.data.likedProducts.some((product) => product.id == product_id)) setLiked("red");

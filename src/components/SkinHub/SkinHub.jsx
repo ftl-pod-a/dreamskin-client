@@ -54,7 +54,7 @@ function SkinHub() {
       }
 
       try {
-        const response = await axios.get('https://dreamskin-server-tzka.onrender.com/products', {
+        const response = await axios.get('http://localhost:3000/products', {
           params: {
             name: searchTerm,
             page,
@@ -103,7 +103,7 @@ function SkinHub() {
     const fetchComments = async () => {
       try {
         const productPromises = products.map(async (product) => {
-          const response = await axios.get(`https://dreamskin-server-tzka.onrender.com/comments/product/${product.id}`);
+          const response = await axios.get(`http://localhost:3000/comments/product/${product.id}`);
           return { ...product, comments: response.data || [] };
         });
 
@@ -140,7 +140,7 @@ function SkinHub() {
         return;
       }
 
-      const response = await axios.post('https://dreamskin-server-tzka.onrender.com/comments', {
+      const response = await axios.post('http://localhost:3000/comments', {
         userId: userId,
         productId: selectedProductId,
         text: newComment,
@@ -167,7 +167,7 @@ function SkinHub() {
 
   const handleDeleteComment = async (commentId) => {
     try {
-      await axios.delete(`https://dreamskin-server-tzka.onrender.com/comments/${commentId}`, { params: { userId } });
+      await axios.delete(`http://localhost:3000/comments/${commentId}`, { params: { userId } });
  
  
       // Update products state to remove the deleted comment
@@ -222,7 +222,7 @@ function SkinHub() {
               <h3>{product.name}</h3>
               <h4>{product.brand}</h4>
               <p>Price: ${product.price}</p>
-              <img src={product.imageUrl} alt={product.name} style={{ width: '200px', height: '200px' }} />
+              <img src={product.imageUrl} alt={product.name} style={{ width: 'fill-content', height: '15rem' }} />
               <h5>{product.category}</h5>
               <p>{product.description}</p>
             </div>
@@ -362,7 +362,7 @@ export default SkinHub;
 //       }
 
 //       try {
-//         const response = await axios.get('https://dreamskin-server-tzka.onrender.com/products', {
+//         const response = await axios.get('http://localhost:3000/products', {
 //           params: {
 //             name: searchTerm,
 //             page,
@@ -411,7 +411,7 @@ export default SkinHub;
 //     const fetchComments = async () => {
 //       try {
 //         const productPromises = products.map(async (product) => {
-//           const response = await axios.get(`https://dreamskin-server-tzka.onrender.com/comments/product/${product.id}`);
+//           const response = await axios.get(`http://localhost:3000/comments/product/${product.id}`);
 //           return { ...product, comments: response.data || [] };
 //         });
 
@@ -448,7 +448,7 @@ export default SkinHub;
 //         return;
 //       }
 
-//       const response = await axios.post('https://dreamskin-server-tzka.onrender.com/comments', {
+//       const response = await axios.post('http://localhost:3000/comments', {
 //         userId: userId,
 //         productId: selectedProductId,
 //         text: newComment,

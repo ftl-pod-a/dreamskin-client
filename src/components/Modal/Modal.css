@@ -19,6 +19,8 @@
   border-radius: 2rem;
   position: relative;
   width: 60%;
+  max-height: 80vh;
+  overflow: scroll;
 }
   
 .Modal .modal-header {
@@ -48,7 +50,41 @@
 }
 
 
+
 @media (max-width: 1200px) {
+  .Modal .modal-image{
+      /* width: 10rem; */
+      width: fit-content;
+      height: fit-content;
+  }
+
+  .Modal .modal-body {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .Modal .modal-content {
+    width: 70%;
+    height: 70%;
+  }
+
+  .modal-body h3 {
+    font-size: 1.25rem;
+  }
+
+  .modal-body h4 {
+    font-size: 1rem;
+  }
+
+  .modal-body p {
+    font-size: 0.75rem;
+  }
+}
+
+
+
+/* @media (max-width: 1200px) {
   .Product .modal-image{
       width: 10rem;
   }
@@ -78,4 +114,4 @@
     
     
 
-}
+} */

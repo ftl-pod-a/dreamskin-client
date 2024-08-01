@@ -181,6 +181,8 @@
     border-radius: 2rem;
     position: relative;
     width: 60%;
+    max-height: 80vh;
+    overflow: scroll;
   }
   
   .skinHubModal-header {
@@ -220,3 +222,34 @@
     height: 20rem;
     width: fit-content;
   } 
+
+
+  @media (max-width: 1200px) {
+    .skinHubModal .modal-image {
+      width: fit-content;
+    }
+  
+    .skinHubModal-body {
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+    }
+  
+    .skinHubModal-content {
+      width: 70%;
+      height: 70%;
+    }
+  
+    .skinHubModal-body h3 {
+      font-size: 1.25rem;
+    }
+  
+    .skinHubModal-body h4 {
+      font-size: 1rem;
+    }
+  
+    .skinHubModal-body p {
+      font-size: 0.75rem;
+    }
+  }
+  
