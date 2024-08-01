@@ -45,7 +45,7 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 20px; 
     padding: 3rem 12rem; 
-    min-height: 100vh;
+    min-height: 65vh;
 }
   
   .products-card {
@@ -54,6 +54,7 @@
     border-radius: 8px; 
     padding: 20px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    height: fit-content;
   }
   
   .product-details {
@@ -72,11 +73,13 @@
   }
   
   .product-details img {
-    display: block;
+    /* display: block;
     margin: 0 auto;
     width: 200px;
     height: 200px;
-    object-fit: cover; 
+    object-fit: cover;  */
+    height: 10rem;
+    width: fit-content;
   }
 
   .pagination{
