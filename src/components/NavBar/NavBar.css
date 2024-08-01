@@ -25,6 +25,7 @@
 .tabs {
   display: flex;
   flex-direction: column;
+  cursor: pointer;
 }
 
 .tabs * {
@@ -34,6 +35,9 @@
   font-weight: bold;
   color: #174933;
   margin-bottom: 10px;
+}
+.navbar .tabs .active-tab {
+  color: #6f1d1b; 
 }
 
 .buttons {
