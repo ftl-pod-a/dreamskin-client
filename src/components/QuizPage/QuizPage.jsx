@@ -13,7 +13,8 @@ const QuizPage = () => {
             options: [
                 "Dry",
                 "Combination",
-                "Oily"
+                "Oily", 
+                "Normal"
             ]
         },
         {
@@ -70,7 +71,6 @@ const QuizPage = () => {
 
     const handleOptionClick = (e) => {
         setCurrentChoice(e.target.textContent);
-        e.target.style.backgroundColor = "#507d68";
     }
 
     const handleForwardButtonClick = async () => {
@@ -163,35 +163,34 @@ const QuizPage = () => {
 
     return (
         <div className="Quiz">
-            <div className="Quiz-Modal">
-                <div className="quiz-top">
-                    <img src="assets/quizbanner.jpg" alt="quiz banner" className="quiz-banner"/>
+            <div className="quiz-container">
+                <div className="image-container">
+                    <img src="assets/quizbannerimage.jpg" alt="quiz banner image" className="image"/>
                 </div>
-                <div className="group-data">
-                <h1>Skincare Quiz</h1>
-                <LinearProgress className="progress-bar" variant="solid" determinate value={progress}/>
-                    <div className="question">
-                        <div className="question-text">{quizQuestions[currentQuestion].question}</div>
-                        <div className="options">
-                            {
-                                quizQuestions[currentQuestion].options.map((option) => (
-                                    <button key={option} className="option" onClick={(e) => handleOptionClick(e)}>{option}</button>
-                                ))
-                            }
-                        </div>
-                    </div>
-                    <div className="buttons">
-                        { currentQuestion > 0 &&
-                        <button className="back" onClick={handleBackButtonClick}>Back</button>
-                        }
-                        { currentQuestion < quizQuestions.length - 1 && currentChoice != "" &&
-                        <button className="forward" onClick={handleForwardButtonClick}>Continue</button>
-                        }
-                        { currentQuestion == quizQuestions.length - 1 &&
-                            <button className="forward" onClick={handleForwardButtonClick}>Finish</button> 
-                        }
-                    </div>
+                
+                <span className="question">
+                    <h2>{currentQuestion+1}. </h2>
+                    <h2 className="question-text">{quizQuestions[currentQuestion].question}</h2>
+                </span>
 
+                <LinearProgress className="progress-bar" variant="solid" determinate value={progress}/>
+
+                <div className="options">
+                    { quizQuestions[currentQuestion].options.map((option) => (
+                            <button key={option} className="option" onClick={(e) => handleOptionClick(e)} style={{backgroundColor: currentChoice == option ? "#d8796c" : "#507d68" }}>{option}</button>
+                    ))}
+                </div>
+
+                <div className="buttons">
+                    { currentQuestion > 0 &&
+                        <button className="back" onClick={handleBackButtonClick}>Back</button>
+                    }
+                    { currentQuestion < quizQuestions.length - 1 && currentChoice != "" &&
+                        <button className="forward" onClick={handleForwardButtonClick}>Continue</button>
+                    }
+                    { currentQuestion == quizQuestions.length - 1 &&
+                        <button className="forward" onClick={handleForwardButtonClick}>Finish</button> 
+                    }
                 </div>
             </div>
         </div>

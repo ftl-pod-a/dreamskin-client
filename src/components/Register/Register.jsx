@@ -8,10 +8,18 @@ const Register = () => {
     const navigate = useNavigate();
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [checkPassword, setCheckPassword] = useState(false);
+    const [samePassword, setSamePassword] = useState(false);
     const {tokenContext, setTokenContext} = useToken();
+    const [memo, setMemo] = useState("Please register to continue");
+    const [memoColor, setMemoColor] = useState("black");
 
   //handle register
   const handleRegister = async () => {
+    console.log(samePassword);
+    if (!samePassword){
+      return;
+    }
     try {
       //register the user
       const response = await axios.post(
@@ -34,34 +42,44 @@ const Register = () => {
     }
   };
 
-    return (
-        <div className="Register">
-            <div className="register">
-                <img src="assets/login-banner.avif" alt="banner" className="register-image"/>
-                <div className="info">
-                    <h1>Register</h1>
-                    <div className="input-container">
-                        <div>
-                            <label htmlFor="username">Username: </label>
-                            <input type="text" placeholder="Username" id="username" onChange={(e) => setUsername(e.target.value)} required />
-                        </div>
-                        <div>
-                            <label htmlFor="password">Password: </label>
-                            <input type="text" placeholder="Password" id="password" value={"*".repeat(password.length)} onChange={(e) => setPassword(e.target.value)} required/>
-                        </div>
-                        <div className="signup">
-                          Already have an account?
-                          <Link to={'/login'}>
-                            <button className="redirect">Log In</button>
-                          </Link>
-                        </div>
-                        <button className="submit" onClick={handleRegister}>Create Account</button>
-                        
-                    </div>
-                </div>
-            </div> 
+  const confirmPassword = (e) => {
+    setCheckPassword(e.target.value)
+    if (e.target.value != password){
+      setMemo("Password typed in does not match")
+      setMemoColor("red")
+    } 
+    else {
+      setMemo("Please register to continue");
+      setMemoColor("black")
+      setSamePassword(true);
+    }
+  }
+
+  return (
+    <div className="Register">
+      <div className="register-container">
+        <img src="/assets/profileLogo.jpg" alt="profile image" className="image"/>
+
+        <div className="head-container">
+          <h1>Register</h1>
+          <p className="memo" style={{color: memoColor}}>{memo}</p>
         </div>
-    )
+
+        <div className="info-container">
+          <input type="text" placeholder="Username" id="username" onChange={(e) => setUsername(e.target.value)} required />
+          <input type="text" placeholder="Password" id="password" value={"*".repeat(password.length)} onChange={(e) => setPassword(e.target.value)} required/>
+          <input placeholder="Confirm Password" id="check-password" value={"*".repeat(checkPassword.length)} onChange={(e) => confirmPassword(e)} required/>
+          <button className="register-button" onClick={handleRegister}>Create Account</button>
+          <div className="signup">
+            <span>Already have an account? </span>     
+              <Link to={'/login'}>
+                  <button className="redirect">Login</button>
+              </Link>
+            </div>
+        </div>
+      </div>
+    </div>
+  )
 }
 
 export default Register;

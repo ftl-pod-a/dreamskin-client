@@ -34,51 +34,48 @@ const Login = () => {
     }
   };
 
-    const getRecommendedProducts = async () => {
-      try {
-          const authToken = localStorage.getItem('token');
-          const decodedToken = jwtDecode(authToken);
-          const { userId, username } = decodedToken;
-          console.log(userId, username);
-            const response = await axios.get(`https://dreamskin-server-tzka.onrender.com/routine/${userId}`);
-          localStorage.setItem('products', JSON.stringify(response.data.products));
-          console.log("Response", response.data.products);
-          const response2 = await axios.get(`https://dreamskin-server-tzka.onrender.com/users/${userId}`, {user_id: userId});
-          localStorage.setItem("likedProducts", JSON.stringify(response2.data.likedProducts));   
-          console.log(response2.data.likedProducts);   
-      } catch (error){
-          console.log("Error getting recommendated products", error);
-      }
+  const getRecommendedProducts = async () => {
+    try {
+        const authToken = localStorage.getItem('token');
+        const decodedToken = jwtDecode(authToken);
+        const { userId, username } = decodedToken;
+        console.log(userId, username);
+        const response = await axios.get(`https://dreamskin-server-tzka.onrender.com/routine/${userId}`);
+        localStorage.setItem('products', JSON.stringify(response.data.products));
+        console.log("Response", response.data.products);
+        const response2 = await axios.get(`https://dreamskin-server-tzka.onrender.com/users/${userId}`, {user_id: userId});
+        localStorage.setItem("likedProducts", JSON.stringify(response2.data.likedProducts));   
+        console.log(response2.data.likedProducts);   
+    } catch (error){
+        console.log("Error getting recommendated products", error);
     }
+  }
 
-    return (
-        <div className="Login">
-            <div className="login">
-                <img src="assets/login-banner.avif" alt="banner" className="register-image"/>
-                <div className="info">
-                    <h1>Log In</h1>
-                    <div className="input-container">
-                        <div>
-                            <label htmlFor="username">Username: </label>
-                            <input type="text" placeholder="Username" id="username" onChange={(e) => setUsername(e.target.value)} required />
-                        </div>
-                        <div>
-                            <label htmlFor="password">Password: </label>
-                            <input type="text" placeholder="Password" id="password" value={"*".repeat(password.length)} onChange={(e) => setPassword(e.target.value)} required/>
-                        </div>
-                        <div className="signup">
-                          Don't have an account?
-                          <Link to={'/register'}>
-                            <button className="redirect">Sign Up</button>
-                          </Link>
-                        </div>
-                        <button className="submit" onClick={handleLogin}>Log In</button>
-                        
-                    </div>
-                </div>
-            </div> 
+  return (
+    <div className="Login">
+      <div className="login-container">
+        <img src="/assets/profileLogo.jpg" alt="profile image" className="image"/>
+        <div className="head-container">
+          <h1>Login</h1>
+          <p>Please login to continue</p>
         </div>
-    )
+
+        <div className="info-container">
+          <input type="text" placeholder="Username" id="username" onChange={(e) => setUsername(e.target.value)} required />
+          <input type="text" placeholder="Password" id="password" value={"*".repeat(password.length)} onChange={(e) => setPassword(e.target.value)} required/>
+          <button className="login-button" onClick={handleLogin}>Login</button>
+          <div className="signup">
+            <span>Don't have an account? </span>     
+              <Link to={'/register'}>
+                  <button className="redirect"> Sign Up</button>
+              </Link>
+            </div>
+        </div>
+        
+
+      </div>
+    </div>
+  )
 }
 
 export default Login;
