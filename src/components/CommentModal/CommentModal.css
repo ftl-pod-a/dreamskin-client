@@ -20,6 +20,7 @@
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
 }
 
 .modal-header {
@@ -60,7 +61,7 @@
 
 .add-comment button {
     padding: 8px 12px;
-    background-color: #007bff;
+    background-color: #8a5a44;
     color: white;
     border: none;
     border-radius: 0 5px 5px 0;
@@ -68,7 +69,7 @@
 }
 
 .add-comment button:hover {
-    background-color: #0056b3;
+    background-color: #b07d62;
 }
 
 .modal-body ul {
@@ -79,7 +80,7 @@
 .modal-body ul li {
     margin: 1rem 0rem;
     padding: 10px;
-    background-color: #f0f0f0;
+    background-color: #ede0d4;
     border-radius: 1rem;
     border: 1px solid #ccc;
 }
@@ -90,4 +91,19 @@ ul li p {
 
 ul li small {
     color: #777;
+}
+.comment-info  {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.comment-info button{
+    font-family: 'Montserrat Variable', sans-serif;
+    background-color: #ddb892;
+    padding:0.2rem;
+    border-radius: 1rem;
+    border: 1px solid #a47148;
+    color: #583101;
+    font-weight: 500;
+    font-size: 0.9rem;
 }

@@ -165,6 +165,28 @@ function SkinHub() {
     }
   };
 
+  const handleDeleteComment = async (commentId) => {
+    try {
+      await axios.delete(`https://dreamskin-server-tzka.onrender.com/comments/${commentId}`, { params: { userId } });
+ 
+ 
+      // Update products state to remove the deleted comment
+      setProducts(prevProducts =>
+        prevProducts.map(product =>
+          product.id === showModal
+            ? { ...product, comments: product.comments.filter(comment => comment.id !== commentId) }
+            : product
+        )
+      );
+ 
+ 
+    } catch (error) {
+      console.error('Error deleting comment:', error);
+      alert('Failed to delete comment. Please try again.');
+    }
+  }
+ 
+
   const filteredProducts = products.filter(product =>
     product.name?.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -264,6 +286,8 @@ function SkinHub() {
           setNewComment={setNewComment}
           handleSubmitComment={handleSubmitComment}
           setAddComment={setAddComment}
+          loggedInUser={{id:userId}}
+          handleDeleteComment={handleDeleteComment}
         />
       )}
     </div>

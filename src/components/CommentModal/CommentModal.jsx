@@ -1,7 +1,7 @@
 import React, { useEffect, useCallback } from 'react';
 import './CommentModal.css'; // Import your modal CSS file
 
-const CommentModal = ({ isOpen, onClose, comments, newComment, setNewComment, handleSubmitComment, setAddComment }) => {
+const CommentModal = ({ isOpen, onClose, comments, newComment, setNewComment, handleSubmitComment, setAddComment,loggedInUser, handleDeleteComment }) => {
   
   // Function to handle the ESC key press
   const escFunction = useCallback((event) => {
@@ -44,11 +44,17 @@ const CommentModal = ({ isOpen, onClose, comments, newComment, setNewComment, ha
               <i className="fa-solid fa-paper-plane"></i>
             </button>
           </div>
+          
           <ul>
             {comments.map((comment, index) => (
               <li key={index}>
                 <p>{comment.text}</p>
+                <div className='comment-info'>
                 {comment.user && <small>by {comment.user.username}</small>}
+                {loggedInUser && comment.user && comment.user.user_id === loggedInUser.id && (
+                  <button onClick={() => handleDeleteComment(comment.id)}>Delete</button>
+                  )}
+                  </div>
               </li>
             ))}
           </ul>
