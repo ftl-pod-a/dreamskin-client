@@ -212,9 +212,13 @@ function SkinHub() {
       </div>
 
       <div className='products'>
-        {filteredProducts.length === 0 && searchTerm.trim() !== '' && (
-          <p className='no-products'>Product not found</p>
-        )}
+      {filteredProducts.length === 0 && searchTerm.trim() !== '' && (
+  <div className='no-products-container'>
+    <img src='assets/allArticlesImgSkinhub.png' className='no-products-image' />
+    <p className='no-products'>Product not found.</p>
+    <p className='no-products'>Please try something else.</p>
+  </div>
+)}
 
         {filteredProducts.length > 0 && filteredProducts.map(product => (
           <div className='products-card' key={product.id}>

@@ -46,6 +46,7 @@
     gap: 20px; 
     padding: 3rem 12rem; 
     min-height: 60vh;
+    position: relative;
 }
   
   .products-card {
@@ -100,9 +101,79 @@
     border: none;
   }
   
+  .skinhub-search input::placeholder {
+    font-size: 16px; /* Default font size for larger screens */
+  }
+
+
+  .no-products-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .no-products-image {
+    max-width: 80%; /* Responsive image width */
+    /* height: auto;   Maintain aspect ratio */
+    margin-bottom: 0px; /* Space between the image and text */
+  }
+  
+  .no-products {
+    font-size: 18px; /* Font size */
+    color: #333;     /* Font color */
+    margin: 0;       /* Remove default margin */
+  }
+  
+  
+  /* Media Queries for Mobile Screens */
+  @media (max-width: 767px) {
+    .search-container {
+        padding: 0 1rem;
+    }
+    .skinhub-search {
+        flex-direction: column;
+    }
+    .skinhub-search input {
+        border-radius: 5px;
+        margin-bottom: 10px;
+        padding: 12px 40px 12px 12px;
+    }
+    .skinhu-search .search-icon {
+        display: none;
+    }
+    .products {
+        grid-template-columns: 1fr;
+        padding: 1.5rem;
+    }
+    .product-details h3,
+    .product-details h4,
+    .product-details h5 {
+        font-size: 1.2rem;
+    }
+    .product-details p {
+        padding: 1rem;
+    }
+    .product-details img {
+        width: 150px;
+        height: 150px;
+    }
+    /* Adjust Placeholder Font Size for Mobile Screens */
+    .skinhub-search input::placeholder {
+        font-size: 12px; /* Smaller font size for smaller screens */
+    }
+  }
+
+
+
 
 /* Media Queries for Mobile Screens */
-@media (max-width: 767px) {
+/* @media (max-width: 767px) {
     .search-container {
         padding: 0 1rem;
     }
@@ -144,4 +215,4 @@
 .product-details h4 {
     font-size: 1rem;
 }
-}
+} */
