@@ -320,21 +320,26 @@ function Trying() {
             </div>
 
             <div className='trending-products-actions'>
-              <i
-                className="far fa-comments"
-                onClick={() => {
-                  if (!userId) {
-                    navigate('/register');
-                  } else {
-                    toggleModal(product.id);
-                  }
-                }}
-              ></i>
-              <i
-                className="fa-solid fa-circle-info"
-                onClick={() => setActiveModal(product)}
-                style={{ fontSize: '1.5rem', cursor: 'pointer' }}
-              ></i>
+              <div className='trending-products-actions-icons-info'>
+                <i
+                  className="fa-solid fa-circle-info"
+                  onClick={() => setActiveModal(product)}
+                  style={{ fontSize: '1.5rem', cursor: 'pointer' }}
+                ></i>
+
+              </div>
+              <div className='trending-products-actions-icons-comment'>
+                <i
+                  className="far fa-comments"
+                  onClick={() => {
+                    if (!userId) {
+                     navigate('/register');
+                    } else {
+                      toggleModal(product.id);
+                    }
+                  }}
+                ></i>
+              </div>
             </div>
           </div>
         ))}
@@ -475,9 +480,9 @@ export default Trying;
 //     const fetchTopProducts = async () => {
 //       try {
 //         const [cleanserResponse, moisturizerResponse, sunscreenResponse] = await Promise.all([
-//           axios.get('https://dreamskin-server-tzka.onrender.com/products', { params: { category: 'cleanser', sort: 'likes' } }),
-//           axios.get('https://dreamskin-server-tzka.onrender.com/products', { params: { category: 'moisturizer', sort: 'likes' } }),
-//           axios.get('https://dreamskin-server-tzka.onrender.com/products', { params: { category: 'sunscreen', sort: 'likes' } }),
+//           axios.get('https://dreamskin-server-tzka.onrender.comproducts', { params: { category: 'cleanser', sort: 'likes' } }),
+//           axios.get('https://dreamskin-server-tzka.onrender.comproducts', { params: { category: 'moisturizer', sort: 'likes' } }),
+//           axios.get('https://dreamskin-server-tzka.onrender.comproducts', { params: { category: 'sunscreen', sort: 'likes' } }),
 //         ]);
 
 //         const getTopProduct = (response) => response.data.products[0] || null;
@@ -499,7 +504,7 @@ export default Trying;
 //     const fetchProducts = async () => {
 //       setLoading(true);
 //       try {
-//         const response = await axios.get('https://dreamskin-server-tzka.onrender.com/products', {
+//         const response = await axios.get('https://dreamskin-server-tzka.onrender.comproducts', {
 //           params: {
 //             sort: 'likes',
 //             page: currentPage,
@@ -542,7 +547,7 @@ export default Trying;
 //     const fetchComments = async () => {
 //       try {
 //         const productPromises = products.map(async (product) => {
-//           const response = await axios.get(`https://dreamskin-server-tzka.onrender.com/comments/product/${product.id}`);
+//           const response = await axios.get(`https://dreamskin-server-tzka.onrender.comcomments/product/${product.id}`);
 //           return { ...product, comments: response.data || [] };
 //         });
 
@@ -560,7 +565,7 @@ export default Trying;
 //   const getLikedProducts = async () => {
 //     try {
 //       if (userId) {
-//         const response = await axios.get(`https://dreamskin-server-tzka.onrender.com/users/${userId}`, { params: { user_id: userId } });
+//         const response = await axios.get(`https://dreamskin-server-tzka.onrender.comusers/${userId}`, { params: { user_id: userId } });
 //         const likedProducts = response.data.likedProducts;
 //         localStorage.setItem("likedProducts", JSON.stringify(likedProducts));
 //         setLikedProductIds(new Set(likedProducts.map(product => product.id)));
@@ -592,7 +597,7 @@ export default Trying;
 //         return;
 //       }
 
-//       const response = await axios.post('https://dreamskin-server-tzka.onrender.com/comments', {
+//       const response = await axios.post('https://dreamskin-server-tzka.onrender.comcomments', {
 //         userId: userId,
 //         productId: showModal,
 //         text: newComment,
@@ -627,7 +632,7 @@ export default Trying;
 //       const product = products.find(product => product.id === productId);
 //       const hasLiked = product ? product.liked : false;
 
-//       const response = await axios.post(`https://dreamskin-server-tzka.onrender.com/products/${productId}/like`, {
+//       const response = await axios.post(`https://dreamskin-server-tzka.onrender.comproducts/${productId}/like`, {
 //         userId: userId,
 //       });
 
