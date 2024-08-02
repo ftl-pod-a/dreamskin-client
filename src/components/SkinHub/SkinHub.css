@@ -73,10 +73,10 @@
     color: #9d6b53;
   }
   
-  .product-details img {
+  /* .product-details img {
     height: auto;
     width: 20%;
-  }
+  } */
   .products-review{
     display: flex;
     flex-direction: row;
@@ -131,10 +131,10 @@
         font-size: 1.2rem;
     }
 
-    .product-details img {
+    /* .product-details img {
         height: auto;
         max-width: min-content;
-    }
+    } */
 }
 @media (min-width: 768px) and (max-width: 1025px){
   .products {

@@ -221,7 +221,7 @@ function SkinHub() {
             <div className='product-details'>
               <h3>{product.name}</h3>
               <h4>{product.brand}</h4>
-              <img src={product.imageUrl} alt={product.name}  />
+              <img src={product.imageUrl} alt={product.name}  style={{ width: 'fill-content', height: '15rem' }}/>
             </div>
 
             <div className='products-review'>
