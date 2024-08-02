@@ -15,7 +15,7 @@ const ChatBot = () => {
         console.log(prompt);
     
         try {
-          const res = await axios.post("http://localhost:3000/api/chat/bot", {
+          const res = await axios.post("https://dreamskin-server-tzka.onrender.com/api/chat/bot", {
             prompt,
             conversationId,
           });
