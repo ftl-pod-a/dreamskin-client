@@ -310,7 +310,7 @@ function Trying() {
 
             <div className='trending-product-details'>
               <div className='trending-product-details-image'>
-                <img src={product.imageUrl} alt={product.name}  />
+                <img src={product.imageUrl} alt={product.name}  style={{ width: 'fit-content', height: '200px' }}/>
               </div>
               <div className='trending-product-details-text'>
                 <h3 className='trending-product-text'>{product.name}</h3>

@@ -278,7 +278,8 @@
         padding: 1;
     }
 
-    .trending-products-card
+    .trending-products-card,
+    .trending-product-details
      {
     display: flex;
     flex-direction: column;
@@ -291,14 +292,14 @@
     text-align: center; 
     }
 
-    .trending-product-details-image {
+    /* .trending-product-details-image {
         width: fit-content;
         height: auto;
-    }
-    .trending-product-details-image img{
+    } */
+    /* .trending-product-details-image img{
         max-width: min-content;
         height: auto;
-    }
+    } */
 
     .trending-product-details-text {
         font-size: 1rem;
