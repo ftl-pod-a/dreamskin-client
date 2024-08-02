@@ -62,7 +62,8 @@
 }
 
 .user-image {
-width: 3.25rem;
+width: 2.45rem;
+height: fit-content;
 border-radius: 100%;
 }
 .logged-in {
