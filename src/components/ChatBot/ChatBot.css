@@ -2,41 +2,63 @@
     font-family: 'Poppins', sans-serif;
     color: #7d512b;
     position: fixed;
-    bottom: 0;
-    right: 0;
-    margin: 15% 2%;
+    bottom: 4.7rem;
+    right: 1rem;
     text-align: start;
 }
 
-.ChatBot .main-chat-icon {
-    width: 4rem;
-    border: 0.5px solid rgb(202, 198, 198);
-    border-radius: 100%;
+.ChatBot .non-active {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.5rem;
+    background-color: rgb(255, 255, 255);
+    border-radius: 1rem;
+    padding: 0 0.5rem;
+    margin-bottom: 0.5rem;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    cursor: pointer;
 }
 
-.chat-container {
+.ChatBot .image-container {
+    background-color: white;
+    border-radius: 100%;
+    padding: 0.2rem 0.4rem 0 0.2rem;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.ChatBot .image-container img {
+    margin: auto;
+}
+
+.ChatBot .chat-container {
     width: 18rem;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .ChatBot .header-icon {
-    width: 2rem;
-    border: 0.5px solid rgb(245, 240, 240);
+    border: 0.5px solid rgb(195, 175, 175);
     border-radius: 100%;
+    padding: 0.1rem;
+    background-color: white;
 }
 
 .ChatBot .header {
     display: flex;
     background-color: rgb(225, 212, 212);
-    color: #2b727d;
+    color: #7d422b;
     align-items: center;
     justify-content: flex-start;
-    padding: 0.3rem 0.5rem;
+    padding: 0.5rem 0.5rem;
     cursor: pointer;
     gap: 0.5rem; 
+    font-size: 0.8rem;
+    border-top-left-radius: 0.3rem;
+    border-top-right-radius: 0.3rem;
 }
 
 .ChatBot .header-icon{
-    width: 3rem;
+    width: 2rem;
 }
 
 .ChatBot .content {
@@ -50,10 +72,7 @@
     overflow: auto;
     gap: 0.5rem;
     font-size: 0.7rem;
-}
-
-.ChatBot .chat-container {
-    border: 2px solid rgb(198, 188, 188);
+    border-bottom: 2px solid #f3eeeb;
 }
 
 .ChatBot .message {
@@ -80,18 +99,24 @@
 .ChatBot .chat-icon {
     width: 2rem;
     height: 2rem;
-    border: 0.5px solid rgb(202, 198, 198);
+    border: 1px solid rgb(202, 198, 198);
     border-radius: 100%;
+    background-color: white;
 }
 
 .ChatBot .input-container {
     width: auto;
     display: flex;
-    flex: 1;
     background-color: #f3eeeb;
 }
 
-.ChatBot .fa-solid {
-    width: 3rem;
+.ChatBot .submit-prompt {
+    all: unset; 
+    padding: 0 1rem;
+    cursor: pointer;
 }
 
+.ChatBot #user-input {
+    border: none;
+    font-size: 0.8rem;
+}
