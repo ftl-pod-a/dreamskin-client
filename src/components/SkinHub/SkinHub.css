@@ -119,7 +119,7 @@
   }
   
   .no-products-image {
-    max-width: 80%; /* Responsive image width */
+    max-width: 50%; /* Responsive image width */
     /* height: auto;   Maintain aspect ratio */
     margin-bottom: 0px; /* Space between the image and text */
   }
@@ -167,7 +167,7 @@
     .skinhub-search input::placeholder {
         font-size: 12px; /* Smaller font size for smaller screens */
     }
-  }
+  
 
 
 
@@ -206,7 +206,7 @@
         height: auto;
         max-width: min-content;
     } */
-}
+
 @media (min-width: 768px) and (max-width: 1025px){
   .products {
     padding: 3rem 2.5rem; 
@@ -215,4 +215,4 @@
 .product-details h4 {
     font-size: 1rem;
 }
-} */
+}}
