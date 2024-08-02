@@ -74,8 +74,8 @@
   }
   
   .product-details img {
-    height: 10rem;
-    width: fit-content;
+    height: auto;
+    width: 20%;
   }
   .products-review{
     display: flex;
@@ -132,7 +132,8 @@
     }
 
     .product-details img {
-        height: fit-content;
+        height: auto;
+        max-width: min-content;
     }
 }
 @media (min-width: 768px) and (max-width: 1025px){
