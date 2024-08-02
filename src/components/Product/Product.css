@@ -53,9 +53,8 @@
 
 .product-image {
     height: 10rem;
-    width: fit-content;
+    width: min-content;
 }
-
 
 .Product h3, .Product h4 {
     font-weight: bold;
