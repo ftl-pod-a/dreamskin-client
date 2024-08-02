@@ -68,7 +68,9 @@ const Product = ({ product_id, name, brand, price, liked, imageUrl, ingredients,
 
             { activeModal && 
                 <Modal show={activeModal} onClose={() => setActiveModal(false)}>
-                    <img src={imageUrl} alt="Product image" className="modal-image"/>
+                    <div className="image-container">
+                        <img src={imageUrl} alt="Product image" className="modal-image"/>
+                    </div>
                     <div>
                         <h3>{name}</h3>
                         <h4>{brand}</h4>
