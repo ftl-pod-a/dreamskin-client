@@ -79,7 +79,7 @@ function Trying() {
           params: {
             sort: 'likes',
             page: currentPage,
-            pageSize: 4,
+            pageSize: 10,
           },
         });
 
@@ -275,6 +275,7 @@ function Trying() {
         <div className='trending-trending-products'>
           {topProducts.cleanser && (
             <div className='trending-trending-product'>
+              <span>Most liked {topProducts.cleanser.category}!</span>
               <span>{topProducts.cleanser.name}</span>
               <img src={topProducts.cleanser.imageUrl}  />
               <i className="fa-solid fa-arrow-trend-up"></i>
@@ -282,6 +283,7 @@ function Trying() {
           )}
           {topProducts.moisturizer && (
             <div className='trending-trending-product'>
+              <span>Most liked {topProducts.moisturizer.category}!</span>
               <span>{topProducts.moisturizer.name}</span>
               <img src={topProducts.moisturizer.imageUrl}  />
               <i className="fa-solid fa-arrow-trend-up"></i>
@@ -289,6 +291,7 @@ function Trying() {
           )}
           {topProducts.sunscreen && (
             <div className='trending-trending-product'>
+              <span>Most liked {topProducts.sunscreen.category}!</span>
               <span>{topProducts.sunscreen.name}</span>
               <img src={topProducts.sunscreen.imageUrl}  />
               <i className="fa-solid fa-arrow-trend-up"></i>
