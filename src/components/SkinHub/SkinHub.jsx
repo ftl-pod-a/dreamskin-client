@@ -221,22 +221,19 @@ function SkinHub() {
             <div className='product-details'>
               <h3>{product.name}</h3>
               <h4>{product.brand}</h4>
-              <p>Price: ${product.price}</p>
               <img src={product.imageUrl} alt={product.name} style={{ width: 'fill-content', height: '15rem' }} />
-              <h5>{product.category}</h5>
-              <p>{product.description}</p>
             </div>
 
             <div className='products-review'>
               <i
                 className="fa-solid fa-circle-info"
-                style={{ fontSize: '24px', color: '#000', cursor: 'pointer' }}
+                style={{ fontSize: '1.5rem', color: '#a9714b', cursor: 'pointer' }}
                 onClick={() => handleLearnMoreClick(product)}
               ></i>
               <Link to={authToken ? '#' : '/register'} onClick={() => !authToken && console.log("Redirecting to register page")}>
                 <i
                   className="far fa-comments"
-                  style={{ color: 'black' }} // Inline style to make the icon black
+                  style={{ fontSize: '1.5rem', color: '#a9714b' }} 
                   onClick={() => authToken && handleCommentIconClick(product.id)}
                 ></i>
               </Link>
@@ -362,7 +359,7 @@ export default SkinHub;
 //       }
 
 //       try {
-//         const response = await axios.get('https://dreamskin-server-tzka.onrender.com/products', {
+//         const response = await axios.get('https://dreamskin-server-tzka.onrender.comproducts', {
 //           params: {
 //             name: searchTerm,
 //             page,
@@ -411,7 +408,7 @@ export default SkinHub;
 //     const fetchComments = async () => {
 //       try {
 //         const productPromises = products.map(async (product) => {
-//           const response = await axios.get(`https://dreamskin-server-tzka.onrender.com/comments/product/${product.id}`);
+//           const response = await axios.get(`https://dreamskin-server-tzka.onrender.comcomments/product/${product.id}`);
 //           return { ...product, comments: response.data || [] };
 //         });
 
@@ -448,7 +445,7 @@ export default SkinHub;
 //         return;
 //       }
 
-//       const response = await axios.post('https://dreamskin-server-tzka.onrender.com/comments', {
+//       const response = await axios.post('https://dreamskin-server-tzka.onrender.comcomments', {
 //         userId: userId,
 //         productId: selectedProductId,
 //         text: newComment,
