@@ -276,21 +276,21 @@ function Trying() {
           {topProducts.cleanser && (
             <div className='trending-trending-product'>
               <span>{topProducts.cleanser.name}</span>
-              <img src={topProducts.cleanser.imageUrl} style={{ width: 'fit-content', height: '200px' }} />
+              <img src={topProducts.cleanser.imageUrl}  />
               <i className="fa-solid fa-arrow-trend-up"></i>
             </div>
           )}
           {topProducts.moisturizer && (
             <div className='trending-trending-product'>
               <span>{topProducts.moisturizer.name}</span>
-              <img src={topProducts.moisturizer.imageUrl} style={{ width: 'fit-content', height: '200px' }} />
+              <img src={topProducts.moisturizer.imageUrl}  />
               <i className="fa-solid fa-arrow-trend-up"></i>
             </div>
           )}
           {topProducts.sunscreen && (
             <div className='trending-trending-product'>
               <span>{topProducts.sunscreen.name}</span>
-              <img src={topProducts.sunscreen.imageUrl} style={{ width: 'fit-content', height: '200px' }} />
+              <img src={topProducts.sunscreen.imageUrl}  />
               <i className="fa-solid fa-arrow-trend-up"></i>
             </div>
           )}
@@ -310,7 +310,7 @@ function Trying() {
 
             <div className='trending-product-details'>
               <div className='trending-product-details-image'>
-                <img src={product.imageUrl} alt={product.name} style={{ width: 'fit-content', height: '200px' }} />
+                <img src={product.imageUrl} alt={product.name}  />
               </div>
               <div className='trending-product-details-text'>
                 <h3 className='trending-product-text'>{product.name}</h3>
