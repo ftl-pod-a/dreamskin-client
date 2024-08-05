@@ -5,16 +5,18 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { useToken } from '../../context/TokenContext';
 import { jwtDecode } from 'jwt-decode';
-
+import LoadingModal from "../LoadingModal/LoadingModal";
 
 const Login = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const {tokenContext, setTokenContext} = useToken();
+  const [loading, setLoading] = useState(false);
 
     //handle register
   const handleLogin = async () => {
+    setLoading(true);
     try {
       //login the user
       const loginResponse = await axios.post(
@@ -31,6 +33,8 @@ const Login = () => {
     } catch (error) {
         console.log(error);
       alert("Login failed. Try again");
+    } finally{
+      setLoading(false);
     }
   };
 
@@ -53,6 +57,7 @@ const Login = () => {
 
   return (
     <div className="Login">
+      {loading && <LoadingModal isVisible={loading} />}
       <div className="login-container">
         <img src="/assets/profileLogo.jpg" alt="profile image" className="image"/>
         <div className="head-container">

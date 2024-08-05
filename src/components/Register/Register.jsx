@@ -3,6 +3,7 @@ import "./Register.css";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { useToken } from '../../context/TokenContext';
+import LoadingModal from "../LoadingModal/LoadingModal";
 
 const Register = () => {
     const navigate = useNavigate();
@@ -13,6 +14,7 @@ const Register = () => {
     const {tokenContext, setTokenContext} = useToken();
     const [memo, setMemo] = useState("Please register to continue");
     const [memoColor, setMemoColor] = useState("black");
+    const [loading, setLoading] = useState(false);
 
   //handle register
   const handleRegister = async () => {
@@ -20,6 +22,8 @@ const Register = () => {
     if (!samePassword){
       return;
     }
+    setLoading(true);
+
     try {
       //register the user
       const response = await axios.post(
@@ -39,6 +43,8 @@ const Register = () => {
       navigate("/quiz");
     } catch (error) {
       alert("Registration failed. Try again");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -57,6 +63,7 @@ const Register = () => {
 
   return (
     <div className="Register">
+      {loading && <LoadingModal isVisible={loading} />}
       <div className="register-container">
         <img src="/assets/profileLogo.jpg" alt="profile image" className="image"/>
 

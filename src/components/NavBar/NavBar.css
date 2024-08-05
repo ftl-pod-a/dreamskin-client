@@ -63,7 +63,7 @@
 
 .user-image {
 width: 2.45rem;
-height: fit-content;
+/* height: fit-content; */
 border-radius: 100%;
 }
 .logged-in {
