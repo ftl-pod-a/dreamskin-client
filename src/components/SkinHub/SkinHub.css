@@ -169,44 +169,6 @@
     }
   
 
-
-
-
-/* Media Queries for Mobile Screens */
-/* @media (max-width: 767px) {
-    .search-container {
-        padding: 0 1rem;
-    }
-
-    .skinhub-search {
-        flex-direction: column;
-    }
-
-    .skinhub-search input {
-        border-radius: 5px;
-        margin-bottom: 10px;
-        padding: 12px 40px 12px 12px;
-    }
-
-    .skinhub-search .search-icon {
-        display: none;
-    }
-
-    .products {
-        grid-template-columns: 1fr;
-        padding: 1.5rem;
-    }
-
-    .product-details h3, 
-    .product-details h4 {
-        font-size: 1.2rem;
-    }
-
-    /* .product-details img {
-        height: auto;
-        max-width: min-content;
-    } */
-
 @media (min-width: 768px) and (max-width: 1025px){
   .products {
     padding: 3rem 2.5rem; 
