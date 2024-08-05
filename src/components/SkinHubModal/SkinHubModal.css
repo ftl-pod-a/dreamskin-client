@@ -56,7 +56,7 @@
     cursor: pointer;
   }
 
-  .modal-image {
+  .SkinHubModal .modal-image {
     height: 20rem;
     width: fit-content;
   } 

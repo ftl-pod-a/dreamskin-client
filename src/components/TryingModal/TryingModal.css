@@ -58,7 +58,7 @@
     cursor: pointer;
   }
   
-  .modal-image {
+  .TryingModal .modal-image {
     height: 20rem;
     width: fit-content;
   } 
