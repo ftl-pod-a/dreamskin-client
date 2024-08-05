@@ -279,28 +279,30 @@ function SkinHub() {
             <div className='product-details'>
               <h3>{product.name}</h3>
               <h4>{product.brand}</h4>
-              <img src={product.imageUrl} alt={product.name} style={{ width: 'fill-content', height: '15rem' }}/>
+              <img className='product-details-image' src={product.imageUrl} alt={product.name} />
             </div>
 
             <div className='products-review'>
               <i
                 className="fa-solid fa-circle-info"
                 style={{ fontSize: '1.5rem', color: '#a9714b', cursor: 'pointer' }}
-                onClick={() => handleLearnMoreClick(product)}
-              ></i>
-              <Link to={authToken ? '#' : '/register'} onClick={() => !authToken && console.log("Redirecting to register page")}>
+                onClick={() => handleLearnMoreClick(product)}>
+                </i>
+                <Link to={authToken ? '#' : '/register'} onClick={() => !authToken && console.log("Redirecting to register page")}>
+                  <i
+                    className="far fa-comments"
+                    style={{ fontSize: '1.5rem', color: '#a9714b' }} 
+                    onClick={() => authToken && handleCommentIconClick(product.id)}
+                  ></i>
+                </Link>
+                <div className='skinhub-products-likes'>
+                <span>{product.likes}</span>
                 <i
-                  className="far fa-comments"
-                  style={{ fontSize: '1.5rem', color: '#a9714b' }} 
-                  onClick={() => authToken && handleCommentIconClick(product.id)}
+                  className={`fa${product.liked ? 's' : 'r'} fa-heart`}
+                  style={{ fontSize: '1.5rem', color: product.liked ? 'red' : '#a9714b', cursor: 'pointer' }}
+                  onClick={() => handleLike(product.id)}
                 ></i>
-              </Link>
-              <i
-                className={`fa${product.liked ? 's' : 'r'} fa-heart`}
-                style={{ fontSize: '1.5rem', color: product.liked ? 'red' : '#a9714b', cursor: 'pointer' }}
-                onClick={() => handleLike(product.id)}
-              ></i>
-              <span>{product.likes}</span>
+                </div>
             </div>
           </div>
         ))}

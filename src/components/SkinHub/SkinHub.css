@@ -49,40 +49,49 @@
     position: relative;
 }
   
-  .products-card {
-    background-color: white; 
-    border: 1px solid #ddd; 
-    border-radius: 8px; 
-    padding: 20px; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    height: fit-content;
-  }
+.products-card {
+  background-color: white; 
+  border: 1px solid #ddd; 
+  border-radius: 8px; 
+  padding: 20px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  height: fit-content;
+}
   
-  .product-details {
-    text-align: center; 
-  }
+.product-details {
+  text-align: center; 
+}
   
-  .product-details h3, 
-  .product-details h4 {
-    margin: 10px 0; 
-    font-size: 1.5rem;
-  }
-  .product-details h3{
-    color: #774936;
-  }
-  .product-details h4{
-    color: #9d6b53;
-  }
+.product-details h3, 
+.product-details h4 {
+  margin: 10px 0; 
+  font-size: 1.5rem;
+}
+
+.product-details h3{
+  color: #774936;
+}
+
+.product-details h4{
+  color: #9d6b53;
+}
   
-  /* .product-details img {
-    height: auto;
-    width: 20%;
-  } */
-  .products-review{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
+.product-details-image{
+  width: auto;
+  height: 150px;
+ }
+
+.skinhub-products-likes{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+.products-review{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 
   .pagination{
     display: flex;
@@ -132,7 +141,7 @@
   
   
   /* Media Queries for Mobile Screens */
-  @media (max-width: 767px) {
+  @media (max-width: 754px) {
     .search-container {
         padding: 0 1rem;
     }
@@ -144,7 +153,7 @@
         margin-bottom: 10px;
         padding: 12px 40px 12px 12px;
     }
-    .skinhu-search .search-icon {
+    .skinhub-search i{
         display: none;
     }
     .products {
@@ -159,10 +168,7 @@
     .product-details p {
         padding: 1rem;
     }
-    .product-details img {
-        width: 150px;
-        height: 150px;
-    }
+
     /* Adjust Placeholder Font Size for Mobile Screens */
     .skinhub-search input::placeholder {
         font-size: 12px; /* Smaller font size for smaller screens */
