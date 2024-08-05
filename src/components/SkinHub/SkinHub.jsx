@@ -35,7 +35,7 @@ function SkinHub() {
           setUserId(decodedToken.userId);
           await getLikedProducts(decodedToken.userId); // Load liked products
         } else {
-          console.log('No authToken found in localStorage');
+          
         }
       } catch (error) {
         console.error('Error fetching authToken:', error);
@@ -237,7 +237,7 @@ function SkinHub() {
       localStorage.setItem("likedProducts", JSON.stringify(likedProducts));
       setLikedProductIds(new Set(likedProducts.map(product => product.id)));
     } catch (error) {
-      console.log("Error getting user", error);
+      
     }
   };
 

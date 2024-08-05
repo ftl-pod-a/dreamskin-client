@@ -18,7 +18,7 @@ const Register = () => {
 
   //handle register
   const handleRegister = async () => {
-    console.log(samePassword);
+    
     if (!samePassword){
       return;
     }
@@ -35,7 +35,7 @@ const Register = () => {
         "https://dreamskin-server-tzka.onrender.com/users/login",
         { username, password }
       );
-      console.log(response);
+      
       setTokenContext(loginResponse.data.token)
 
       //store the toekn in the localstorage as token

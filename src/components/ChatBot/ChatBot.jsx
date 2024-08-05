@@ -8,18 +8,15 @@ const ChatBot = () => {
     const [conversationId, setConversationId] = useState(null);
     const [hover, setHover] = useState(false);
     const [prompt, setPrompt] = useState("");
-    console.log(window.location.href);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(prompt);
     
         try {
           const res = await axios.post("https://dreamskin-server-tzka.onrender.com/api/chat/bot", {
             prompt,
             conversationId,
           });
-          console.log(res);
           const userMessage = { role: "user", content: prompt };
           const botMessage = { role: "bot", content: res.data.response };
     
