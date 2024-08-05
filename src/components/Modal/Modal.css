@@ -50,8 +50,8 @@
 
 @media (max-width: 1200px) {
   .Modal .modal-image{
-      width: 15rem;
-      height: fit-content;
+      max-width: 200px;
+      height: 200px;
   }
 
   .Modal .modal-body {

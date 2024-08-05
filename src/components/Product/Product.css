@@ -53,7 +53,7 @@
 
 .product-image {
     height: 10rem;
-    width: min-content;
+    width: auto;
 }
 
 .Product h3, .Product h4 {
