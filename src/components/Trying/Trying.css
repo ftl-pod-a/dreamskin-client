@@ -264,6 +264,10 @@
 .trending-products-upvote.liked .fa-heart {
     color: #e74c3c; /* Change color on like */
 }
+.trending-product-details-image-img{
+    width: auto;
+    height: 150px;
+}
   
 /* Media Queries */
 
@@ -291,15 +295,6 @@
     margin-bottom: 20px;
     text-align: center; 
     }
-
-    /* .trending-product-details-image {
-        width: fit-content;
-        height: auto;
-    } */
-    /* .trending-product-details-image img{
-        max-width: min-content;
-        height: auto;
-    } */
 
     .trending-product-details-text {
         font-size: 1rem;
@@ -349,10 +344,10 @@
         width: fit-content;
         height: auto;
     } */
-    .trending-product-details-image img{
+    /* .trending-product-details-image img{
         max-width: min-content;
         height: auto;
-    }
+    } */
 
     .trending-product-details-text {
         font-size: 1.2rem;
