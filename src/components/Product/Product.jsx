@@ -15,7 +15,7 @@ const Product = ({ product_id, name, brand, price, liked, imageUrl, ingredients,
 
     const handleClick = () => {
         setActiveModal(true);
-        console.log("open modal");
+        
     }
 
     const getLikedProducts = async (params = {}) => {
@@ -24,7 +24,7 @@ const Product = ({ product_id, name, brand, price, liked, imageUrl, ingredients,
             localStorage.setItem("likedProducts", JSON.stringify(response.data.likedProducts));
             likedProducts = JSON.parse(localStorage.getItem('likedProducts'));
         } catch (error) {
-            console.log("Error getting user", error);
+            
         }
     }
 
@@ -38,14 +38,14 @@ const Product = ({ product_id, name, brand, price, liked, imageUrl, ingredients,
                 userId: userId,
             });
             const response1 = await axios.get(`https://dreamskin-server-tzka.onrender.com/users/${userId}`, {user_id: userId});
-            //console.log("liked", response1.data.likedProducts);
+            
 
             if (response1.data.likedProducts.some((product) => product.id == product_id)) setLiked("red");
             else setLiked("black");
             
-            console.log("liked"); 
+            
         } catch (error) {
-            console.log("Error updating likes", error);
+            
         }
     }
     

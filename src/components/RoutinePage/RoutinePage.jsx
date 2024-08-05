@@ -9,10 +9,9 @@ const RoutinePage = () => {
     const authToken = localStorage.getItem('token');
     const decodedToken = jwtDecode(authToken);
     const { userId, username } = decodedToken;
-    console.log(userId, username);
-    console.log(authToken);
+    
     const localProducts = JSON.parse(localStorage.getItem('products'));
-    console.log(localProducts);
+    
     const hasSunscreen = localProducts[4];
     const hasMorningCleanser = localProducts[0];
     const hasNightCleanser = localProducts[1];
@@ -23,9 +22,9 @@ const RoutinePage = () => {
         try {
             const response = await axios.get(`https://dreamskin-server-tzka.onrender.com/users/${userId}`, {user_id: userId});
             localStorage.setItem("likedProducts", JSON.stringify(response.data.likedProducts));   
-            console.log(response.data.likedProducts);
+            
         } catch (error) {
-            console.log("Error getting user", error);
+            
         }
     }
 

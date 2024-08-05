@@ -6,7 +6,7 @@ const Modal = ({show, onClose, children}) => {
     useEffect(() => {
         const handleKeyDown = (event) => {
         if (event.key === 'Escape') {
-            console.log("Esc");
+            
             onClose();
         }
         };

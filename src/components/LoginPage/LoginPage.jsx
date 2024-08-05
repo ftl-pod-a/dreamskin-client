@@ -23,7 +23,7 @@ const Login = () => {
         "https://dreamskin-server-tzka.onrender.com/users/login",
         { username, password }
       );
-      console.log(loginResponse);
+      
       setTokenContext(loginResponse.data.token)
 
       //store the toekn in the localstorage as token
@@ -31,7 +31,7 @@ const Login = () => {
       await getRecommendedProducts();
       navigate("/");
     } catch (error) {
-        console.log(error);
+       
       alert("Login failed. Try again");
     } finally{
       setLoading(false);
@@ -43,15 +43,15 @@ const Login = () => {
         const authToken = localStorage.getItem('token');
         const decodedToken = jwtDecode(authToken);
         const { userId, username } = decodedToken;
-        console.log(userId, username);
+        
         const response = await axios.get(`https://dreamskin-server-tzka.onrender.com/routine/${userId}`);
         localStorage.setItem('products', JSON.stringify(response.data.products));
-        console.log("Response", response.data.products);
+        
         const response2 = await axios.get(`https://dreamskin-server-tzka.onrender.com/users/${userId}`, {user_id: userId});
         localStorage.setItem("likedProducts", JSON.stringify(response2.data.likedProducts));   
-        console.log(response2.data.likedProducts);   
+           
     } catch (error){
-        console.log("Error getting recommendated products", error);
+        
     }
   }
 

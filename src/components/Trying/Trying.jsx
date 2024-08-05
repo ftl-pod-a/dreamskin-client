@@ -37,7 +37,7 @@ function Trying() {
           const decodedToken = jwtDecode(token);
           setUserId(decodedToken.userId);
         } else {
-          console.log('No authToken found in localStorage');
+          
         }
       } catch (error) {
         console.error('Error fetching authToken:', error);
@@ -142,7 +142,7 @@ function Trying() {
         setLikedProductIds(new Set(likedProducts.map(product => product.id)));
       }
     } catch (error) {
-      console.log("Error getting user", error);
+      
     }
   };
 
