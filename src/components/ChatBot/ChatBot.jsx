@@ -31,8 +31,9 @@ const ChatBot = () => {
         }
     };
 
-    const onHover = () => {
-        setHover(!hover);
+    const closeChatBot = () => {
+        setIsActive(false);
+        setHover(false);
 
     }
 
@@ -49,9 +50,9 @@ const ChatBot = () => {
                 </div>  
             }
 
-            {isActive && 
+            { isActive && 
                 <div className="chat-container">
-                    <div className="header" onClick={() => setIsActive(false)}>
+                    <div className="header" onClick={closeChatBot}>
                         <img src="https://img.icons8.com/pulsar-color/96/lotus.png" alt="icon" className="header-icon"/>
                         <h2>glowbot</h2>
                     </div>
