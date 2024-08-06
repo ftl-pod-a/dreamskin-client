@@ -29,7 +29,6 @@ const Product = ({ product_id, name, brand, price, liked, imageUrl, ingredients,
             likedProducts = JSON.parse(localStorage.getItem('likedProducts'));
             localStorage.setItem("user", JSON.stringify(response.data));  
             userInfo = JSON.parse(localStorage.getItem('user'));
-            //console.log(userInfo.concerns.split(","));
             
         } catch (error) {
             console.log("Error getting liked products", error);
@@ -106,34 +105,35 @@ const Product = ({ product_id, name, brand, price, liked, imageUrl, ingredients,
                     <div className="image-container">
                         <img src={imageUrl} alt="Product image" className="modal-image"/>
                     </div>
-                    <div>
-                        <h3>{name}</h3>
-                        <h4>{brand}</h4>
-                        <p>${price}</p>  
-                        <p>{description}</p>
-                        <h4>Notable Ingredients: </h4>
-                        <div className="ingredients">
-                            {ingredients.map((ingredient) => (
-                                <p key={ingredient}> - {ingredient}</p>
-                            ))}
-                        </div>  
-                    </div>
-                    <div className="product-chat">
-                        <h4>Ask me questions about {name}</h4>
-                        <div className="possible-questions">
-                            <p className="question" onClick={(e) => questionSelected(e)}>? How does this product help with {userInfo.concerns.split(",")[0]}</p>
-                            <p className="question" onClick={(e) => questionSelected(e)}>? How does {ingredients[1].toLowerCase()} help with {userInfo.concerns.split(",")[0].toLowerCase()}</p>
-                            <p className="question" onClick={(e) => questionSelected(e)}>? How does {ingredients[2].toLowerCase()} help with {userInfo.concerns.split(",")[0].toLowerCase()}</p>
+                    <div className="all-info">
+                        <div className="modal-info">
+                            <h3>{name}</h3>
+                            <h4>{brand} | ${price}</h4>  
+                            <p>{description}</p>
+                            <h4>Notable Ingredients: </h4>
+                            <div className="ingredients">
+                                {ingredients.map((ingredient) => (
+                                    <p key={ingredient}> - {ingredient}</p>
+                                ))}
+                            </div>  
                         </div>
-                        <p className="response">{response}</p>
-                        
-                        <div className="input-container">
-                        <input type="text" placeholder="Ask me about skincare" value={prompt} onChange={(e) => setPrompt(e.target.value)} />
-                        <button onClick={handleSubmit} className="submit-prompt">
-                            <i className="fa-solid fa-paper-plane"></i>
-                        </button>
+                        <div className="product-chat">
+                            <h4>Ask me questions about {name}</h4>
+                            <div className="possible-questions">
+                                <p className="question" onClick={(e) => questionSelected(e)}>? How does this product help with {userInfo.concerns.split(",")[0]}</p>
+                                <p className="question" onClick={(e) => questionSelected(e)}>? How does {ingredients[1].toLowerCase()} help with {userInfo.concerns.split(",")[0].toLowerCase()}</p>
+                                <p className="question" onClick={(e) => questionSelected(e)}>? How does {ingredients[2].toLowerCase()} help with {userInfo.concerns.split(",")[0].toLowerCase()}</p>
+                            </div>
+                            <p className="response">{response}</p>
+                            <div className="input-container">
+                                <input type="text" placeholder="Ask me about skincare" value={prompt} onChange={(e) => setPrompt(e.target.value)} />
+                                <button onClick={handleSubmit} className="submit-prompt">
+                                    <i className="fa-solid fa-paper-plane"></i>
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                    </div>
+                    
                 </Modal>
             }
         </div>

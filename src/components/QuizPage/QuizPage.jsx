@@ -59,10 +59,7 @@ const QuizPage = () => {
 
 
     useEffect(() => {
-        console.log(currentChoice);
         setCurrentChoice([]);
-        console.log(response);
-
     }, [response]);
 
     const checkProgress = (newProgress) => {
@@ -125,7 +122,7 @@ const QuizPage = () => {
         let ingredientsArray = JSON.parse(cleanedStr);
         ingredientsArray = {
             ingredients: ingredientsArray
-          };
+        };
 
         await getRecommendedProducts(ingredientsArray);
         } catch (error) {
@@ -174,18 +171,13 @@ const QuizPage = () => {
             const decodedToken = jwtDecode(authToken);
             const { userId } = decodedToken;
     
-            console.log(userId);
-            console.log("responses so far", response);
-    
             const userInfo = {
                 skinType: response[0]?.toString() || '',
                 goals: response[2]?.toString() || '',
                 concerns: response[1]?.toString() || '',
             }
-            console.log(userInfo);
     
             const updateResponse = await axios.put(`https://dreamskin-server-tzka.onrender.com/users/${userId}`, userInfo);
-            console.log("Updated User Info", updateResponse.data);
         }
         catch (error) {
             console.error("Error updating user info", error.response?.data || error.message);
