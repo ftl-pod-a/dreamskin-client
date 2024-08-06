@@ -7,7 +7,11 @@ import "./Product.css";
 
 const Product = ({ product_id, name, brand, price, liked, imageUrl, ingredients, description}) => {
     const [activeModal, setActiveModal] = useState(false);
+    const [prompt, setPrompt] = useState("");
+    const [response, setResponse] = useState("");
+    const [conversationId, setConversationId] = useState(null);
     let likedProducts = JSON.parse(localStorage.getItem('likedProducts')) || [];
+    let userInfo = JSON.parse(localStorage.getItem('user'))
     const authToken = localStorage.getItem('token');
     const decodedToken = jwtDecode(authToken);
     const { userId, username } = decodedToken;
@@ -23,9 +27,40 @@ const Product = ({ product_id, name, brand, price, liked, imageUrl, ingredients,
             const response = await axios.get(`https://dreamskin-server-tzka.onrender.com/users/${userId}`, {user_id: userId});
             localStorage.setItem("likedProducts", JSON.stringify(response.data.likedProducts));
             likedProducts = JSON.parse(localStorage.getItem('likedProducts'));
-        } catch (error) {
+            localStorage.setItem("user", JSON.stringify(response.data));  
+            userInfo = JSON.parse(localStorage.getItem('user'));
+            //console.log(userInfo.concerns.split(","));
             
+        } catch (error) {
+            console.log("Error getting liked products", error);
         }
+    }
+
+    const handleSubmit = async (e) => {
+        try {
+          const res = await axios.post("https://dreamskin-server-tzka.onrender.com/api/chat/bot", {
+            prompt,
+            conversationId,
+          });
+
+          const botMessage = { role: "bot", content: res.data.response };
+          setPrompt("");
+          setResponse(botMessage.content);
+          setConversationId(res.data.conversationId);
+
+        } catch (error) {
+          console.error("Error:", error);
+        }
+    };
+
+
+    const questionSelected = async (e) => {
+        let newPrompt = e.target.textContent;
+        if (newPrompt.includes("this product")){
+            newPrompt = newPrompt.replace("product", name);
+        }
+        newPrompt = newPrompt.replace("?", "");
+        setPrompt(newPrompt);
     }
 
     useEffect(() =>  {
@@ -82,6 +117,22 @@ const Product = ({ product_id, name, brand, price, liked, imageUrl, ingredients,
                                 <p key={ingredient}> - {ingredient}</p>
                             ))}
                         </div>  
+                    </div>
+                    <div className="product-chat">
+                        <h4>Ask me questions about {name}</h4>
+                        <div className="possible-questions">
+                            <p className="question" onClick={(e) => questionSelected(e)}>? How does this product help with {userInfo.concerns.split(",")[0]}</p>
+                            <p className="question" onClick={(e) => questionSelected(e)}>? How does {ingredients[1].toLowerCase()} help with {userInfo.concerns.split(",")[0].toLowerCase()}</p>
+                            <p className="question" onClick={(e) => questionSelected(e)}>? How does {ingredients[2].toLowerCase()} help with {userInfo.concerns.split(",")[0].toLowerCase()}</p>
+                        </div>
+                        <p className="response">{response}</p>
+                        
+                        <div className="input-container">
+                        <input type="text" placeholder="Ask me about skincare" value={prompt} onChange={(e) => setPrompt(e.target.value)} />
+                        <button onClick={handleSubmit} className="submit-prompt">
+                            <i className="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </div>
                     </div>
                 </Modal>
             }

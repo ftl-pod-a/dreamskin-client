@@ -21,10 +21,10 @@ const RoutinePage = () => {
     const getLikedProducts = async () => {
         try {
             const response = await axios.get(`https://dreamskin-server-tzka.onrender.com/users/${userId}`, {user_id: userId});
-            localStorage.setItem("likedProducts", JSON.stringify(response.data.likedProducts));   
-            
+            localStorage.setItem("likedProducts", JSON.stringify(response.data.likedProducts));
+            localStorage.setItem("user", JSON.stringify(response.data));          
         } catch (error) {
-            
+            console.log("error getting liked products", error);
         }
     }
 
