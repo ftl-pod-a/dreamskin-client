@@ -27,12 +27,12 @@ const Register = () => {
     try {
       //register the user
       const response = await axios.post(
-        "https://dreamskin-server-tzka.onrender.com/users/register",
+        "http://localhost:3000/users/register",
         { username, password }
       );
       //login the user
       const loginResponse = await axios.post(
-        "https://dreamskin-server-tzka.onrender.com/users/login",
+        "http://localhost:3000/users/login",
         { username, password }
       );
       
