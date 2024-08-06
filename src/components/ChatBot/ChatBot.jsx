@@ -31,7 +31,6 @@ const ChatBot = () => {
     const closeChatBot = () => {
         setIsActive(false);
         setHover(false);
-
     }
 
     return (
