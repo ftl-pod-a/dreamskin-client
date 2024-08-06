@@ -20,8 +20,7 @@ function HomePage(){
         setFaqs(faqs.map((faq, i) => (
         i === index ? { ...faq, isOpen: !faq.isOpen } : faq
         )));
-        };
-
+    };
 
     return(
         
@@ -173,7 +172,6 @@ function HomePage(){
                         <img src="assets/eveimg.png" alt="Image" className='member-image'/>
                         <h4 className='member-name'>Evelyn Z.</h4>
                         <a href='https://www.linkedin.com/in/evelynzhinin' className='connect-button'>Contact</a>
-                        {/* <button className='connect-button'>Contact</button> */}
                     </div>
                 </div>
             </div>

@@ -20,7 +20,7 @@ const Login = () => {
     try {
       //login the user
       const loginResponse = await axios.post(
-        "http://localhost:3000/users/login",
+        "https://dreamskin-server-tzka.onrender.com/users/login",
         { username, password }
       );
       
@@ -44,10 +44,10 @@ const Login = () => {
         const decodedToken = jwtDecode(authToken);
         const { userId, username } = decodedToken;
         
-        const response = await axios.get(`http://localhost:3000/routine/${userId}`);
+        const response = await axios.get(`https://dreamskin-server-tzka.onrender.com/routine/${userId}`);
         localStorage.setItem('products', JSON.stringify(response.data.products));
         
-        const response2 = await axios.get(`http://localhost:3000/users/${userId}`, {user_id: userId});
+        const response2 = await axios.get(`https://dreamskin-server-tzka.onrender.com/users/${userId}`, {user_id: userId});
         localStorage.setItem("likedProducts", JSON.stringify(response2.data.likedProducts));   
            
     } catch (error){

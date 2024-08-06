@@ -56,7 +56,7 @@ function SkinHub() {
       }
 
       try {
-        const response = await axios.get('http://localhost:3000/products', {
+        const response = await axios.get('https://dreamskin-server-tzka.onrender.com/products', {
           params: {
             name: searchTerm,
             page,
@@ -111,7 +111,7 @@ function SkinHub() {
     const fetchComments = async () => {
       try {
         const productPromises = products.map(async (product) => {
-          const response = await axios.get(`http://localhost:3000/comments/product/${product.id}`);
+          const response = await axios.get(`https://dreamskin-server-tzka.onrender.com/comments/product/${product.id}`);
           return { ...product, comments: response.data || [] };
         });
 
@@ -148,7 +148,7 @@ function SkinHub() {
         return;
       }
 
-      const response = await axios.post('http://localhost:3000/comments', {
+      const response = await axios.post('https://dreamskin-server-tzka.onrender.com/comments', {
         userId: userId,
         productId: selectedProductId,
         text: newComment,
@@ -175,7 +175,7 @@ function SkinHub() {
 
   const handleDeleteComment = async (commentId) => {
     try {
-      await axios.delete(`http://localhost:3000/comments/${commentId}`, { params: { userId } });
+      await axios.delete(`https://dreamskin-server-tzka.onrender.com/comments/${commentId}`, { params: { userId } });
       
       // Update products state to remove the deleted comment
       setProducts(prevProducts =>
@@ -201,7 +201,7 @@ function SkinHub() {
       const product = products.find(product => product.id === productId);
       const hasLiked = product ? product.liked : false;
 
-      const response = await axios.post(`http://localhost:3000/products/${productId}/like`, {
+      const response = await axios.post(`https://dreamskin-server-tzka.onrender.com/products/${productId}/like`, {
         userId: userId,
       });
 
@@ -232,7 +232,7 @@ function SkinHub() {
 
   const getLikedProducts = async (userId) => {
     try {
-      const response = await axios.get(`http://localhost:3000/users/${userId}`);
+      const response = await axios.get(`https://dreamskin-server-tzka.onrender.com/users/${userId}`);
       const likedProducts = response.data.likedProducts;
       localStorage.setItem("likedProducts", JSON.stringify(likedProducts));
       setLikedProductIds(new Set(likedProducts.map(product => product.id)));
