@@ -50,7 +50,7 @@ const QuizPage = () => {
     ]
 
     const [currentQuestion, setCurrentQuestion] = useState(0);
-    const [currentChoice, setCurrentChoice] = useState("");
+    const [currentChoice, setCurrentChoice] = useState([]);
     const [response, setResponse] = useState(["", "", "", ""]);
     const [progress, setProgress] = useState(0);
     const [showFinish, setShowFinish] = useState(false);
@@ -59,9 +59,9 @@ const QuizPage = () => {
 
 
     useEffect(() => {
-        
-        setCurrentChoice("");
-        
+        console.log(currentChoice);
+        setCurrentChoice([]);
+        console.log(response);
 
     }, [response]);
 
@@ -72,7 +72,18 @@ const QuizPage = () => {
     }
 
     const handleOptionClick = (e) => {
-        setCurrentChoice(e.target.textContent);
+        let newChoices = [...currentChoice];
+        if (currentQuestion == 0){
+            setCurrentChoice([e.target.textContent]);
+            return;
+        }
+        if (currentChoice.includes(e.target.textContent)) {
+            newChoices.splice(currentChoice.indexOf(e.target.textContent), 1)
+        }
+        else {
+            newChoices.push(e.target.textContent)
+        }
+        setCurrentChoice(newChoices);
     }
 
     const handleForwardButtonClick = async () => {
@@ -85,6 +96,7 @@ const QuizPage = () => {
             setCurrentQuestion(nextQuestion);
         }
        else {
+        await updateUserInfo();
         setShowFinish(true);
         setLoading(true);
         await quizResponsetoChat();
@@ -106,19 +118,14 @@ const QuizPage = () => {
 
     const quizResponsetoChat = async () => {
         try {
-          
-          const r = await axios.post("https://dreamskin-server-tzka.onrender.com/api/chat", {userResponse: response});
-          let geminiIngredients = r.data.response;
-          
-
+        const r = await axios.post("https://dreamskin-server-tzka.onrender.com/api/chat", {userResponse: response});
+        let geminiIngredients = r.data.response;
         let cleanedStr = geminiIngredients.replace(/```/g, '').trim();
         
-
         let ingredientsArray = JSON.parse(cleanedStr);
         ingredientsArray = {
             ingredients: ingredientsArray
           };
-        
 
         await getRecommendedProducts(ingredientsArray);
         } catch (error) {
@@ -129,12 +136,11 @@ const QuizPage = () => {
     const getRecommendedProducts = async (ingredients) => {
         try {
           const response = await axios.post("https://dreamskin-server-tzka.onrender.com/products/products/search", ingredients);
-          
           localStorage.setItem('products', JSON.stringify(response.data));
           await saveRoutine();
         }
         catch (error){
-          
+            console.log("error getting products", error); 
         }
     }
 
@@ -145,7 +151,6 @@ const QuizPage = () => {
           const decodedToken = jwtDecode(authToken);
           const { userId, username } = decodedToken;
           
-
           const userRoutine = {
             user_id: userId,
             products: [
@@ -156,15 +161,38 @@ const QuizPage = () => {
                 {id: localProducts[4].id}, // sunscreen
             ]
           }
-          
           const response = await axios.post("https://dreamskin-server-tzka.onrender.com/routine", userRoutine);
-          
         }
         catch (error){
-          
+            console.log("error saving routine", error);  
         }
     }
 
+    const updateUserInfo = async () => {
+        try {
+            const authToken = localStorage.getItem('token');
+            const decodedToken = jwtDecode(authToken);
+            const { userId } = decodedToken;
+    
+            console.log(userId);
+            console.log("responses so far", response);
+    
+            const userInfo = {
+                skinType: response[0]?.toString() || '',
+                goals: response[2]?.toString() || '',
+                concerns: response[1]?.toString() || '',
+            }
+            console.log(userInfo);
+    
+            const updateResponse = await axios.put(`https://dreamskin-server-tzka.onrender.com/users/${userId}`, userInfo);
+            console.log("Updated User Info", updateResponse.data);
+        }
+        catch (error) {
+            console.error("Error updating user info", error.response?.data || error.message);
+        }
+    }
+
+    // when clicking a button, change color to opposite, add to current choice
     return (
         <div className="Quiz">
             {loading && <LoadingModal isVisible={loading} />}
@@ -182,7 +210,7 @@ const QuizPage = () => {
 
                 <div className="options">
                     { quizQuestions[currentQuestion].options.map((option) => (
-                            <button key={option} className="option" onClick={(e) => handleOptionClick(e)} style={{backgroundColor: currentChoice == option ? "#d8796c" : "#507d68" }}>{option}</button>
+                            <button key={option} className="option" onClick={(e) => handleOptionClick(e)} style={{backgroundColor: currentChoice.includes(option) ? "#d8796c" : "#507d68" }}>{option}</button>
                     ))}
                 </div>
 
